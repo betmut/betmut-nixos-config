@@ -35,6 +35,7 @@
     mgba
     libreoffice
     warzone2100
+    prismlauncher
   ];
   home.sessionVariables = {
     GIT_EDITOR = "vim";
