@@ -5,7 +5,7 @@
   
   "modules-left":   ["custom/nixos", "hyprland/workspaces", "tray", "custom/playerctl"],
   "modules-center": ["clock"],
-  "modules-right":  ["idle_inhibitor","temperature", "cpu", "memory", "network", "battery", "custom/power"],
+  "modules-right":  ["temperature", "cpu", "memory", "network", "battery", "custom/power"],
 
   "wlr/taskbar": {
 	"format": "{icon} {app_id}",
@@ -122,7 +122,7 @@
 		"hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
 		"critical-threshold": 85,
 		"interval": 1,
-		"format": "<span font='12' rise='-2500'>󰔏</span> {temperatureC}°C",
+		"format": "<span font='12' rise='-2500'>󰏈 </span> {temperatureC} °C",
 		"tooltip": false
 	},
 
