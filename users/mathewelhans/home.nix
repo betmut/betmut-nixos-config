@@ -39,6 +39,7 @@
   home.sessionVariables = {
     GIT_EDITOR = "vim";
     NIXOS_OZONE_WL = "1";
+    NIX_SHELL_CUSTOM_PROMPT= "export PS1='\[\033[1;34m\](nix-dev) \[\033[1;32m\][\u@\h] $ \[\033[00m\]'; return";
   };
 
   #.config files

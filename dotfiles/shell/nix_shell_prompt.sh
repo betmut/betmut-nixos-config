@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-if [ -n "$IN_NIX_SHELL" ]; then
-    export PS1="\n\[\033[1;34m\](nix-dev) \[\033[1;32m\][\u@\h] $ \[\033[00m\]"
-fi
+nix-shell-packages() {
+  nix-shell -p "$@" --command $NIX_SHELL_CUSTOM_PROMPT
+}
