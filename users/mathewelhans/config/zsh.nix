@@ -13,6 +13,7 @@
     };    
     initContent = let 
       zshRPROMPT = lib.mkOrder 1000 (builtins.readFile ../../../dotfiles/shell/custom_prompt.sh);
+      nixShellPrompt = lib.mkOrder 1000 (builtins.readFile ../../../dotfiles/shell/nix_shell_prompt.sh);
       spotify-notifier = lib.mkOrder 1000 "systemctl --user start spotify-notifier";
     in
     lib.mkMerge [zshRPROMPT spotify-notifier];
