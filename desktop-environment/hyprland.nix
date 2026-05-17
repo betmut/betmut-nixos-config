@@ -2,13 +2,30 @@
   let
     platformSystem = pkgs.stdenv.hostPlatform.system;
     hyprlandPkgs = inputs.hyprland.packages.${platformSystem};
-    pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${platformSystem};  
+    pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${platformSystem};
+    hypr-kdeconnect-fix = pkgs.callPackage ./hypr-kdeconnect-fix.nix { };  
   in
   {
     programs.hyprland = {
       enable = true;
       package = hyprlandPkgs.hyprland;
       portalPackage = hyprlandPkgs.xdg-desktop-portal-hyprland;
+    };
+
+    xdg.portal = {
+      enable = true;
+      
+      extraPortals = [
+        hypr-kdeconnect-fix
+        pkgs.xdg-desktop-portal-gtk
+      ];
+
+      config = {
+        hyprland = {
+          default = [ "hyprland" "gtk" ];
+          "org.freedesktop.impl.portal.RemoteDesktop" = "hypr-kdeconnect";
+        };
+      };
     };
 
     #basic apps
