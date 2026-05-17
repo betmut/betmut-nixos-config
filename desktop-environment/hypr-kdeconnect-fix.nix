@@ -8,8 +8,6 @@ pkgs.stdenv.mkDerivation {
     owner = "gfhdhytghd";
     repo = "hypr-kdeconnect-fix";
     rev = "master";
-    
-    # Remember to replace this with your actual hash once generated!
     hash = "sha256-OW18+pO92XvlTLrHo+S9/EVUophr5Dl1GdGJcmVAq/o="; 
   };
 
