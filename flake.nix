@@ -99,7 +99,7 @@
       (sharedModules {user = "guest"; filePath = ./users/guest/home.nix;}) ++ [
         ({config, pkgs,...}:{
           users.users.mathewelhans = userDefaults // {
-            extraGroups = ["wheel" "audio" "networkmanager" "video" "render"];
+            extraGroups = ["transmission" "wheel" "audio" "networkmanager" "video" "render"];
           };
           users.users.guest = userDefaults // {
             extraGroups = [ "audio" "networkmanager" "video" "render"]; 
