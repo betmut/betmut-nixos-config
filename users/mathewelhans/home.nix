@@ -37,6 +37,7 @@
     warzone2100
     scrcpy
     android-tools
+    networkmanagerapplet
   ];
   home.sessionVariables = {
     GIT_EDITOR = "vim";
