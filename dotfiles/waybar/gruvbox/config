@@ -166,7 +166,7 @@
     "tooltip": false
   },
   "custom/playerctl": {
-    "format": "<span font='10' rise='-1000'>󰐊</span>  {text} ",
+    "format": "<span font='10' rise='-1000'>{icon}</span>  {text} ",
     "escape": false,
     "return-type": "json",
     "max-length": 40,
@@ -176,7 +176,11 @@
     "smooth-scrolling-threshold": 10,
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
-    "exec": "playerctl -a metadata --format '{\"text\": \"{{title}} - {{artist}}\", \"tooltip\": \"{{status}} : {{playerName}} : {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F" 
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{title}} - {{artist}}\", \"tooltip\": \"{{status}} : {{playerName}} : {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "format-icons": {
+      "Playing": "󰐊",
+      "Paused": "󰏤",
+    } 
   },
 
   "mpd": {
