@@ -62,6 +62,7 @@
       #waybar config
       "xdg/waybar/config".source = ../dotfiles/waybar/gruvbox/config;
       "xdg/waybar/style.css".source = ../dotfiles/waybar/gruvbox/style.css;
+      "xdg/waybar/scripts".source = ../dotfiles/waybar/gruvbox/scripts;
       
       #swayNC config 
       "xdg/swaync/config.json".source = ../dotfiles/swaync/config.json;
