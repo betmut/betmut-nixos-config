@@ -12,16 +12,12 @@
 
   #Packages
   home.packages = with pkgs; [
-    gnome-font-viewer
-    guvcview
     vscode
     nodejs 
     python3 
     R  
     htop 
     cmatrix 
-    brightnessctl 
-    wireplumber
     spotify
     playerctl
     obsidian
@@ -37,7 +33,6 @@
     warzone2100
     scrcpy
     android-tools
-    networkmanagerapplet
   ];
   home.sessionVariables = {
     GIT_EDITOR = "vim";
@@ -46,7 +41,8 @@
 
   #.config files
   xdg.configFile = {
-    "hypr/hyprland.conf".source = ../../dotfiles/hyprland/hyprland.conf;
+    "hypr/hyprland.lua".source = ../../dotfiles/hyprland/hyprland.lua;
+    "hypr/conf".source = ../../dotfiles/hyprland/conf;
 
   
     "kitty/kitty.conf".source = ../../dotfiles/kitty/kitty.conf;
@@ -54,6 +50,8 @@
 
     "yazi/theme.toml".source = ../../dotfiles/yazi/theme.toml;
     "yazi/flavors".source  = ../../dotfiles/yazi/flavors;
+
+    "fastfetch/config.jsonc".source = ../../dotfiles/fastfetch/config.jsonc;
   };
   
   

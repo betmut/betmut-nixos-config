@@ -1,16 +1,16 @@
-require("modules/monitor")
-require("modules/autostart")
-require("modules/env_variable")
-require("modules/permissions")
-require("modules/animations")
-require("modules/keybindings")
-require("modules/windows-and-workspaces")
+require("conf.monitor")
+require("conf.autostart")
+require("conf.env_variable")
+require("conf.permissions")
+require("conf.animations")
+require("conf.keybindings")
+require("conf.windows-and-workspaces")
+require("conf.input")
+require("conf.layout")
+require("conf.misc")
+--require("conf.workspace-rules")
 
--- Set programs that you use
-local terminal    = "kitty"
-local fileManager = "thunar"
-local menu        = "rofi -show drun"
-local screenshot  = 'grim -g "$(slurp)" - | swappy -f -'
+
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
@@ -21,9 +21,14 @@ hl.config({
         border_size = 2,
 
         col = {
-            active_border   = { colors = {"rgba(8ec07ce6)", "rgba(89d6ae6)"}, angle = 45 },
+            active_border   = { colors = {"rgba(8ec07ce6)", "rgba(00ff99ee)"}, angle = 45 },
             inactive_border = "rgba(595959aa)",
         },
+
+        --col = {
+        --    active_border   = { colors = {"rgba(8ec07ce6)", "rgba(89d6ae6)"}, angle = 45 },
+        --    inactive_border = "rgba(595959aa)",
+        --},
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
         resize_on_border = false,

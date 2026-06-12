@@ -30,7 +30,8 @@
 
   #.config files
   xdg.configFile = {
-    "hypr/hyprland.conf".source = ../../dotfiles/hyprland/hyprland.conf;
+    "hypr/hyprland.lua".source = ../../dotfiles/hyprland/hyprland.lua;
+    "hypr/conf".source = ../../dotfiles/hyprland/conf;
 
     "kitty/kitty.conf".source = ../../dotfiles/kitty/kitty.conf;
     "kitty/gruvbox-kitty.conf".source = ../../dotfiles/kitty/gruvbox-kitty.conf;
@@ -38,6 +39,6 @@
     "yazi/theme.toml".source = ../../dotfiles/yazi/theme.toml;
     "yazi/flavors".source  = ../../dotfiles/yazi/flavors;
 
-    "neofetch/config.conf".source = ../../dotfiles/neofetch/config.conf;
+    "fastfetch/config.jsonc".source = ../../dotfiles/fastfetch/config.jsonc;
 };
 }

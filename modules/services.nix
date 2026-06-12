@@ -13,6 +13,9 @@
     #blueman
     blueman.enable = true;
 
+    #gvfs
+    gvfs.enable = true;
+
     #rstudio-server
     rstudio-server = {
       enable = true;

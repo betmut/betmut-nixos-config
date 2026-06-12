@@ -5,7 +5,7 @@
   
   "modules-left":   ["custom/nixos", "hyprland/workspaces", "tray", "custom/playerctl"],
   "modules-center": ["clock"],
-  "modules-right":  ["temperature", "cpu", "memory", "network", "battery", "custom/power"],
+  "modules-right":  ["temperature", "cpu", "memory", "battery", "custom/power"],
 
   "wlr/taskbar": {
 	"format": "{icon} {app_id}",

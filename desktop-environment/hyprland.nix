@@ -40,6 +40,11 @@
       waybar                      #status bars
       swaynotificationcenter      #notification bars
       libnotify                   #notification
+      networkmanagerapplet        #networkManager Applet
+      brightnessctl 
+      wireplumber
+      gnome-font-viewer
+      guvcview
 
       #screenshot tools
       grim
