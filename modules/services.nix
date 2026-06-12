@@ -16,6 +16,9 @@
     #gvfs
     gvfs.enable = true;
 
+    #glib-networking for TLS/SSL support 
+    gnome.glib-networking.enable = true;
+
     #rstudio-server
     rstudio-server = {
       enable = true;
