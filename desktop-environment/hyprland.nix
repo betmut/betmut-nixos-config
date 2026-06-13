@@ -46,7 +46,6 @@
       gnome-font-viewer
       guvcview
       zscroll
-      tumbler
 
       #screenshot tools
       grim

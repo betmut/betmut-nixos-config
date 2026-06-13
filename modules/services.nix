@@ -19,6 +19,9 @@
     #glib-networking for TLS/SSL support 
     gnome.glib-networking.enable = true;
 
+    #tumbler for thumbnail management (like showing image thumbnail in thunar)
+    services.tumbler.enable = true;
+
     #rstudio-server
     rstudio-server = {
       enable = true;
