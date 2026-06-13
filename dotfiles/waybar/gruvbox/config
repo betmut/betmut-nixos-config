@@ -166,21 +166,17 @@
     "tooltip": false
   },
   "custom/playerctl": {
-    "format": "<span font='10' rise='-1000'>{icon}</span>  {text} ",
+    // "format": "<span font='10' rise='-1000'>{icon}</span>  {text} ",
     "escape": false,
-    "return-type": "json",
-    "max-length": 40,
+    // "return-type": "json",
+    // "max-length": 25,
     "on-click": "playerctl play-pause",
     "on-click-right": "playerctl stop",
     "on-click-middle": "killall spotify",
     "smooth-scrolling-threshold": 10,
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
-    "exec": "playerctl -a metadata --format '{\"text\": \"{{title}} - {{artist}}\", \"tooltip\": \"{{status}} : {{playerName}} : {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-    "format-icons": {
-      "Playing": "󰐊",
-      "Paused": "󰏤",
-    } 
+    "exec": "zscroll --length 25 --delay 1.0 --match-command \"playerctl status\" --match-text \"Playing\" \"--before-text '󰐊 '\" --match-text \"Paused\" \"--before-text '󰏤 ' --scroll 0\" --update-check true \"playerctl metadata title\"", 
   },
 
   "mpd": {
