@@ -20,7 +20,7 @@
     gnome.glib-networking.enable = true;
 
     #tumbler for thumbnail management (like showing image thumbnail in thunar)
-    services.tumbler.enable = true;
+    tumbler.enable = true;
 
     #rstudio-server
     rstudio-server = {
