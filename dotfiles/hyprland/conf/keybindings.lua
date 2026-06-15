@@ -20,7 +20,7 @@ hl.bind(mainMod .. " + SHIFT + " .. "P", hl.dsp.exec_cmd(screenshot))
 hl.bind(mainMod .. " + SHIFT + " .. "N", hl.dsp.exec_cmd(swaync))
 hl.bind(mainMod .. " + SHIFT + " .. "F", hl.dsp.exec_cmd(firefox))
 
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 
 
 -- closeWindowBind:set_enabled(false)
@@ -66,10 +66,10 @@ hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("swayosd-client --brightness ra
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness lower --device acpi_video0 --min-brightness 0"),           { locked = true, repeating = true })
 hl.bind("XF86KbdBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness lower --device smc::kbd_backlight --min-brightness 0 "),   { locked = true, repeating = true })
 hl.bind("XF86KbdBrightnessUp",   hl.dsp.exec_cmd("swayosd-client --brightness raise --device smc::kbd_backlight --min-brightness 0"),    { locked = true, repeating = true })
+hl.bind("XF86PowerOff",  hl.dsp.exec_cmd("wlogout"),               { locked = true, repeating = false})
 
 -- Requires playerctl
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
-hl.bind("XF86PowerOff",  hl.dsp.exec_cmd("wlogout"),               { locked = true })
