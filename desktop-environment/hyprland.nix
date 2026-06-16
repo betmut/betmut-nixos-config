@@ -76,9 +76,18 @@
     };
 
     hardware.graphics = {
+      enable = true;
       package = pkgs-unstable.mesa;
+
       #enable 32 bit support
       enable32Bit = true;
       package32 = pkgs-unstable.pkgsi686Linux.mesa;
+
+      extraPackages = with pkgs; [
+        # Explicit driver for Intel HD 6000 / Broadwell video acceleration
+        intel-vaapi-driver 
+        # Libva utilities to help you test if it works
+        libva-utils
+      ];
     };
   }
