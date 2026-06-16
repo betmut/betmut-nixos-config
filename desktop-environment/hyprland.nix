@@ -53,6 +53,7 @@
       swappy
       wf-recorder
       wl-clipboard
+      gpu-screen-recorder-gtk # GUI app
 
       gapless #music
       wlogout

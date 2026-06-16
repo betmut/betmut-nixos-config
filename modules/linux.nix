@@ -2,6 +2,9 @@
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     
+    #For promptless recording on both CLI and GUI
+    programs.gpu-screen-recorder.enable = true; 
+
     #Zsh Shell
     programs.zsh.enable = true;
 
