@@ -48,6 +48,8 @@
       catfish                     #file search tool
       ffmpegthumbnailer           #generate video thumbnail previews
       file-roller                 #archive manager
+      mpv                         #media player
+      ghostscript                 #PostScript interpreter
 
 
       #screenshot tools
