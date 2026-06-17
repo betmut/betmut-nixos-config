@@ -4,6 +4,9 @@
   #  file = ../secrets/transmission-rpc-whitelist.age;
   #};
 
+  #enable polkit
+  security.polkit.enable = true;
+  
   services = rec {
     logind.settings.Login.HandlePowerKey = "ignore";
 

@@ -30,12 +30,14 @@
 
     #basic apps
     environment.systemPackages = with pkgs; [
-      kitty                       #terminal
-      rofi                        #app launcher
-      yazi                        #file manager
       hyprpaper                   #wallpaper daemon
       hypridle
       hyprlock
+      hyprpolkitagent             #graphical password prompt
+
+      kitty                       #terminal
+      rofi                        #app launcher
+      yazi                        #file manager
       waybar                      #status bars
       swaynotificationcenter      #notification bars
       libnotify                   #notification
@@ -50,7 +52,6 @@
       file-roller                 #archive manager
       mpv                         #media player
       ghostscript                 #PostScript interpreter
-
 
       #screenshot tools
       grim
