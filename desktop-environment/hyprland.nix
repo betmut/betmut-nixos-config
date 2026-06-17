@@ -32,7 +32,6 @@
     environment.systemPackages = with pkgs; [
       kitty                       #terminal
       rofi                        #app launcher
-      thunar
       yazi                        #file manager
       hyprpaper                   #wallpaper daemon
       hypridle
@@ -46,6 +45,10 @@
       gnome-font-viewer
       guvcview
       zscroll
+      catfish                     #file search tool
+      ffmpegthumbnailer           #generate video thumbnail previews
+      file-roller                 #archive manager
+
 
       #screenshot tools
       grim
