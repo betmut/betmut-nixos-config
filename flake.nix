@@ -72,7 +72,7 @@
     packages.x86_64-linux.minimal-iso = inputs.nixos-generators.nixosGenerate {
       system = "x86_64-linux";
       format = "install-iso";
-      modules = (mkHomeUser {user = "nixos"; filePath = ./users/nixos/home.nix;}) ++ [
+      modules = (mkHomeUser {user = "nixos"; filePath = ./hm-users/nixos/home.nix;}) ++ [
         ({pkgs,...}:{users.users.nixos = userDefaults;})
         ./configuration.nix
       ];
@@ -81,7 +81,7 @@
     packages.x86_64-linux.vbox = inputs.nixos-generators.nixosGenerate {
       system = "x86_64-linux";
       format = "virtualbox";
-      modules = (mkHomeUser {user = "nixos"; filePath = ./users/nixos/home.nix;}) ++ [
+      modules = (mkHomeUser {user = "nixos"; filePath = ./hm-users/nixos/home.nix;}) ++ [
         ({pkgs, ...}:{
           virtualisation.virtualbox.guest.enable = true;
           users.users.nixos = userDefaults;
@@ -94,8 +94,8 @@
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = 
-      (mkHomeUser {user = "mathewelhans"; filePath = ./users/mathewelhans/home.nix;}) ++
-      (mkHomeUser {user = "guest"; filePath = ./users/guest/home.nix;}) ++ [
+      (mkHomeUser {user = "mathewelhans"; filePath = ./hm-users/mathewelhans/home.nix;}) ++
+      (mkHomeUser {user = "guest"; filePath = ./hm-users/guest/home.nix;}) ++ [
         inputs.stylix.nixosModules.stylix
         inputs.agenix.nixosModules.default
         ./configuration.nix
@@ -103,12 +103,12 @@
         ./hardware-configuration.nix
         ./filesystems.nix
         ./desktop-environment/de-configuration.nix
-        ./users.nix
+        ./hm-users.nix
       ];
     }; 
 
     darwinConfigurations.${macHostname} = inputs.nix-darwin.lib.darwinSystem {
-      modules = (mkHomeUser {user = "macUser"; filePath = ./users/macUser/home.nix;}) ++ [
+      modules = (mkHomeUser {user = "macUser"; filePath = ./hm-users/macUser/home.nix;}) ++ [
         ({pkgs, config,  ...}: {
           # Optional: Align homebrew taps config with nix-homebrew
           homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
