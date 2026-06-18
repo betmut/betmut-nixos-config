@@ -48,7 +48,7 @@
         rpc-port = 9091;
         rpc-bind-address = "127.0.0.1";
         rpc-whitelist = "127.0.0.1"; #Whitelist your remote machine
-        umask = "002";
+        umask = "002"; # Allow group-write access, blocking the rest of the world.
       };
     };
 
