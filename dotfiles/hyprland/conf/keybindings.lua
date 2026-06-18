@@ -11,7 +11,8 @@ local swaync = "swaync-client -t -sw"
 local firefox = "firefox"
 
 local closeWindowBind = hl.bind(mainMod .. " + SHIFT + " .. "Q", hl.dsp.window.close())
-local fullScreenBind = hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
+local fullScreenBind = hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen"}))
+
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + return", hl.dsp.exec_cmd(terminal))

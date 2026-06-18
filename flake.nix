@@ -50,8 +50,7 @@
     # Run scutil --get LocalHostName > ./hostname/mac to get your Mac Hostname (Please double check it!)
     macHostname = nixpkgs.lib.removeSuffix "\n" (builtins.readFile ./hostname/mac);
     linuxHostname = nixpkgs.lib.removeSuffix "\n" (builtins.readFile ./hostname/linux);
-
-    sharedModules = {user, filePath}: [
+    mkHomeUser = {user, filePath}: [
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
@@ -65,7 +64,7 @@
     userDefaults = {
       shell = nixpkgs.legacyPackages.x86_64-linux.zsh;
       isNormalUser = true;
-      extraGroups = ["wheel"]; #sudo privillege
+      extraGroups = ["audio" "networkmanager" "video" "render"];
       initialPassword = "";
     };
   in
@@ -73,7 +72,7 @@
     packages.x86_64-linux.minimal-iso = inputs.nixos-generators.nixosGenerate {
       system = "x86_64-linux";
       format = "install-iso";
-      modules = (sharedModules {user = "nixos"; filePath = ./users/nixos/home.nix;}) ++ [
+      modules = (mkHomeUser {user = "nixos"; filePath = ./users/nixos/home.nix;}) ++ [
         ({pkgs,...}:{users.users.nixos = userDefaults;})
         ./configuration.nix
       ];
@@ -82,7 +81,7 @@
     packages.x86_64-linux.vbox = inputs.nixos-generators.nixosGenerate {
       system = "x86_64-linux";
       format = "virtualbox";
-      modules = (sharedModules {user = "nixos"; filePath = ./users/nixos/home.nix;}) ++ [
+      modules = (mkHomeUser {user = "nixos"; filePath = ./users/nixos/home.nix;}) ++ [
         ({pkgs, ...}:{
           virtualisation.virtualbox.guest.enable = true;
           users.users.nixos = userDefaults;
@@ -95,17 +94,8 @@
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = 
-      (sharedModules {user = "mathewelhans"; filePath = ./users/mathewelhans/home.nix;}) ++
-      (sharedModules {user = "guest"; filePath = ./users/guest/home.nix;}) ++ [
-        ({config, pkgs,...}:{
-          users.users.mathewelhans = userDefaults // {
-            extraGroups = ["transmission" "wheel" "audio" "networkmanager" "video" "render"];
-          };
-          users.users.guest = userDefaults // {
-            extraGroups = [ "audio" "networkmanager" "video" "render"]; 
-            hashedPassword = "guest";
-          };
-        })
+      (mkHomeUser {user = "mathewelhans"; filePath = ./users/mathewelhans/home.nix;}) ++
+      (mkHomeUser {user = "guest"; filePath = ./users/guest/home.nix;}) ++ [
         inputs.stylix.nixosModules.stylix
         inputs.agenix.nixosModules.default
         ./configuration.nix
@@ -113,11 +103,12 @@
         ./hardware-configuration.nix
         ./filesystems.nix
         ./desktop-environment/de-configuration.nix
+        ./users.nix
       ];
     }; 
 
     darwinConfigurations.${macHostname} = inputs.nix-darwin.lib.darwinSystem {
-      modules = (sharedModules {user = "macUser"; filePath = ./users/macUser/home.nix;}) ++ [
+      modules = (mkHomeUser {user = "macUser"; filePath = ./users/macUser/home.nix;}) ++ [
         ({pkgs, config,  ...}: {
           # Optional: Align homebrew taps config with nix-homebrew
           homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
