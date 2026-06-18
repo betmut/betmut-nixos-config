@@ -103,7 +103,7 @@
         ./hardware-configuration.nix
         ./filesystems.nix
         ./desktop-environment/de-configuration.nix
-        ./hm-users.nix
+        ./users.nix
       ];
     }; 
 
