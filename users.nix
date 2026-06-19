@@ -3,7 +3,7 @@ let
   userConfig = {
     shell = pkgs.zsh;
     isNormalUser = true;
-    extraGroups = ["audio" "networkmanager" "video" "render"];
+    extraGroups = ["users" "audio" "networkmanager" "video" "render"];
     initialPassword = "";
   };
 in 
@@ -12,9 +12,19 @@ in
     extraGroups = userConfig.extraGroups ++ [ 
       "wheel" 
       "transmission" 
+      "sonarr"
+      "radarr"
     ];
   };
   users.users.guest = userConfig // {
     hashedPassword = "guest";
+  };
+
+  users.users.radarr = {
+    extraGroups = [ "transmission" ];
+  };
+
+  users.users.transmission = {
+    extraGroups = [ "radarr" ];
   };
 }

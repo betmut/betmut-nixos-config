@@ -81,4 +81,7 @@
         noto-fonts-cjk-serif
         times-newer-roman
     ]; 
+
+    #enable polkit
+    security.polkit.enable = true;
 }

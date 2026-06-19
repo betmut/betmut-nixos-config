@@ -4,7 +4,12 @@
   imports = [
     ./modules/common.nix
     ./modules/linux.nix
-    ./modules/services.nix
+
+    #services
+    ./services/services.nix
+    ./services/media-automation.nix
+    ./services/power-alerts.nix
+
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
   nix = {

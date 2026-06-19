@@ -64,7 +64,7 @@
     userDefaults = {
       shell = nixpkgs.legacyPackages.x86_64-linux.zsh;
       isNormalUser = true;
-      extraGroups = ["audio" "networkmanager" "video" "render"];
+      extraGroups = ["users" "audio" "networkmanager" "video" "render"];
       initialPassword = "";
     };
   in
