@@ -2,13 +2,18 @@
 
   imports = [
     ./config/vscode.nix
-    ./config/vim.nix
+    ./config/vim/vim.nix
     ./config/hypridle.nix
     ./config/hyprpaper.nix
     ./config/zsh.nix
+    ./config/rofi/rofi.nix
+    ./config/waybar/waybar.nix
+    ./config/swaync/swaync.nix
   ];
   home.stateVersion = "26.05";
 
+  home.pointerCursor.enable = true;
+  
   #Packages
   home.packages = with pkgs; [
     vscode
@@ -43,7 +48,6 @@
     "hypr/hyprland.lua".source = ../../dotfiles/hyprland/hyprland.lua;
     "hypr/conf".source = ../../dotfiles/hyprland/conf;
 
-  
     "kitty/kitty.conf".source = ../../dotfiles/kitty/kitty.conf;
     "kitty/gruvbox-kitty.conf".source = ../../dotfiles/kitty/gruvbox-kitty.conf;
 
@@ -52,6 +56,4 @@
 
     "fastfetch/config.jsonc".source = ../../dotfiles/fastfetch/config.jsonc;
   };
-  
-  
 }

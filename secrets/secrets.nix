@@ -6,5 +6,5 @@ let
   systems = [ system1 ];
 in
 {
-  "transmission-rpc-whitelist.age".publicKeys = [ user1 system1 ];
+  "sg-sin-wg-001.age".publicKeys = [ user1 system1 ];
 }

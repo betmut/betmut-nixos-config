@@ -4,7 +4,6 @@ let
     shell = pkgs.zsh;
     isNormalUser = true;
     extraGroups = ["users" "audio" "networkmanager" "video" "render"];
-    initialPassword = "";
   };
 in 
 {
@@ -12,19 +11,26 @@ in
     extraGroups = userConfig.extraGroups ++ [ 
       "wheel" 
       "transmission" 
+      "qbittorrent"
       "sonarr"
       "radarr"
+      "bazarr"
+      "gamemode"
     ];
   };
   users.users.guest = userConfig // {
-    hashedPassword = "guest";
+    initialPassword = "guest";
   };
 
   users.users.radarr = {
-    extraGroups = [ "transmission" ];
+    extraGroups = [ "qbittorrent"];
   };
 
-  users.users.transmission = {
-    extraGroups = [ "radarr" ];
+  users.users.bazarr = {
+    extraGroups = [ "radarr"];
+  };
+
+  users.users.qbittorrent = {
+    extraGroups = [ "radarr"];
   };
 }

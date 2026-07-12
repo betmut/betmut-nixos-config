@@ -1,4 +1,6 @@
 {config, pkgs, lib, ...}: {
+
+  #VIM config
   programs.vim = {
     enable = true;
     plugins = with pkgs.vimPlugins; 
@@ -26,6 +28,6 @@
       tabstop = 4;
       mouse = "a";
     };
-    extraConfig = builtins.readFile ../../../dotfiles/vim/.vimrc;
-	};
+    extraConfig = builtins.readFile ./.vimrc;
+  };
 }

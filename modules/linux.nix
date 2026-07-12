@@ -8,6 +8,9 @@
     #Zsh Shell
     programs.zsh.enable = true;
 
+    # for performance mode
+    programs.gamemode.enable = true; 
+
     #enable thunar (file manager)
     programs.thunar = {
         enable = true;
@@ -20,24 +23,23 @@
     };
 
     #Enable Firefox
-    programs.firefox.enable = true;
+    programs.firefox = {
+        enable = true;
+        #wrapperConfig = {
+        #    env = {
+        #        LIBVA_DRIVER_NAME = "i965";
+        #    };
+        #};
+    };
 
     #Enable KDE Connect
     programs.kdeconnect.enable = true;
 
-    #Some programs need SUID wrappers, can be configured further or are
-    #started in user sessions.
-    #programs.mtr.enable = true;
-    #programs.gnupg.agent = {
-    #    enable = true;
-    #    enableSSHSupport = true;
-    #};
-    
     # Allow proprietary software (Required for Broadcom)
     nixpkgs.config = {
         allowUnfree = true;
         permittedInsecurePackages = [
-            "broadcom-sta-6.30.223.271-59-6.18.35"
+            "broadcom-sta-6.30.223.271-59-6.18.38"
         ];
     };
 
@@ -46,6 +48,7 @@
         initrd.availableKernelModules = ["xhci_pci" "nvme" "usb_storage" "usbhid" "sd_mod"];
         initrd.kernelModules = [ "wl" "i915" "lz4"];
         initrd.systemd.enable = true;
+        kernelPackages = pkgs.linuxPackages_zen; #optimized linux kernel
         kernelModules = [ "wl" "kvm-intel"];
         kernelParams = [
             "zswap.enabled=1" # enables zswap
@@ -56,32 +59,14 @@
         extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
     };
 
-    # Networking
-    networking.networkmanager = {
-      enable = true;
-    };
-
-    networking.firewall = rec {
-      enable = true;
-      allowedTCPPorts =  [ 8787 ]; #22 9091 8787
-      allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
-      allowedUDPPortRanges = allowedTCPPortRanges;
-    #    allowedUDPPorts = [];
-    };
-    
-    #networking.proxy = {
-    #    default = "http://user:password@proxy:port/";
-    #    noProxy = "127.0.0.1,localhost,internal.domain";
-    #};
-
-    #Additional Fonts
-    fonts.packages = with pkgs; [
-        noto-fonts
-        noto-fonts-cjk-sans
-        noto-fonts-cjk-serif
-        times-newer-roman
-    ]; 
-
     #enable polkit
     security.polkit.enable = true;
+
+    #Some programs need SUID wrappers, can be configured further or are
+    #started in user sessions.
+    #programs.mtr.enable = true;
+    #programs.gnupg.agent = {
+    #    enable = true;
+    #    enableSSHSupport = true;
+    #};
 }

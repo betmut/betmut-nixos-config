@@ -1,15 +1,17 @@
 {config, pkgs, lib, ... }: {
 
   imports = [
-    ./config/vim.nix
+    ./config/vim/vim.nix
     ./config/zsh.nix
     ./config/hyprpaper.nix
     ./config/hyprpaper.nix
-
+    ./config/rofi/rofi.nix
+    ./config/waybar/waybar.nix
   ];
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 
-  
+  home.pointerCursor.enable = true;
+    
   #Packages
   home.packages = with pkgs; [
     nodejs 
@@ -29,6 +31,7 @@
 
   #.config files
   xdg.configFile = {
+    
     "hypr/hyprland.lua".source = ../../dotfiles/hyprland/hyprland.lua;
     "hypr/conf".source = ../../dotfiles/hyprland/conf;
 

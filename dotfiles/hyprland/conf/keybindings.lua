@@ -16,13 +16,12 @@ local fullScreenBind = hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mod
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + return", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + SHIFT + " .. "E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SHIFT + " .. "P", hl.dsp.exec_cmd(screenshot))
 hl.bind(mainMod .. " + SHIFT + " .. "N", hl.dsp.exec_cmd(swaync))
 hl.bind(mainMod .. " + SHIFT + " .. "F", hl.dsp.exec_cmd(firefox))
 
-hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
-
+hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd(menu))
 
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
@@ -67,7 +66,7 @@ hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("swayosd-client --brightness ra
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness lower --device acpi_video0 --min-brightness 0"),           { locked = true, repeating = true })
 hl.bind("XF86KbdBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness lower --device smc::kbd_backlight --min-brightness 0 "),   { locked = true, repeating = true })
 hl.bind("XF86KbdBrightnessUp",   hl.dsp.exec_cmd("swayosd-client --brightness raise --device smc::kbd_backlight --min-brightness 0"),    { locked = true, repeating = true })
-hl.bind("XF86PowerOff",  hl.dsp.exec_cmd("wlogout"),               { locked = true, repeating = false})
+hl.bind("XF86PowerOff",  hl.dsp.exec_cmd("wlogout"),               { locked = true, repeating = false, release = true})
 
 -- Requires playerctl
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })

@@ -1,9 +1,11 @@
 {config, pkgs, inputs, modulesPath, ... }: {
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
   imports = [
     ./modules/common.nix
     ./modules/linux.nix
+    ./modules/networking.nix
+    ./modules/fonts.nix
 
     #services
     ./services/services.nix
