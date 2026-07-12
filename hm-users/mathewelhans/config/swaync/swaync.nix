@@ -1,4 +1,4 @@
-{config, pkgs, ...}: {
+{config, pkgs, lib, ...}: {
   services.swaync = {
     enable = true;
     package = pkgs.swaynotificationcenter;
