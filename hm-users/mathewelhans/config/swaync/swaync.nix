@@ -6,7 +6,7 @@
 
   #config files
   xdg.configFile = {
-    "swaync/config.json".source = lib.mkForce ./config/swaync/config.json;
-    "swaync/style.css".source = lib.mkForce ./config/swaync/style.css;
+    "swaync/config.json".source = lib.mkForce ./config.json;
+    "swaync/style.css".source = lib.mkForce ./style.css;
   };
 }
