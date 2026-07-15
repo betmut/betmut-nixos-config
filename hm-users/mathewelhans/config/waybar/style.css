@@ -106,6 +106,7 @@ tooltip {
 #custom-power {
   color: #fb4934;
   background: #32302f;
+  padding: 0px 10px;
 }
 
 #cpu {

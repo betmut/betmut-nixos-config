@@ -161,7 +161,7 @@
   },
     
   "custom/power": {
-    "format": " ⏻ ",
+    "format": "<span font='12'>⏻</span>",
     "on-click": "wlogout",
     "tooltip": false
   },
@@ -170,6 +170,7 @@
     "escape": false,
     // "return-type": "json",
     // "max-length": 25,
+    "tooltip": false,
     "on-click": "playerctl play-pause",
     "on-click-right": "playerctl stop",
     "on-click-middle": "killall spotify",

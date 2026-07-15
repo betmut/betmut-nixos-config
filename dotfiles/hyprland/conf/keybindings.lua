@@ -31,8 +31,6 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
-
-
 -- Move focus with mainMod + arrow keys
 -- swap with mainMod + SHIFT + arrow keys
 for index, value in ipairs(directions) do
