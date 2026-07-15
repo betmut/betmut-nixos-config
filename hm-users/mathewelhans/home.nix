@@ -1,4 +1,4 @@
-{config, pkgs, lib, ... }: {
+{config, inputs, pkgs, lib, ... }: {
 
   imports = [
     ./config/vscode.nix
@@ -34,10 +34,10 @@
     vlc
     mgba
     libreoffice
-    warzone2100
     scrcpy
     android-tools
   ];
+
   home.sessionVariables = {
     GIT_EDITOR = "vim";
     NIXOS_OZONE_WL = "1";

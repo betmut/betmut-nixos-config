@@ -4,6 +4,10 @@
       url = "github:nixos/nixpkgs/nixos-unstable"; 
     };
 
+    nixpkgs-stable = {
+      url = "github:nixos/nixpkgs/nixos-26.05";
+    };
+
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,7 +49,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, ... }: 
+  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, ... }: 
   let
     # Run scutil --get LocalHostName > ./hostname/mac to get your Mac Hostname (Please double check it!)
     macHostname = nixpkgs.lib.removeSuffix "\n" (builtins.readFile ./hostname/mac);
@@ -104,6 +108,12 @@
         ./filesystems.nix
         ./desktop-environment/de-configuration.nix
         ./users.nix
+        #{
+        #  _module.args.pkgs-stable = import inputs.nixpkgs-stable {
+        #    system = "x86_64-linux";
+        #    config.allowUnfree = true;
+        #  };
+        #}
       ];
     }; 
 

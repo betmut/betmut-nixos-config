@@ -22,13 +22,13 @@ in
     initialPassword = "guest";
   };
 
-  users.users.radarr = {
-    extraGroups = [ "qbittorrent"];
-  };
+  #users.users.radarr = {
+  #  extraGroups = [ "qbittorrent"];
+  #};
 
-  users.users.bazarr = {
-    extraGroups = [ "radarr"];
-  };
+  #users.users.bazarr = {
+  #  extraGroups = [ "radarr"];
+  #};
 
   users.users.qbittorrent = {
     extraGroups = [ "radarr"];

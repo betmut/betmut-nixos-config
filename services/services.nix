@@ -1,8 +1,10 @@
 {config, pkgs, inputs, lib, ... }: {
 
-  #age.secrets.transmission-rpc-whitelist = {
-  #  file = ../secrets/transmission-rpc-whitelist.age;
-  #};
+  nixpkgs.overlays = [
+    (final: prev: {
+      pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+    })
+  ];
 
   services = rec {
     logind.settings.Login.HandlePowerKey = "ignore";
@@ -26,8 +28,8 @@
     rstudio-server = {
       enable = true; #set to true if you want to enable rstudio-server
       listenAddr = "127.0.0.1";
-      package = pkgs.rstudioServerWrapper.override { 
-        packages = with pkgs.rPackages; [ 
+      package = pkgs.pkgs-stable.rstudioServerWrapper.override { 
+        packages = with pkgs.pkgs-stable.rPackages; [ 
           tidyverse 
         ]; 
       };
