@@ -8,9 +8,6 @@
     #Zsh Shell
     programs.zsh.enable = true;
 
-    # for performance mode
-    programs.gamemode.enable = true; 
-
     #enable thunar (file manager)
     programs.thunar = {
         enable = true;
@@ -25,11 +22,6 @@
     #Enable Firefox
     programs.firefox = {
         enable = true;
-        #wrapperConfig = {
-        #    env = {
-        #        LIBVA_DRIVER_NAME = "i965";
-        #    };
-        #};
     };
 
     #Enable KDE Connect

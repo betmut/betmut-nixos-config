@@ -2,10 +2,12 @@
 
   system.stateVersion = "26.05";
   imports = [
+    #modules
     ./modules/common.nix
     ./modules/linux.nix
     ./modules/networking.nix
     ./modules/fonts.nix
+    ./modules/gaming.nix
 
     #services
     ./services/services.nix
