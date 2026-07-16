@@ -1,10 +1,4 @@
-{config, pkgs, inputs, lib, ... }: {
-
-  nixpkgs.overlays = [
-    (final: prev: {
-      pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-    })
-  ];
+{config, pkgs, pkgs-stable, inputs, lib, ... }: {
 
   services = rec {
     logind.settings.Login.HandlePowerKey = "ignore";
@@ -28,8 +22,8 @@
     rstudio-server = {
       enable = true; #set to true if you want to enable rstudio-server
       listenAddr = "127.0.0.1";
-      package = pkgs.pkgs-stable.rstudioServerWrapper.override { 
-        packages = with pkgs.pkgs-stable.rPackages; [ 
+      package = pkgs-stable.rstudioServerWrapper.override { 
+        packages = with pkgs-stable.rPackages; [ 
           tidyverse 
         ]; 
       };

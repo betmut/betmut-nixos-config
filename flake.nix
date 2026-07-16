@@ -54,6 +54,7 @@
     # Run scutil --get LocalHostName > ./hostname/mac to get your Mac Hostname (Please double check it!)
     macHostname = nixpkgs.lib.removeSuffix "\n" (builtins.readFile ./hostname/mac);
     linuxHostname = nixpkgs.lib.removeSuffix "\n" (builtins.readFile ./hostname/linux);
+    system = "x86_64-linux";
     mkHomeUser = {user, filePath}: [
       inputs.home-manager.nixosModules.home-manager
       {
@@ -74,7 +75,7 @@
   in
   {
     packages.x86_64-linux.minimal-iso = inputs.nixos-generators.nixosGenerate {
-      system = "x86_64-linux";
+      inherit system;
       format = "install-iso";
       modules = (mkHomeUser {user = "nixos"; filePath = ./hm-users/nixos/home.nix;}) ++ [
         ({pkgs,...}:{users.users.nixos = userDefaults;})
@@ -83,7 +84,7 @@
     };
 
     packages.x86_64-linux.vbox = inputs.nixos-generators.nixosGenerate {
-      system = "x86_64-linux";
+      inherit system;
       format = "virtualbox";
       modules = (mkHomeUser {user = "nixos"; filePath = ./hm-users/nixos/home.nix;}) ++ [
         ({pkgs, ...}:{
@@ -95,7 +96,7 @@
     };
 
     nixosConfigurations.${linuxHostname} = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
       specialArgs = { inherit inputs; };
       modules = 
       (mkHomeUser {user = "mathewelhans"; filePath = ./hm-users/mathewelhans/home.nix;}) ++
@@ -108,12 +109,12 @@
         ./filesystems.nix
         ./desktop-environment/de-configuration.nix
         ./users.nix
-        #{
-        #  _module.args.pkgs-stable = import inputs.nixpkgs-stable {
-        #    system = "x86_64-linux";
-        #    config.allowUnfree = true;
-        #  };
-        #}
+        {
+          _module.args.pkgs-stable = import inputs.nixpkgs-stable {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        }
       ];
     }; 
 

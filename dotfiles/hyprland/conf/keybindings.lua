@@ -22,7 +22,9 @@ hl.bind(mainMod .. " + SHIFT + " .. "P", hl.dsp.exec_cmd(screenshot))
 hl.bind(mainMod .. " + SHIFT + " .. "N", hl.dsp.exec_cmd(swaync))
 hl.bind(mainMod .. " + SHIFT + " .. "F", hl.dsp.exec_cmd(firefox))
 
-hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("rofi -show window"))
+
 
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))

@@ -1,10 +1,4 @@
-{config, pkgs, inputs, ... }: {
-    nixpkgs.overlays = [
-    (final: prev: {
-      pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-    })
-  ];
-
+{config, pkgs, pkgs-stable, inputs, ... }: {
     #Environment Variables
     environment.variables = {
         EDITOR = "nano";
@@ -13,7 +7,6 @@
 
     # Optional: Add useful tools
     environment.systemPackages = with pkgs; [
-        pkgs-stable.warzone2100
         cloudflare-warp
         tmux 
         tree
@@ -25,5 +18,7 @@
         cron
         wireguard-tools
         iptables
+    ] ++ [
+        pkgs-stable.warzone2100
     ];
 }
