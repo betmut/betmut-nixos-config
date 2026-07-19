@@ -118,5 +118,6 @@
     vim 
     pciutils # Useful for 'lspci'
     iptables
+    fastfetch
   ];
 }
