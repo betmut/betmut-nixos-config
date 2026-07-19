@@ -7,6 +7,9 @@
     ./config/hyprpaper.nix
     ./config/rofi/rofi.nix
     ./config/waybar/waybar.nix
+    ./config/kitty/kitty.nix
+    ./config/fastfetch/fastfetch.nix
+    ./config/yazi/yazi.nix
   ];
   home.stateVersion = "26.05";
 
@@ -23,6 +26,10 @@
     brightnessctl 
     playerctl
     wireplumber
+
+    kitty
+    fastfetch
+    yazi
   ];
 
   home.sessionVariables = {

@@ -1,6 +1,6 @@
 {config, pkgs, inputs,...}:{
   imports = [
-    ./hyprland.nix
+    ./hyprland/hyprland.nix
     ./display-manager.nix
   ];
 }

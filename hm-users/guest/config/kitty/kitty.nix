@@ -1,6 +1,9 @@
 {pkgs, ...}: {
 
-  programs.kitty.enable = true;
+  programs.kitty = {
+    enable = true;
+    package = pkgs.kitty;
+  };
 
   #config files
   xdg.configFile = {

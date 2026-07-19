@@ -9,6 +9,9 @@
     ./config/rofi/rofi.nix
     ./config/waybar/waybar.nix
     ./config/swaync/swaync.nix
+    ./config/kitty/kitty.nix
+    ./config/fastfetch/fastfetch.nix
+    ./config/yazi/yazi.nix
   ];
   home.stateVersion = "26.05";
 
