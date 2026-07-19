@@ -43,17 +43,9 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  #.config files
+  #config files
   xdg.configFile = {
-    "hypr/hyprland.lua".source = ../../dotfiles/hyprland/hyprland.lua;
-    "hypr/conf".source = ../../dotfiles/hyprland/conf;
-
-    "kitty/kitty.conf".source = ../../dotfiles/kitty/kitty.conf;
-    "kitty/gruvbox-kitty.conf".source = ../../dotfiles/kitty/gruvbox-kitty.conf;
-
-    "yazi/theme.toml".source = ../../dotfiles/yazi/theme.toml;
-    "yazi/flavors".source  = ../../dotfiles/yazi/flavors;
-
-    "fastfetch/config.jsonc".source = ../../dotfiles/fastfetch/config.jsonc;
+    "hypr/hyprland.lua".source = ../../desktop-environment/hyprland/hyprland.lua;
+    "hypr/conf".source = ../../desktop-environment/hyprland/conf;
   };
 }

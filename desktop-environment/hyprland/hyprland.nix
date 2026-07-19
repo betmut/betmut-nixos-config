@@ -52,8 +52,6 @@ in
     hyprlock
     hyprpolkitagent             #graphical password prompt
 
-    kitty                       #terminal
-    yazi                        #file manager
     libnotify                   #notification
     networkmanagerapplet        #networkManager Applet
     brightnessctl 

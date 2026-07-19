@@ -13,7 +13,6 @@
         git 
         vim 
         pciutils # Useful for 'lspci'
-        fastfetch
         quickemu
         cron
         wireguard-tools
