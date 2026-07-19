@@ -30,7 +30,7 @@ in
   #  extraGroups = [ "radarr"];
   #};
 
-  users.users.qbittorrent = {
-    extraGroups = [ "radarr"];
-  };
+  #users.users.qbittorrent = {
+  #  extraGroups = [ "radarr"];
+  #};
 }

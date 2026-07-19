@@ -1,5 +1,10 @@
 {config, pkgs, inputs, modulesPath, ... }: {
 
+  _module.args.pkgs-stable = import inputs.nixpkgs-stable {
+    system = "x86_64-linux";
+    config.allowUnfree = true;
+  };
+
   system.stateVersion = "26.05";
   imports = [
     #modules
