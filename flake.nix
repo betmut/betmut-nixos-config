@@ -79,7 +79,7 @@
       format = "install-iso";
       modules = (mkHomeUser {user = "nixos"; filePath = ./hm-users/nixos/home.nix;}) ++ [
         ({pkgs,...}:{users.users.nixos = userDefaults;})
-        ./configuration.nix
+        ./minimal-iso-config.nix
       ];
     };
 
