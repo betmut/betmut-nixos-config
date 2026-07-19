@@ -22,7 +22,7 @@
     vscode
     nodejs 
     python3 
-    R  
+    lean4  
     htop 
     cmatrix 
     spotify
