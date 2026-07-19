@@ -108,4 +108,15 @@
       };
     };
   };
+
+  # Optional: Add useful tools
+  environment.systemPackages = with pkgs; [
+    cloudflare-warp
+    tmux 
+    tree
+    git 
+    vim 
+    pciutils # Useful for 'lspci'
+    iptables
+  ];
 }
