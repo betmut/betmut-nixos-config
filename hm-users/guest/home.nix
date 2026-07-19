@@ -2,7 +2,7 @@
 
   imports = [
     ./config/vim/vim.nix
-    ./config/zsh.nix
+    ./config/zsh/zsh.nix
     ./config/hyprpaper.nix
     ./config/hyprpaper.nix
     ./config/rofi/rofi.nix

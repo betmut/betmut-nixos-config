@@ -10,7 +10,7 @@
     ];
     
     serviceConfig = {
-      ExecStart = "${pkgs.bash}/bin/bash ${../dotfiles/shell/notifiers/spotify-notifiers.sh}";
+      ExecStart = "${pkgs.bash}/bin/bash ${./notifiers/spotify-notifiers.sh}";
       Restart = "always";
       RestartSec = "3";
       #Environment = "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus";
@@ -23,7 +23,7 @@
     # Add this line! It makes notify-send available to the script
     path = [ pkgs.libnotify ];
     serviceConfig = {
-      ExecStart = "${pkgs.bash}/bin/bash ${../dotfiles/shell/notifiers/low-battery-notification.sh}";
+      ExecStart = "${pkgs.bash}/bin/bash ${./notifiers/low-battery-notification.sh}";
       Type = "oneshot";
       User = "mathewelhans";
       # Necessary to send notifications to your desktop from a service

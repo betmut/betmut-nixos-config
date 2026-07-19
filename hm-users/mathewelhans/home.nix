@@ -5,7 +5,7 @@
     ./config/vim/vim.nix
     ./config/hypridle.nix
     ./config/hyprpaper.nix
-    ./config/zsh.nix
+    ./config/zsh/zsh.nix
     ./config/rofi/rofi.nix
     ./config/waybar/waybar.nix
     ./config/swaync/swaync.nix
