@@ -35,7 +35,7 @@
       tabstop = 4;
       mouse = "v";
     };
-    extraConfig = builtins.readFile ../../dotfiles/vim/.vimrc;
+    extraConfig = builtins.readFile ./config/.vimrc;
 	};
 
   #zsh config
@@ -52,7 +52,7 @@
     
     initContent = 
     let
-      zshRPROMPT = lib.mkOrder 1000 (builtins.readFile ../../dotfiles/shell/custom_prompt.sh);
+      zshRPROMPT = lib.mkOrder 1000 (builtins.readFile ./config/custom_prompt.sh);
     in
       lib.mkMerge [zshRPROMPT];
     #Content to be added to {file}`.zshrc`.
