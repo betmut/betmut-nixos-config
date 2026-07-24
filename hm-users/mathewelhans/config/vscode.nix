@@ -12,7 +12,8 @@
         jeff-hykin.better-nix-syntax
         ecmel.vscode-html-css
         davidanson.vscode-markdownlint
-        ms-python.vscode-pylance     
+        ms-python.vscode-pylance
+        leanprover.lean4     
 
         #colorscheme
         jdinhlife.gruvbox
