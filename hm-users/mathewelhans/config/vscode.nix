@@ -13,7 +13,8 @@
         ecmel.vscode-html-css
         davidanson.vscode-markdownlint
         ms-python.vscode-pylance
-        leanprover.lean4     
+        leanprover.lean4
+        tamasfe.even-better-toml     
 
         #colorscheme
         jdinhlife.gruvbox
