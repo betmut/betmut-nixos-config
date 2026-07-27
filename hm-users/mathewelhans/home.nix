@@ -20,11 +20,8 @@
   #Packages
   home.packages = with pkgs; [
     vscode
-    nodejs 
-    python3 
     elan  
     htop 
-    cmatrix 
     spotify
     playerctl
     obsidian

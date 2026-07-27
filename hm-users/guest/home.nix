@@ -17,10 +17,6 @@
     
   #Packages
   home.packages = with pkgs; [
-    nodejs 
-    python3 
-    R 
-    gemini-cli 
     htop 
     cmatrix 
     brightnessctl 
