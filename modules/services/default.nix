@@ -2,7 +2,7 @@
   imports = [
     ./desktop.nix
     ./ssh.nix
-    ./bittorrent-client.nix
+    ./bittorent-client.nix
     ./power-alerts.nix
     ./location.nix
     ./rstudio-server.nix
