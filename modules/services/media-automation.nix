@@ -6,8 +6,6 @@ let
   };
 in
 {
-  services.qbittorrent = mediaServiceConfig;   # Port 8080
-
   # TV Series Automation
   services.sonarr = mediaServiceConfig // {enable = false;};        # Port 8989
 
@@ -19,11 +17,4 @@ in
 
   # Subtitle Manager
   services.bazarr = mediaServiceConfig // {enable = false;};        # Port 6767
-
-  # Override the systemd service to set your desired umask
-  systemd.services.qbittorrent = {
-    serviceConfig = {
-      UMask = "0002";
-    };
-  };
 }

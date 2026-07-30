@@ -11,6 +11,8 @@
   services.fstrim.enable = true; #Enable TRIM
   services.printing.enable = true; #Enable CUPS to print documents.
   services.libinput.enable = true; #Enable touchpad support
+  services.thermald.enable = true; #Enable thermald to prevent overheating on laptops
+
 
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

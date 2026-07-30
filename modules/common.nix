@@ -2,24 +2,11 @@
     
     imports = [
         #linux modules
-        ./linux/boot.nix
-        ./linux/ephemeral-guest.nix
-        ./linux/fonts.nix
-        ./linux/gaming.nix
-        ./linux/hardware.nix
-        ./linux/kernel.nix
-        ./linux/networking.nix
-        ./linux/programs-core.nix
-        ./linux/security.nix
-        ./linux/system-basics.nix
-        ./linux/users.nix
+        ./linux/default.nix
         
         #services
-        ./services/services.nix
-        ./services/media-automation.nix
-        ./services/power-alerts.nix
-        ./services/location.nix
-        ./services/rstudio-server.nix
+        ./services/default.nix
+        ./services/mac-hardware.nix
     ];
 
     #Environment Variables
@@ -28,9 +15,8 @@
         LIBVA_DRIVER_NAME = "iHD";
     };
 
-    # Optional: Add useful tools
+    # System-wide packages
     environment.systemPackages = with pkgs; [
-        cloudflare-warp
         tmux 
         tree
         git 
