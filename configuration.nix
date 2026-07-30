@@ -18,6 +18,8 @@
     ./services/services.nix
     ./services/media-automation.nix
     ./services/power-alerts.nix
+    ./services/location.nix
+    ./services/rstudio-server.nix
 
     (modulesPath + "/installer/scan/not-detected.nix")
   ];

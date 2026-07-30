@@ -1,4 +1,4 @@
-{config, pkgs, pkgs-stable, inputs, lib, ... }: {
+{config, pkgs, inputs, lib, ... }: {
 
   services = rec {
     logind.settings.Login.HandlePowerKey = "ignore";
@@ -12,22 +12,14 @@
     #gvfs
     gvfs.enable = true;
 
+    #avahi for mDNS/DNS-SD service discovery
+    avahi.enable = true;
+
     #glib-networking for TLS/SSL support 
     gnome.glib-networking.enable = true;
 
     #tumbler for thumbnail management (like showing image thumbnail in thunar)
     tumbler.enable = true;
-
-    #rstudio-server
-    rstudio-server = {
-      enable = true; #set to true if you want to enable rstudio-server
-      listenAddr = "127.0.0.1";
-      package = pkgs-stable.rstudioServerWrapper.override { 
-        packages = with pkgs-stable.rPackages; [ 
-          tidyverse 
-        ]; 
-      };
-    };
 
     #transmission
     #transmission = {

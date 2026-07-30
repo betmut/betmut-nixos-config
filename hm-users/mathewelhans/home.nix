@@ -6,6 +6,8 @@
     ./config/hypridle.nix
     ./config/hyprpaper.nix
     ./config/zsh/zsh.nix
+    ./config/gammastep.nix
+
     ./config/rofi/rofi.nix
     ./config/waybar/waybar.nix
     ./config/swaync/swaync.nix
