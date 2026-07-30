@@ -105,10 +105,8 @@
         inputs.agenix.nixosModules.default
         ./configuration.nix
         ./stylix.nix
-        ./hardware-configuration.nix
-        ./filesystems.nix
+        ./disks.nix
         ./desktop-environment/de-configuration.nix
-        ./users.nix
       ];
     }; 
 
