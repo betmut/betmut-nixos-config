@@ -1,7 +1,7 @@
 {config, pkgs, inputs, lib, ... }: 
 let
-  linuxmodulesPath = ./modules/linux;
-  servicesPath = ./modules/services;
+  linuxmodulesPath = ../modules/linux;
+  servicesPath = ../modules/services;
 in
 {
   imports = [
@@ -12,6 +12,6 @@ in
     (linuxmodulesPath + /system-basics.nix)
 
     (servicesPath + /ssh.nix)
-    (servicesPath + /bittorrent-client.nix)
+    (servicesPath + /mac-hardware.nix)
   ];
 }
