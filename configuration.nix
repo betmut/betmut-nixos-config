@@ -9,6 +9,8 @@
   imports = [
     #common modules
     ./modules/common.nix
+    ./stylix.nix
+    ./disks.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
   

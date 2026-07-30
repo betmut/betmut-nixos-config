@@ -7,6 +7,9 @@
         #services
         ./services/default.nix
         ./services/mac-hardware.nix
+
+        #desktop environment
+        ../desktop-environment/hyprland.nix
     ];
 
     #Environment Variables

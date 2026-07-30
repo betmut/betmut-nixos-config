@@ -79,7 +79,7 @@
       format = "install-iso";
       modules = (mkHomeUser {user = "nixos"; filePath = ./hm-users/nixos/home.nix;}) ++ [
         ({pkgs,...}:{users.users.nixos = userDefaults;})
-        ./minimal-iso-config.nix
+        ./iso-configurations/minimal-iso-config.nix
       ];
     };
 
@@ -104,9 +104,6 @@
         inputs.stylix.nixosModules.stylix
         inputs.agenix.nixosModules.default
         ./configuration.nix
-        ./stylix.nix
-        ./disks.nix
-        ./desktop-environment/de-configuration.nix
       ];
     }; 
 

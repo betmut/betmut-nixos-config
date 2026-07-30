@@ -47,7 +47,7 @@
 
   #config files
   xdg.configFile = {
-    "hypr/hyprland.lua".source = ../../desktop-environment/hyprland/hyprland.lua;
-    "hypr/conf".source = ../../desktop-environment/hyprland/conf;
+    "hypr/hyprland.lua".source = ../../desktop-environment/hyprland.lua;
+    "hypr/conf".source = ../../desktop-environment/conf;
   };
 }
