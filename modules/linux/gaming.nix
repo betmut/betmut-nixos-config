@@ -1,4 +1,4 @@
-{config, pkgs, inputs, lib, ... }: {
+{config, pkgs, pkgs-stable, inputs, lib, ... }: {
   # for performance mode
   programs.gamemode.enable = true; 
 
@@ -13,7 +13,9 @@
     ];
   };
 
+  # useful tools for gaming and other games
   environment.systemPackages = with pkgs; [
     mangohud
+    pkgs-stable.warzone2100
   ];
 }

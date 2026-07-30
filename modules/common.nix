@@ -40,7 +40,5 @@
         cron
         wireguard-tools
         iptables
-    ] ++ [
-        pkgs-stable.warzone2100
     ];
 }
