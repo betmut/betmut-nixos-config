@@ -16,7 +16,7 @@
       nixShellPrompt = lib.mkOrder 1000 (builtins.readFile ./scripts/nix_shell_prompt.sh);
       spotify-notifier = lib.mkOrder 1000 "systemctl --user start spotify-notifier";
     in
-    lib.mkMerge [zshRPROMPT spotify-notifier nixShellPrompt];
+    lib.mkMerge [spotify-notifier nixShellPrompt];
     #Content to be added to {file}`.zshrc`.
 
     #To specify the order, use `lib.mkOrder`.
