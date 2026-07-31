@@ -12,8 +12,7 @@
     cmatrix
     tmux 
     tree
-    git 
-    vim 
+    git  
     pciutils # Useful for 'lspci'
   ];
 
