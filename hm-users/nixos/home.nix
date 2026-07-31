@@ -15,6 +15,8 @@
     tree
     git  
     pciutils # Useful for 'lspci'
+    ntfs3g        # Provides 'ntfs-3g' and 'ntfsfix'
+    apfs-fuse     # FUSE driver for Apple APFS
   ];
 
   home.sessionVariables = {

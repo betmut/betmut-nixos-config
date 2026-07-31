@@ -6,6 +6,7 @@
     initrd.kernelModules = [ "wl" "i915" "lz4"];
     initrd.systemd.enable = true;
     kernelPackages = pkgs.linuxPackages_xanmod; #optimized linux kernel
+    supportedFilesystems = [ "ntfs" ];
     kernelModules = [ "wl" "kvm-intel"];
     kernelParams = [
       "zswap.enabled=1" # enables zswap
