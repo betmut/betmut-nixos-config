@@ -6,7 +6,7 @@
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "battery"];
+      plugins = ["git"];
       theme = "xiong-chiamiov-plus";
     };
     
