@@ -70,7 +70,8 @@
       shell = nixpkgs.legacyPackages.x86_64-linux.zsh;
       isNormalUser = true;
       extraGroups = ["users" "audio" "networkmanager" "video" "render"];
-      initialPassword = "";
+      initialPassword = "aezakmi";
+      initialHashedPassword = lib.mkForce null;
     };
   in
   {
