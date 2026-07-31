@@ -1,4 +1,4 @@
-{pkgs, config, ... }: {
+{pkgs, config, lib,... }: {
 
   #zsh config
   programs.zsh = {
