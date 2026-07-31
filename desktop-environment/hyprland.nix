@@ -3,7 +3,8 @@ let
   platformSystem = pkgs.stdenv.hostPlatform.system;
   hyprlandPkgs = inputs.hyprland.packages.${platformSystem};
   pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${platformSystem};
-  hypr-kdeconnect-fix = pkgs.callPackage ./hypr-kdeconnect-fix.nix { };  
+  hypr-kdeconnect-fix = pkgs.callPackage ./packages/hypr-kdeconnect-fix.nix { };  
+  zscroll = pkgs.callPackage ./packages/zscroll.nix { };
 in
 {
   programs.hyprland = {
@@ -58,7 +59,6 @@ in
     wireplumber
     gnome-font-viewer
     guvcview
-    zscroll
     catfish                     #file search tool
     ffmpegthumbnailer           #generate video thumbnail previews
     file-roller                 #archive manager
@@ -76,5 +76,8 @@ in
     gapless #music
     wlogout
     swayosd
+  ] ++ 
+  [
+    zscroll
   ];
 }
