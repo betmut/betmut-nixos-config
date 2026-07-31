@@ -14,4 +14,7 @@ in
     (servicesPath + /ssh.nix)
     (servicesPath + /mac-hardware.nix)
   ];
+
+  #Overwriting hostname value
+  networking.hostName = lib.mkForce "arendelle";
 }
