@@ -71,7 +71,7 @@
       isNormalUser = true;
       extraGroups = ["users" "audio" "networkmanager" "video" "render"];
       initialPassword = "aezakmi";
-      initialHashedPassword = lib.mkForce null;
+      initialHashedPassword = nixpkgs.lib.mkForce null;
     };
   in
   {
