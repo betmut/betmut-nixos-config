@@ -10,6 +10,8 @@
     ./config/kitty/kitty.nix
     ./config/fastfetch/fastfetch.nix
     ./config/yazi/yazi.nix
+    ./config/swaync/swaync.nix
+    ./config/gammastep.nix
   ];
   home.stateVersion = "26.05";
 

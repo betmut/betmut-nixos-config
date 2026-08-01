@@ -161,7 +161,7 @@
   },
     
   "custom/power": {
-    "format": "<span font='12'>⏻</span>",
+    "format": " ⏻ ",
     "on-click": "wlogout",
     "tooltip": false
   },
