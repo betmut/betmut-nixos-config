@@ -1,33 +1,36 @@
-{config, pkgs, pkgs-stable, inputs, ... }: {
-    
-    imports = [
-        #linux modules
-        ./linux/default.nix
+{config, pkgs, inputs, ... }:
+let
+	desktopEnvironment = "hyprland";
+in
+{
+	imports = [
+		#linux modules
+    ./linux/default.nix
         
-        #services
-        ./services/default.nix
-        ./services/mac-hardware.nix
+    #services
+    ./services/default.nix
+    ./services/mac-hardware.nix
 
-        #desktop environment
-        ../desktop-environment/hyprland.nix
-    ];
+    #desktop environment
+    (../desktop-environment + "/${desktopEnvironment}/${desktopEnvironment}.nix")
+  ];
 
-    #Environment Variables
-    environment.variables = {
-        EDITOR = "nano";
-        LIBVA_DRIVER_NAME = "iHD";
-    };
+  #Environment Variables
+  environment.variables = {
+		EDITOR = "nano";
+    LIBVA_DRIVER_NAME = "iHD";
+  };
 
-    # System-wide packages
-    environment.systemPackages = with pkgs; [
-        tmux 
-        tree
-        git 
-        vim 
-        pciutils # Useful for 'lspci'
-        quickemu
-        cron
-        wireguard-tools
-        iptables
-    ];
+  # System-wide packages
+  environment.systemPackages = with pkgs; [
+		tmux 
+    tree
+    git 
+    vim 
+    pciutils # Useful for 'lspci'
+    quickemu
+    cron
+    wireguard-tools
+    iptables
+  ];
 }

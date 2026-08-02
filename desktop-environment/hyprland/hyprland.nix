@@ -3,8 +3,8 @@ let
   platformSystem = pkgs.stdenv.hostPlatform.system;
   hyprlandPkgs = inputs.hyprland.packages.${platformSystem};
   pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${platformSystem};
-  hypr-kdeconnect-fix = pkgs.callPackage ./packages/hypr-kdeconnect-fix.nix { };  
-  zscroll = pkgs.callPackage ./packages/zscroll.nix { };
+  hypr-kdeconnect-fix = pkgs.callPackage ../packages/hypr-kdeconnect-fix.nix { };  
+  zscroll = pkgs.callPackage ../packages/zscroll.nix { };
 in
 {
   programs.hyprland = {
