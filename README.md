@@ -6,8 +6,9 @@ This is my personal NixOS + Home Manager configurations and a custom ISO builder
 
 ## Architecture
 
-## Getting Started
 
+## Getting Started
+you can run 
 
 ## Contributing
 - Open issues or PRs for improvements
