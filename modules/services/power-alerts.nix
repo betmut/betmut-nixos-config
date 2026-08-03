@@ -7,12 +7,13 @@
     path = with pkgs; [
       libnotify 
       playerctl
+      curl
     ];
     
     serviceConfig = {
       ExecStart = "${pkgs.bash}/bin/bash ${./notifiers/spotify-notifiers.sh}";
-      Restart = "always";
-      RestartSec = "3";
+      Restart = "on-failure";
+      RestartSec = "5";
       #Environment = "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus";
     };
   };
