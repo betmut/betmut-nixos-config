@@ -3,7 +3,7 @@
     ./desktop.nix
     ./ssh.nix
     ./bittorent-client.nix
-    ./power-alerts.nix
+    ./systemd-services.nix
     ./location.nix
     ./rstudio-server.nix
   ];
