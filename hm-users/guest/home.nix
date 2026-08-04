@@ -3,8 +3,6 @@
   imports = [
     ./config/vim/vim.nix
     ./config/zsh/zsh.nix
-    ./config/hyprpaper.nix
-    ./config/hyprpaper.nix
     ./config/rofi/rofi.nix
     ./config/waybar/waybar.nix
     ./config/kitty/kitty.nix
@@ -12,6 +10,8 @@
     ./config/yazi/yazi.nix
     ./config/swaync/swaync.nix
     ./config/gammastep.nix
+
+    ./config/hypridle.nix
   ];
   home.stateVersion = "26.05";
 

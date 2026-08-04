@@ -47,3 +47,32 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+hl.window_rule({
+  name = "waypaper",
+  match = { class = "waypaper"},
+  float = true,
+  no_anim = true,
+  move = {100, 100},
+  size = {"monitor_w * 0.4", "monitor_h * 0.4"}
+})
+
+hl.window_rule({
+  name = "gpu_screen_recorder",
+  match = { class = "com.dec05eba.gpu_screen_recorder"},
+  float = true,
+  center = true,
+  no_anim = true,
+})
+
+hl.window_rule({
+  name = "firefox",
+  match = { class = "firefox"},
+  animation = "popin",
+})
+
+hl.window_rule({
+  name = "vscode",
+  match = { class = "code|spotify"},
+  no_anim = true,
+})

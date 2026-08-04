@@ -47,6 +47,10 @@
     agenix = {
       url = "github:ryantm/agenix";
     };
+
+    awww = {
+      url = "git+https://codeberg.org/LGFae/awww";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-stable, ... }: 

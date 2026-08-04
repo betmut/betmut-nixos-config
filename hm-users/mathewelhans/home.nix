@@ -4,7 +4,6 @@
     ./config/vscode.nix
     ./config/vim/vim.nix
     ./config/hypridle.nix
-    ./config/hyprpaper.nix
     ./config/zsh/zsh.nix
     ./config/gammastep.nix
 

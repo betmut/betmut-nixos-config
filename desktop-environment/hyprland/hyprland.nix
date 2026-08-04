@@ -48,7 +48,6 @@ in
 
   #basic apps
   environment.systemPackages = with pkgs; [
-    hyprpaper                   #wallpaper daemon
     hypridle
     hyprlock
     hyprpolkitagent             #graphical password prompt
@@ -59,6 +58,8 @@ in
     wireplumber
     gnome-font-viewer
     guvcview
+    swayosd
+    wlogout
     catfish                     #file search tool
     ffmpegthumbnailer           #generate video thumbnail previews
     file-roller                 #archive manager
@@ -71,13 +72,14 @@ in
     swappy
     wf-recorder
     wl-clipboard
-    gpu-screen-recorder-gtk # GUI app
+    gpu-screen-recorder-gtk # screen recorder 
 
     gapless #music
-    wlogout
-    swayosd
+    waypaper
+    
   ] ++ 
   [
     zscroll
+    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
   ];
 }
