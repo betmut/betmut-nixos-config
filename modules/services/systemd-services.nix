@@ -32,11 +32,18 @@
     };
   };
 
-  systemd.services.wallpaper-switch = {
+  systemd.user.services.wallpaper-switch = {
     description = "Automatic Light/Dark Wallpaper Switcher";
     #wantedBy = [ "multi-user.target" ];  
     # Add this line! It makes notify-send available to the script
-    path = [ pkgs.waypaper ];
+    path = with pkgs; [ 
+      waypaper 
+      procps
+      coreutils
+      bash
+    ] ++ [
+      inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
+    ];
     serviceConfig = {
       ExecStart = "${pkgs.bash}/bin/bash ${./scripts/change-wallpaper.sh}";
       Type = "oneshot";
@@ -44,7 +51,7 @@
     };
   };
 
-  systemd.timers.wallpaper-switch = {
+  systemd.user.timers.wallpaper-switch = {
     description = "Automatic Light/Dark Wallpaper Switcher";
     wantedBy = [ "timers.target" ]; # This starts the timer on boot
     
@@ -52,8 +59,8 @@
       Unit = "wallpaper-switch.service";
       OnBootSec = "1min";
       OnCalendar = [
-        "*-*-* 06:00:00"
-        "*-*-* 18:00:00"
+        "*-*-* 06:02:00"
+        "*-*-* 18:02:00"
       ];
       Persistent = true;
     };
