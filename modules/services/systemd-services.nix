@@ -11,7 +11,7 @@
     ];
     
     serviceConfig = {
-      ExecStart = "${pkgs.bash}/bin/bash ${./notifiers/spotify-notifiers.sh}";
+      ExecStart = "${pkgs.bash}/bin/bash ${./scripts/spotify-notifiers.sh}";
       Restart = "on-failure";
       RestartSec = "5";
       #Environment = "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus";
@@ -24,11 +24,38 @@
     # Add this line! It makes notify-send available to the script
     path = [ pkgs.libnotify ];
     serviceConfig = {
-      ExecStart = "${pkgs.bash}/bin/bash ${./notifiers/low-battery-notification.sh}";
+      ExecStart = "${pkgs.bash}/bin/bash ${./scripts/low-battery-notification.sh}";
       Type = "oneshot";
       User = "mathewelhans";
       # Necessary to send notifications to your desktop from a service
       Environment = "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus";
+    };
+  };
+
+  systemd.services.wallpaper-switch = {
+    description = "Automatic Light/Dark Wallpaper Switcher";
+    #wantedBy = [ "multi-user.target" ];  
+    # Add this line! It makes notify-send available to the script
+    path = [ pkgs.waypaper ];
+    serviceConfig = {
+      ExecStart = "${pkgs.bash}/bin/bash ${./scripts/change-wallpaper.sh}";
+      Type = "oneshot";
+      User = "mathewelhans";
+    };
+  };
+
+  systemd.timers.wallpaper-switch = {
+    description = "Automatic Light/Dark Wallpaper Switcher";
+    wantedBy = [ "timers.target" ]; # This starts the timer on boot
+    
+    timerConfig = {
+      Unit = "wallpaper-switch.service";
+      OnBootSec = "1min";
+      OnCalendar = [
+        "*-*-* 06:00:00"
+        "*-*-* 18:00:00"
+      ];
+      Persistent = true;
     };
   };
 

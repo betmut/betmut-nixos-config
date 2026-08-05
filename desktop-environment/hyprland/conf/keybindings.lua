@@ -24,7 +24,9 @@ hl.bind(mainMod .. " + SHIFT + " .. "F", hl.dsp.exec_cmd(firefox))
 
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("rofi -show window"))
+hl.bind(mainMod .. " + SHIFT + " .. "W", hl.dsp.exec_cmd("waypaper --random --monitor eDP-1 --backend awww --folder ~/Wallpaper"))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("waypaper"))
+
 
 
 -- closeWindowBind:set_enabled(false)
