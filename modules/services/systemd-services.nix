@@ -43,6 +43,7 @@
       bash
       curl
       libnotify
+      gawk
     ] ++ [
       inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     ];

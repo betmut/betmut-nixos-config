@@ -19,5 +19,5 @@ playerctl --player=spotify metadata --format '{{ title }} - {{ artist }}' --foll
     fi
 
     # Dispatch notification
-    notify-send -i "$icon_path" "Spotify - Playing" "$track_info"
+    notify-send -i "$icon_path" "🎧  Spotify - Playing" "$track_info"
 done
