@@ -8,7 +8,7 @@ pkgs.stdenv.mkDerivation {
     owner = "gfhdhytghd";
     repo = "hypr-kdeconnect-fix";
     rev = "master";
-    hash = "sha256-OW18+pO92XvlTLrHo+S9/EVUophr5Dl1GdGJcmVAq/o="; 
+    hash = "sha256-VcXxVtlnkPjO6l0ky/n+0qa87Uc3c8hRM0twfgl+AiM="; 
   };
 
   nativeBuildInputs = with pkgs; [

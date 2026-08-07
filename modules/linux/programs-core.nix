@@ -20,6 +20,16 @@
   #Enable Firefox
   programs.firefox = {
     enable = true;
+    languagePacks = [ "en-US" "id"];
+
+    preferences = {
+      "ui.textHighlightBackground" = "#4e635b";
+      "media.hardwaremediakeys.enabled" = true;
+    };
+
+    policies = {
+      DisableTelemetry = true;
+    };
   };
 
   #Enable KDE Connect
