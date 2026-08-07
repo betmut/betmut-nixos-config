@@ -7,7 +7,7 @@ pkgs.stdenv.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "gfhdhytghd";
     repo = "hypr-kdeconnect-fix";
-    rev = "master";
+    rev = "e86a0fb17826cb8ea987665ded7428534e4a1a9d";
     hash = "sha256-VcXxVtlnkPjO6l0ky/n+0qa87Uc3c8hRM0twfgl+AiM="; 
   };
 

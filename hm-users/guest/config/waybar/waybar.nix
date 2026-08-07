@@ -1,7 +1,11 @@
-{config, pkgs, lib, ...}: {
+{config, pkgs, lib, ...}: 
+let
+  waybar-git = pkgs.callPackage ../../../../modules/packages/waybar-git.nix { };
+in
+{
   programs.waybar = {
     enable = true;
-    package = pkgs.waybar;
+    package = waybar-git;
   };
 
   #config files

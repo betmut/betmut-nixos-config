@@ -21,10 +21,11 @@
 	"app_ids-mapping": {
 	}
   },
-  "wlr/workspaces": {
-        "disable-scroll": true,
+  "hyprland/workspaces": {
+        "enable-bar-scroll": true,
         "sort-by-number": true,
-        "on-click": "activate"
+        "on-click": "activate",
+        "tooltip": false
    },
   
   "tray": {
