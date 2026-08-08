@@ -96,6 +96,7 @@
       modules = (mkHomeUser {user = "nixos"; filePath = ./hm-users/nixos/home.nix;}) ++ [
         ({pkgs,...}:{users.users.nixos = userDefaults;})
         ./iso-configurations/minimal-iso-config.nix
+        inputs.lix-module.nixosModules.default
       ];
     };
 
