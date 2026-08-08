@@ -1,18 +1,14 @@
-{config, pkgs, inputs, modulesPath, ... }: {
-  
+{config, pkgs, inputs, ... }: {
+
   system.stateVersion = "26.05";
 
   _module.args.pkgs-stable = import inputs.nixpkgs-stable {
     system = "x86_64-linux";
     config.allowUnfree = true;
   };
-
+  
   imports = [
     #common modules
-    ./modules/common.nix
-    ./stylix.nix
-    ./disks.nix
-    ./nix-settings.nix
-    (modulesPath + "/installer/scan/not-detected.nix")
+    ../../modules/darwin.nix
   ];
 }

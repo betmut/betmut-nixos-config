@@ -1,18 +1,8 @@
-{config, pkgs, inputs, ... }:
-let
-	desktopEnvironment = "hyprland";
-in
-{
+{config, pkgs, inputs, ... }: {
 	imports = [
-		#linux modules
+		#essential linux modules & services
     ./linux/default.nix
-        
-    #services
     ./services/default.nix
-    ./services/mac-hardware.nix
-
-    #desktop environment
-    (../desktop-environment + "/${desktopEnvironment}/${desktopEnvironment}.nix")
   ];
 
   #Environment Variables

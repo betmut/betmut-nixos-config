@@ -108,7 +108,7 @@
       (mkHomeUser {user = "guest"; filePath = ./hm-users/guest/home.nix;}) ++ [
         inputs.stylix.nixosModules.stylix
         inputs.agenix.nixosModules.default
-        ./configuration.nix
+        ./platforms/desktop/configuration.nix
       ];
     }; 
 
@@ -120,7 +120,7 @@
           nixpkgs.hostPlatform = "x86_64-darwin";
           users.users.macUser = userDefaults;
         })
-        ./configuration.nix
+        ./platforms/darwin/configuration.nix
         inputs.nix-homebrew.darwinModules.nix-homebrew
         {
           nix-homebrew = {
