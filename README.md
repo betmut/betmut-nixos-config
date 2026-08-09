@@ -1,10 +1,18 @@
 # NixOS-custom-iso
 
-This is my personal NixOS + Home Manager configurations and a custom ISO builder (Flakes). Supports Linux and macOS (nix-darwin). Includes prebuilt outputs for install-ISO, VirtualBox, per-user Home Manager configs and Darwin system.
+This is my personal NixOS (Flakes) configurations. Supports Linux and macOS (nix-darwin).
 
-## Screenshots
+![Alt Text](screenshots/screenshot-1.png)
+![Alt Text](screenshots/screenshot-2.png)
 
 ## Architecture
+
+
+## Features
+
+- Modular codebase so you can reuse it
+- Multi-Platform support (Linux and macOS (nix-darwin))
+- Includes prebuilt outputs for install-ISO, VirtualBox, per-user Home Manager configs and Darwin system.
 
 
 ## Getting Started
