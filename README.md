@@ -1,4 +1,4 @@
-# NixOS Config
+# Betmut's NixOS Config
 
 This is my personal NixOS (Flakes) configurations. The default window Manager is Hyprland.
 
@@ -10,7 +10,7 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 - Strong modularity and reuse linux and services modules (you can even expand it into headless server configurations!)
 - Cross-platform support that spans Linux desktop and macOS (using nix-darwin with Homebrew)
 - Includes prebuilt outputs for install-ISO, VirtualBox, per-user Home Manager configs and Darwin system.
-- Add Lix as replacement of Nix package manager to fix technical debt (improved evaluation speeds for example), improve error messages
+- Add Lix as replacement of Nix package manager to fix technical debt (improved evaluation speeds for example) and improve readibility of error messages
 
 ## File Structures
 ```
