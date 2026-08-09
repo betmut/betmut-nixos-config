@@ -1,19 +1,19 @@
 {config, pkgs, inputs, ... }: {
 	imports = [
-		#essential linux modules & services
+	#essential linux modules & services
     ./linux/default.nix
     ./services/default.nix
   ];
 
   #Environment Variables
   environment.variables = {
-		EDITOR = "nano";
+	EDITOR = "nano";
     LIBVA_DRIVER_NAME = "iHD";
   };
 
   # System-wide packages
   environment.systemPackages = with pkgs; [
-		tmux 
+	tmux 
     tree
     git 
     vim 
