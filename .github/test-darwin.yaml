@@ -20,6 +20,11 @@ jobs:
           . "$HOME/.nix-profile/etc/profile.d/nix.sh"
           nix --version
 
+      - name: clone the repository
+        run: |
+          cd $HOME
+          git clone https://github.com/betmut/betmut-nixos-config.git
+
       - name: Enable flakes
         run: |
           mkdir -p $HOME/.config/nix
