@@ -17,6 +17,7 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 | :--------       | :--------:                                                                      |
 | Window Manager  | [Hyprland](https://github.com/hyprwm/hyprland)                                  |
 | Status bar      | [Waybar](https://github.com/Alexays/Waybar)                                     |
+| Color Theme     | [Gruvbox Dark](https://gruvbox.org/)                                            |
 | Launcher        | [rofi](https://github.com/davatorium/rofi)                                      |
 | Terminal        | [Kitty](https://sw.kovidgoyal.net/kitty)                                        |
 | Shell           | [zsh](https://zsh.sourceforge.io/)                                              |
@@ -25,6 +26,7 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 | Notifications   | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)                  |
 | Wallpapers      | [awww](https://codeberg.org/LGFae/awww) - [waypaper](https://github.com/anufrievroman/waypaper)   |
 | Terminal Font   | [Hasklug Nerd Font Mono](https://www.programmingfonts.org/#hasklig)             |
+
 
 ## File Structures
 ```
