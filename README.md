@@ -1,4 +1,4 @@
-# NixOS-custom-iso
+# NixOS Config
 
 This is my personal NixOS (Flakes) configurations. The default window Manager is Hyprland.
 
@@ -24,20 +24,22 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 │   └── nixos
 │
 ├── iso-configurations/             # Custom ISO build configurations
-│   └── minimal-iso-config.nix      # Non-graphical custom ISO configurations 
+│   └── minimal-iso-config.nix      # Non-GUI custom ISO configurations 
 │ 
 ├── modules/
 │   ├── linux                       # 13 focused modules (boot, hardware, kernel, networking, 
-│   │                               # display-manager, gaming, security, fonts, users, etc.)
+│   │                                 display-manager, gaming, security, fonts, users, etc.)
 │   │
-│   ├── packages                    # Custom package overlays (waybar-git, zscroll, etc.)
+│   ├── packages                    # Custom packages that fetch directly from the source code 
+│   │                                 (waybar-git, zscroll, etc.)
 │   │
-│   └── services                    # Desktop services (SSH, media, location, torrent, RStudio)
+│   └── services                    # Desktop services (SSH, media, location, torrent, 
+│                                     RStudio server)
 │
 ├── platforms/
-│   ├── darwin                      # macOS (nix-darwin) configurations
+│   ├── darwin                      # macOS (nix-darwin) system-level configurations
 │   │
-│   └── desktop                     # Linux desktop configurations
+│   └── desktop                     # Linux desktop system-level configurations
 │
 ├── hostname/                       # Hostname (linux, mac)
 ├── nix-settings.nix                # Nix daemon settings
@@ -49,7 +51,31 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 
 
 ## Getting Started
-you can run 
+
+### Clone and navigate
+```git clone https://github.com/betmut/betmut-nixos-config.git
+cd betmut-nixos-config
+```
+
+### Build minimal install ISO
+```
+nix build .#packages.x86_64-linux.minimal-iso
+```
+
+### Build VirtualBox image
+```
+nix build .#packages.x86_64-linux.vbox
+```
+
+### Apply to current NixOS system (replace <hostname> with output of cat hostname/linux)
+```
+sudo nixos-rebuild switch --flake .#<hostname>
+```
+
+### Apply to macOS (replace <mac-hostname>)
+```
+darwin-rebuild switch --flake .#<mac-hostname>
+```
 
 ## License
 MIT — see `LICENSE`
