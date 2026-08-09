@@ -3,7 +3,7 @@
 ---------------------
 -- Set programs that you use
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
-local terminal    = "kitty"
+local terminal    = "kitty --hold fastfetch"
 local fileManager = "thunar"
 local menu        = "rofi -show drun"
 local screenshot  = 'grim -g "$(slurp)" - | swappy -f -'

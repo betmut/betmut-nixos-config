@@ -76,3 +76,12 @@ hl.window_rule({
   match = { class = "code|spotify"},
   no_anim = true,
 })
+
+hl.window_rule({
+  name = "kitty",
+  match = { class = "kitty"},
+  animation = "popin",
+  float = true,
+  center = true,
+  size = {1070, 580}
+})
