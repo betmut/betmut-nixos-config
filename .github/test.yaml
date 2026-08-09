@@ -1,0 +1,32 @@
+name: Test darwin build
+
+on: [push, pull_request]
+
+jobs:
+  test-macos-flake:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write mac hostname file
+        run: |
+          mkdir -p hostname
+          scutil --get LocalHostName > hostname/mac || hostname > hostname/mac
+          cat hostname/mac
+
+      - name: Install Nix
+        run: |
+          curl -L https://nixos.org/nix/install | sh -s -- --no-daemon
+          . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+          nix --version
+
+      - name: Enable flakes
+        run: |
+          mkdir -p $HOME/.config/nix
+          echo "experimental-features = nix-command flakes" > $HOME/.config/nix/nix.conf
+
+      - name: Build darwin configuration
+        run: |
+          . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+          MAC_HOST=$(cat hostname/mac)
+          nix build --no-link .#darwinConfigurations."${MAC_HOST}" --show-trace
