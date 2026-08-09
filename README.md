@@ -12,6 +12,20 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 - Includes prebuilt outputs for install-ISO, VirtualBox, per-user Home Manager configs and Darwin system.
 - Add [Lix](https://lix.systems/) as replacement of Nix package manager to fix technical debt (improved evaluation speeds for example) and improve readibility of error messages
 
+## Default Environment details
+| Type            | Name                                                                            | 
+| :--------       | :--------:                                                                      |
+| Window Manager  | [Hyprland](https://github.com/hyprwm/hyprland)                                  |
+| Status bar      | [Waybar](https://github.com/Alexays/Waybar)                                     |
+| Launcher        | [rofi](https://github.com/davatorium/rofi)                                      |
+| Terminal        | [Kitty](https://sw.kovidgoyal.net/kitty)                                        |
+| Shell           | [zsh](https://zsh.sourceforge.io/)                                              |
+| Editor          | [VSCode](https://code.visualstudio.com/) - [vim](https://github.com/vim/vim)    |
+| File Manager    | [Thunar](https://github.com/neilbrown/thunar)                                   |
+| Notifications   | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)                  |
+| Wallpapers      | [awww](https://codeberg.org/LGFae/awww) - [waypaper](https://github.com/anufrievroman/waypaper)   |
+| Terminal Font   | [Hasklug Nerd Font Mono](https://www.programmingfonts.org/#hasklig)             |
+
 ## File Structures
 ```
 .
