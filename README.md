@@ -11,6 +11,7 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 - Cross-platform support that spans Linux desktop and macOS (using [nix-darwin](https://github.com/nix-darwin/nix-darwin) with Homebrew)
 - Includes prebuilt outputs for install-ISO, VirtualBox, per-user Home Manager configs and Darwin system.
 - Add [Lix](https://lix.systems/) as replacement of Nix package manager to fix technical debt (improved evaluation speeds for example) and improve readibility of error messages
+- Add a wallpaper changer script to Change your wallpaper based on the time of day by pressing `SUPER+SHIFT+W` by default (you can actually change the keybinding as you wish)
 
 ## Default Environment details
 | Type            | Name                                                                            | 
