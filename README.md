@@ -18,6 +18,7 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 | Window Manager  | [Hyprland](https://github.com/hyprwm/hyprland)                                  |
 | Status bar      | [Waybar](https://github.com/Alexays/Waybar)                                     |
 | Color Theme     | [Gruvbox Dark](https://gruvbox.org/)                                            |
+| Kernel          | [XanMod](https://xanmod.org/)                                                   |
 | Launcher        | [rofi](https://github.com/davatorium/rofi)                                      |
 | Terminal        | [Kitty](https://sw.kovidgoyal.net/kitty)                                        |
 | Shell           | [zsh](https://zsh.sourceforge.io/)                                              |
@@ -36,7 +37,7 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 │
 ├── hm-users/                       # User-level configurations managed by Home Manager
 │   ├── guest
-│   ├── macUser
+q│   ├── macUser
 │   ├── mathewelhans
 │   └── nixos
 │
@@ -69,19 +70,14 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 
 ## Getting Started
 
-### Clone and navigate
-```git clone https://github.com/betmut/betmut-nixos-config.git
-cd betmut-nixos-config
-```
-
-### Build minimal install ISO
+### 1. Build the ISO
+You can install the installer from the [official NixOS Website](https://nixos.org/download/) or build the custom ISO file located in iso-configurations by running
 ```
 nix build .#packages.x86_64-linux.minimal-iso
 ```
 
-### Build VirtualBox image
-```
-nix build .#packages.x86_64-linux.vbox
+```git clone https://github.com/betmut/betmut-nixos-config.git
+cd betmut-nixos-config
 ```
 
 ### Apply to current NixOS system (replace <hostname> with output of cat hostname/linux)
