@@ -43,7 +43,8 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 │   └── nixos
 │
 ├── iso-configurations/             # Custom ISO build configurations
-│   └── minimal-iso-config.nix      # Non-GUI custom ISO configurations 
+│   └── minimal-iso-config.nix      # Non-GUI custom ISO configurations (Including wl module for proprietary 
+│                                     Broadcom driver support, NTFS/APFS support) 
 │ 
 ├── modules/
 │   ├── linux                       # 13 focused modules (boot, hardware, kernel, networking, 
