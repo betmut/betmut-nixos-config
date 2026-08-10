@@ -100,18 +100,6 @@
       ];
     };
 
-    packages.x86_64-linux.vbox = inputs.nixos-generators.nixosGenerate {
-      inherit system;
-      format = "virtualbox";
-      modules = (mkHomeUser {user = "nixos"; filePath = ./hm-users/nixos/home.nix;}) ++ [
-        ({pkgs, ...}:{
-          virtualisation.virtualbox.guest.enable = true;
-          users.users.nixos = userDefaults;
-        })
-        ./configuration.nix
-      ];
-    };
-
     nixosConfigurations.${linuxHostname} = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit inputs; };
