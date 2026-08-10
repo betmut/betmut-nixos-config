@@ -37,7 +37,7 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 │
 ├── hm-users/                       # User-level configurations managed by Home Manager
 │   ├── guest
-q│   ├── macUser
+│   ├── macUser
 │   ├── mathewelhans
 │   └── nixos
 │
