@@ -1,15 +1,34 @@
-# NixOS Config
+# Betmut's NixOS Config
 
 This is my personal NixOS (Flakes) configurations. The default window Manager is Hyprland.
 
+![Alt Text](screenshots/screenshot-4.png)
 ![Alt Text](screenshots/screenshot-1.png)
-![Alt Text](screenshots/screenshot-2.png)
 ![Alt Text](screenshots/screenshot-3.png)
 
 ## Features
 - Strong modularity and reuse linux and services modules (you can even expand it into headless server configurations!)
-- Cross-platform support that spans Linux desktop and macOS (using nix-darwin with Homebrew)
+- Cross-platform support that spans Linux desktop and macOS (using [nix-darwin](https://github.com/nix-darwin/nix-darwin) with Homebrew)
 - Includes prebuilt outputs for install-ISO, VirtualBox, per-user Home Manager configs and Darwin system.
+- Add [Lix](https://lix.systems/) as replacement of Nix package manager to fix technical debt (improved evaluation speeds for example) and improve readibility of error messages
+- Add a wallpaper changer script to Change your wallpaper based on the time of day by pressing `SUPER+SHIFT+W` by default (you can actually change the keybinding as you wish)
+
+## Default Environment details
+| Type            | Name                                                                            | 
+| :--------       | :--------:                                                                      |
+| Window Manager  | [Hyprland](https://github.com/hyprwm/hyprland)                                  |
+| Status bar      | [Waybar](https://github.com/Alexays/Waybar)                                     |
+| Color Theme     | [Gruvbox Dark](https://gruvbox.org/)                                            |
+| Kernel          | [XanMod](https://xanmod.org/)                                                   |
+| Launcher        | [rofi](https://github.com/davatorium/rofi)                                      |
+| Terminal        | [Kitty](https://sw.kovidgoyal.net/kitty)                                        |
+| Shell           | [zsh](https://zsh.sourceforge.io/)                                              |
+| Editor          | [VSCode](https://code.visualstudio.com/) - [vim](https://github.com/vim/vim)    |
+| File Manager    | [Thunar](https://github.com/neilbrown/thunar)                                   |
+| Notifications   | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)                  |
+| Wallpapers      | [awww](https://codeberg.org/LGFae/awww) - [waypaper](https://github.com/anufrievroman/waypaper)   |
+| Terminal Font   | [Hasklug Nerd Font Mono](https://www.programmingfonts.org/#hasklig)             |
+
 
 ## File Structures
 ```
@@ -52,27 +71,30 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 
 ## Getting Started
 
-### Clone and navigate
-```git clone https://github.com/betmut/betmut-nixos-config.git
-cd betmut-nixos-config
+### 1. Clone the repo
+```
+cd ~
+git clone https://github.com/betmut/betmut-nixos-config.git
+cd ~/betmut-nixos-config
 ```
 
-### Build minimal install ISO
+### 2. Build the ISO
+Download the [Nix package manager](https://nixos.org/download/) and ISO installer from the [official NixOS Website](https://nixos.org/download/) or build the custom ISO file by running
 ```
+#if you clone the repo
 nix build .#packages.x86_64-linux.minimal-iso
+
+#if you run the flakes directly without cloning
+nix build github:betmut/betmut-nixos-config#packages.x86_64-linux.minimal-iso
 ```
 
-### Build VirtualBox image
-```
-nix build .#packages.x86_64-linux.vbox
-```
-
-### Apply to current NixOS system (replace <hostname> with output of cat hostname/linux)
+### 3. Rebuild the system configuration (NixOS)
 ```
 sudo nixos-rebuild switch --flake .#<hostname>
 ```
 
-### Apply to macOS (replace <mac-hostname>)
+### 4. Rebuild the system configuration (MacOS)
+Install [Nix-Darwin](https://github.com/nix-darwin/nix-darwin) and follow the installation instruction, and then, run this command:
 ```
 darwin-rebuild switch --flake .#<mac-hostname>
 ```
