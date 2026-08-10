@@ -93,7 +93,7 @@ nix build github:betmut/betmut-nixos-config#packages.x86_64-linux.minimal-iso
 sudo nixos-rebuild switch --flake .#<hostname>
 ```
 
-### 4. Rebuild the system configuration (NixOS)
+### 4. Rebuild the system configuration (MacOS)
 Install [Nix-Darwin](https://github.com/nix-darwin/nix-darwin) and follow the installation instruction, and then, run this command:
 ```
 darwin-rebuild switch --flake .#<mac-hostname>
