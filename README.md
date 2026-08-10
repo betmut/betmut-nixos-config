@@ -71,22 +71,30 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 
 ## Getting Started
 
-### 1. Build the ISO
-You can install the installer from the [official NixOS Website](https://nixos.org/download/) or build the custom ISO file located in iso-configurations by running
+### 1. Clone the repo
 ```
+cd ~
+git clone https://github.com/betmut/betmut-nixos-config.git
+cd ~/betmut-nixos-config
+```
+
+### 2. Build the ISO
+Download the [Nix package manager](https://nixos.org/download/) and ISO installer from the [official NixOS Website](https://nixos.org/download/) or build the custom ISO file by running
+```
+#if you clone the repo
 nix build .#packages.x86_64-linux.minimal-iso
+
+#if you run the flakes directly without cloning
+nix build github:betmut/betmut-nixos-config#packages.x86_64-linux.minimal-iso
 ```
 
-```git clone https://github.com/betmut/betmut-nixos-config.git
-cd betmut-nixos-config
-```
-
-### Apply to current NixOS system (replace <hostname> with output of cat hostname/linux)
+### 3. Rebuild the system configuration (NixOS)
 ```
 sudo nixos-rebuild switch --flake .#<hostname>
 ```
 
-### Apply to macOS (replace <mac-hostname>)
+### 4. Rebuild the system configuration (NixOS)
+Install [Nix-Darwin](https://github.com/nix-darwin/nix-darwin) and follow the installation instruction, and then, run this command:
 ```
 darwin-rebuild switch --flake .#<mac-hostname>
 ```
