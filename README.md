@@ -1,6 +1,6 @@
 # Betmut's NixOS Config
 
-This is my personal NixOS (Flakes) configurations. The default window Manager is Hyprland.
+This is my personal NixOS (Flakes) configurations.
 
 ![Alt Text](screenshots/screenshot-4.png)
 ![Alt Text](screenshots/screenshot-1.png)
