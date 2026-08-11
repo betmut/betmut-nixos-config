@@ -25,7 +25,7 @@ in
     (linuxmodulesPath + /ephemeral-guest.nix)
     (linuxmodulesPath + /fonts.nix)
     (linuxmodulesPath + /security.nix)
-    (linuxmodulesPath + /docker.nix)
+    (linuxmodulesPath + /podman.nix)
     (linuxmodulesPath + /users.nix)
     
     #services
