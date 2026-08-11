@@ -60,7 +60,6 @@
     
     timerConfig = {
       Unit = "wallpaper-switch.service";
-      OnBootSec = "1min";
       OnCalendar = [
         "*-*-* 06:02:00"
         "*-*-* 18:02:00"

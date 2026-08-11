@@ -1,17 +1,17 @@
 # Betmut's NixOS Config
 
-This is my personal NixOS (Flakes) configurations. The default window Manager is Hyprland.
+This is my personal NixOS (Flakes) configurations.
 
 ![Alt Text](screenshots/screenshot-4.png)
 ![Alt Text](screenshots/screenshot-1.png)
 ![Alt Text](screenshots/screenshot-3.png)
 
 ## Features
-- Strong modularity and reuse linux and services modules (you can even expand it into headless server configurations!)
-- Cross-platform support that spans Linux desktop and macOS (using [nix-darwin](https://github.com/nix-darwin/nix-darwin) with Homebrew)
-- Includes prebuilt outputs for install-ISO, VirtualBox, per-user Home Manager configs and Darwin system.
-- Add [Lix](https://lix.systems/) as replacement of Nix package manager to fix technical debt (improved evaluation speeds for example) and improve readibility of error messages
-- Add a wallpaper changer script to Change your wallpaper based on the time of day by pressing `SUPER+SHIFT+W` by default (you can actually change the keybinding as you wish)
+- **Highly modular and reusable configuration**: Linux desktop and service modules are designed for composition and reuse —       easily extended into headless server configurations.
+- **Cross-platform support**: works on NixOS/Linux desktops and macOS via `nix-darwin` (can integrate with Homebrew where appropriate).
+- **Prebuilt outputs**: includes ready-made artifacts for an install ISO, per-user Home Manager profiles, and a Darwin system configuration.
+- **Optional Lix support**: experimental integration with Lix as an alternative package manager to address technical debt — faster evaluations and clearer, more readable error messages.
+- **Time-aware wallpaper changer**: a small script that updates your wallpaper based on time of day; default keybinding `SUPER+SHIFT+W` (fully customizable).
 
 ## Default Environment details
 | Type            | Name                                                                            | 
@@ -43,10 +43,11 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 │   └── nixos
 │
 ├── iso-configurations/             # Custom ISO build configurations
-│   └── minimal-iso-config.nix      # Non-GUI custom ISO configurations 
+│   └── minimal-iso-config.nix      # Non-GUI custom ISO configurations (Including wl module for proprietary 
+│                                     Broadcom driver support, NTFS/APFS support) 
 │ 
 ├── modules/
-│   ├── linux                       # 13 focused modules (boot, hardware, kernel, networking, 
+│   ├── linux                       # 13+ focused modules (boot, docker, hardware, kernel, networking, 
 │   │                                 display-manager, gaming, security, fonts, users, etc.)
 │   │
 │   ├── packages                    # Custom packages that fetch directly from the source code 
@@ -90,7 +91,7 @@ nix build github:betmut/betmut-nixos-config#packages.x86_64-linux.minimal-iso
 
 ### 3. Rebuild the system configuration (NixOS)
 ```
-sudo nixos-rebuild switch --flake .#<hostname>
+sudo nixos-rebuild switch --flake .#<linux-hostname>
 ```
 
 ### 4. Rebuild the system configuration (MacOS)
@@ -98,6 +99,8 @@ Install [Nix-Darwin](https://github.com/nix-darwin/nix-darwin) and follow the in
 ```
 darwin-rebuild switch --flake .#<mac-hostname>
 ```
+
+Where you can change `<linux-hostname>` and `<mac-hostname>` at `hostname` directory
 
 ## License
 MIT — see `LICENSE`
