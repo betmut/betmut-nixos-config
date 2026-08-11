@@ -7,11 +7,11 @@ This is my personal NixOS (Flakes) configurations. The default window Manager is
 ![Alt Text](screenshots/screenshot-3.png)
 
 ## Features
-- Strong modularity and reuse linux and services modules (you can even expand it into headless server configurations!)
-- Cross-platform support that spans Linux desktop and macOS (using [nix-darwin](https://github.com/nix-darwin/nix-darwin) with Homebrew)
-- Includes prebuilt outputs for install-ISO, VirtualBox, per-user Home Manager configs and Darwin system.
-- Add [Lix](https://lix.systems/) as replacement of Nix package manager to fix technical debt (improved evaluation speeds for example) and improve readibility of error messages
-- Add a wallpaper changer script to Change your wallpaper based on the time of day by pressing `SUPER+SHIFT+W` by default (you can actually change the keybinding as you wish)
+- **Highly modular and reusable configuration**: Linux desktop and service modules are designed for composition and reuse —       easily extended into headless server configurations.
+- **Cross-platform support**: works on NixOS/Linux desktops and macOS via `nix-darwin` (can integrate with Homebrew where appropriate).
+- **Prebuilt outputs**: includes ready-made artifacts for an install ISO, per-user Home Manager profiles, and a Darwin system configuration.
+- **Optional Lix support**: experimental integration with Lix as an alternative package manager to address technical debt — faster evaluations and clearer, more readable error messages.
+- **Time-aware wallpaper changer**: a small script that updates your wallpaper based on time of day; default keybinding `SUPER+SHIFT+W (fully customizable)`.
 
 ## Default Environment details
 | Type            | Name                                                                            | 
