@@ -2,7 +2,12 @@
   <h1>Betmut's NixOS Config</h1>
 </div>
 <div align="center">
-  This is my personal NixOS (Flakes) configurations
+  
+  ![Static Badge](https://img.shields.io/badge/License-MIT-maroon)
+  [![Static Badge](https://img.shields.io/badge/codeberg-repo-blue?logo=codeberg)](https://codeberg.org/betmut/betmut-nixos-config)
+  [![Static Badge](https://img.shields.io/badge/github-repo-green?logo=github)](https://github.com/betmut/betmut-nixos-config)
+
+  <i>This is my personal NixOS (Flakes) configurations</i>
 </div>
 
 ## Wallpaper
@@ -11,6 +16,7 @@
 ![Alt Text](screenshots/screenshot-3.png)
 
 ## Features
+
 - **Highly modular and reusable configuration**: Linux desktop and service modules are designed for composition and reuse —       easily extended into headless server configurations.
 - **Cross-platform support**: works on NixOS/Linux desktops and macOS via `nix-darwin` (can integrate with Homebrew where appropriate).
 - **Prebuilt outputs**: includes ready-made artifacts for an install ISO, per-user Home Manager profiles, and a Darwin system configuration.
