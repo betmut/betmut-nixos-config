@@ -13,8 +13,8 @@ This is my personal NixOS (Flakes) configurations.
 - **Optional Lix support**: experimental integration with Lix as an alternative package manager to address technical debt — faster evaluations and clearer, more readable error messages.
 - **Time-aware wallpaper changer**: a small script that updates your wallpaper based on time of day; default keybinding `SUPER+SHIFT+W` (fully customizable).
 
-## Default Environment details
-| Type            | Name                                                                                                                               | 
+## Default Component details
+| Component       | Name                                                                                                                               | 
 | :--------       | :--------:                                                                                                                         |
 | Window Manager  | [Hyprland](https://github.com/hyprwm/hyprland)                                                                                     |
 | Status bar      | [Waybar](https://github.com/Alexays/Waybar)                                                                                        |
