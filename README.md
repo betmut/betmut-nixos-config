@@ -1,16 +1,26 @@
-# Betmut's NixOS Config
+<div align="center">
+  <h1>Betmut's NixOS Config</h1>
+</div>
+<div align="center">
+  
+  ![Static Badge](https://img.shields.io/badge/License-MIT-maroon)
+  [![Static Badge](https://img.shields.io/badge/codeberg-repo-blue?logo=codeberg)](https://codeberg.org/betmut/betmut-nixos-config)
+  [![Static Badge](https://img.shields.io/badge/github-repo-green?logo=github)](https://github.com/betmut/betmut-nixos-config)
 
-This is my personal NixOS (Flakes) configurations.
+  <i>This is my personal NixOS (Flakes) configurations</i>
+</div>
 
+## Wallpaper
 ![Alt Text](screenshots/screenshot-4.png)
 ![Alt Text](screenshots/screenshot-1.png)
 ![Alt Text](screenshots/screenshot-3.png)
 
 ## Features
+
 - **Highly modular and reusable configuration**: Linux desktop and service modules are designed for composition and reuse —       easily extended into headless server configurations.
 - **Cross-platform support**: works on NixOS/Linux desktops and macOS via `nix-darwin` (can integrate with Homebrew where appropriate).
 - **Prebuilt outputs**: includes ready-made artifacts for an install ISO, per-user Home Manager profiles, and a Darwin system configuration.
-- **Optional Lix support**: experimental integration with Lix as an alternative package manager to address technical debt — faster evaluations and clearer, more readable error messages.
+- **Lix support**: experimental integration with Lix as an alternative package manager to address technical debt — faster evaluations and clearer, more readable error messages.
 - **Time-aware wallpaper changer**: a small script that updates your wallpaper based on time of day; default keybinding `SUPER+SHIFT+W` (fully customizable) to change your wallpaper or `SUPER+W` to open `waypaper`.
 
 ## Default Component details
