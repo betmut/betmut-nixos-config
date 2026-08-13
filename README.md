@@ -1,7 +1,11 @@
-# Betmut's NixOS Config
+<div align="center">
+  <h1>Betmut's NixOS Config</h1>
+</div>
+<div align="center">
+  This is my personal NixOS (Flakes) configurations
+</div>
 
-This is my personal NixOS (Flakes) configurations.
-
+## Wallpaper
 ![Alt Text](screenshots/screenshot-4.png)
 ![Alt Text](screenshots/screenshot-1.png)
 ![Alt Text](screenshots/screenshot-3.png)
