@@ -14,20 +14,20 @@ This is my personal NixOS (Flakes) configurations.
 - **Time-aware wallpaper changer**: a small script that updates your wallpaper based on time of day; default keybinding `SUPER+SHIFT+W` (fully customizable).
 
 ## Default Environment details
-| Type            | Name                                                                            | 
-| :--------       | :--------:                                                                      |
-| Window Manager  | [Hyprland](https://github.com/hyprwm/hyprland)                                  |
-| Status bar      | [Waybar](https://github.com/Alexays/Waybar)                                     |
-| Color Theme     | [Gruvbox Dark](https://gruvbox.org/)                                            |
-| Kernel          | [XanMod](https://xanmod.org/)                                                   |
-| Launcher        | [rofi](https://github.com/davatorium/rofi)                                      |
-| Terminal        | [Kitty](https://sw.kovidgoyal.net/kitty)                                        |
-| Shell           | [zsh](https://zsh.sourceforge.io/)                                              |
-| Editor          | [VSCode](https://code.visualstudio.com/) - [vim](https://github.com/vim/vim)    |
-| File Manager    | [Thunar](https://github.com/neilbrown/thunar)                                   |
-| Notifications   | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)                  |
-| Wallpapers      | [awww](https://codeberg.org/LGFae/awww) - [waypaper](https://github.com/anufrievroman/waypaper)   |
-| Terminal Font   | [Hasklug Nerd Font Mono](https://www.programmingfonts.org/#hasklig)             |
+| Type            | Name                                                                                                                               | 
+| :--------       | :--------:                                                                                                                         |
+| Window Manager  | [Hyprland](https://github.com/hyprwm/hyprland)                                                                                     |
+| Status bar      | [Waybar](https://github.com/Alexays/Waybar)                                                                                        |
+| Color Theme     | [Gruvbox Dark](https://gruvbox.org/)                                                                                               |
+| Kernel          | [XanMod](https://xanmod.org/)                                                                                                      |
+| Launcher        | [rofi](https://github.com/davatorium/rofi)                                                                                         |
+| Terminal        | [kitty](https://sw.kovidgoyal.net/kitty)                                                                                           |
+| Shell           | [zsh](https://zsh.sourceforge.io/)                                                                                                 |
+| Editor          | [VSCode](https://code.visualstudio.com/) - [vim](https://github.com/vim/vim)                                                       |
+| File Manager    | [thunar](https://github.com/neilbrown/thunar)                                                                                      |
+| Notifications   | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter) - [libnotify](https://gitlab.gnome.org/GNOME/libnotify)             |
+| Wallpapers      | [awww](https://codeberg.org/LGFae/awww) - [waypaper](https://github.com/anufrievroman/waypaper)                                    |
+| Terminal Font   | [Hasklug Nerd Font Mono](https://www.programmingfonts.org/#hasklig)                                                                | 
 
 
 ## File Structures
