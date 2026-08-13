@@ -6,7 +6,7 @@ pkgs.waybar.overrideAttrs (oldAttrs: {
       owner = "alexays";      # Your github username/org
       repo = "waybar";        # Repo name
       rev = "d4a44172106e26ddc5e95e007202113d3141d03a";   # Git commit SHA, branch name, or tag
-      hash = "sha256-POvwObPOp6O14n6KYWNLp2Y3paunA5f8U1NCaodNFcc=";
+      hash = "sha256-su7t3Ub+XH8xxI1WRLzTjVgSd6p9R4dSUGdc9AHYROM=";
     };
 
     buildInputs = (oldAttrs.buildInputs or [ ]) ++ [

@@ -11,23 +11,23 @@ This is my personal NixOS (Flakes) configurations.
 - **Cross-platform support**: works on NixOS/Linux desktops and macOS via `nix-darwin` (can integrate with Homebrew where appropriate).
 - **Prebuilt outputs**: includes ready-made artifacts for an install ISO, per-user Home Manager profiles, and a Darwin system configuration.
 - **Optional Lix support**: experimental integration with Lix as an alternative package manager to address technical debt — faster evaluations and clearer, more readable error messages.
-- **Time-aware wallpaper changer**: a small script that updates your wallpaper based on time of day; default keybinding `SUPER+SHIFT+W` (fully customizable).
+- **Time-aware wallpaper changer**: a small script that updates your wallpaper based on time of day; default keybinding `SUPER+SHIFT+W` (fully customizable) to change your wallpaper or `SUPER+W` to open `waypaper`.
 
-## Default Environment details
-| Type            | Name                                                                            | 
-| :--------       | :--------:                                                                      |
-| Window Manager  | [Hyprland](https://github.com/hyprwm/hyprland)                                  |
-| Status bar      | [Waybar](https://github.com/Alexays/Waybar)                                     |
-| Color Theme     | [Gruvbox Dark](https://gruvbox.org/)                                            |
-| Kernel          | [XanMod](https://xanmod.org/)                                                   |
-| Launcher        | [rofi](https://github.com/davatorium/rofi)                                      |
-| Terminal        | [Kitty](https://sw.kovidgoyal.net/kitty)                                        |
-| Shell           | [zsh](https://zsh.sourceforge.io/)                                              |
-| Editor          | [VSCode](https://code.visualstudio.com/) - [vim](https://github.com/vim/vim)    |
-| File Manager    | [Thunar](https://github.com/neilbrown/thunar)                                   |
-| Notifications   | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)                  |
-| Wallpapers      | [awww](https://codeberg.org/LGFae/awww) - [waypaper](https://github.com/anufrievroman/waypaper)   |
-| Terminal Font   | [Hasklug Nerd Font Mono](https://www.programmingfonts.org/#hasklig)             |
+## Default Component details
+| Component       | Name                                                                                                                               | 
+| :--------       | :--------:                                                                                                                         |
+| Window Manager  | [Hyprland](https://github.com/hyprwm/hyprland)                                                                                     |
+| Status bar      | [Waybar](https://github.com/Alexays/Waybar)                                                                                        |
+| Color Theme     | [Gruvbox Dark](https://gruvbox.org/)                                                                                               |
+| Kernel          | [XanMod](https://xanmod.org/)                                                                                                      |
+| Launcher        | [rofi](https://github.com/davatorium/rofi)                                                                                         |
+| Terminal        | [kitty](https://sw.kovidgoyal.net/kitty)                                                                                           |
+| Shell           | [zsh](https://zsh.sourceforge.io/)                                                                                                 |
+| Editor          | [VSCode](https://code.visualstudio.com/) - [vim](https://github.com/vim/vim)                                                       |
+| File Manager    | [thunar](https://github.com/neilbrown/thunar)                                                                                      |
+| Notifications   | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter) - [libnotify](https://gitlab.gnome.org/GNOME/libnotify)             |
+| Wallpapers      | [awww](https://codeberg.org/LGFae/awww) - [waypaper](https://github.com/anufrievroman/waypaper)                                    |
+| Terminal Font   | [Hasklug Nerd Font Mono](https://www.programmingfonts.org/#hasklig)                                                                | 
 
 
 ## File Structures
