@@ -11,8 +11,9 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
 
-      - name: Install nix-darwin
-        run: sudo nix run nix-darwin/master#darwin-rebuild -- switch
+      - name: Set up Magic Nix Cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
 
-      - name: Build darwin configuration
-        run: sudo darwin-rebuild switch --flake .#macos
+      - name: Build darwin system derivation
+        # Targets your darwinConfigurations.<name>.system attribute
+        run: nix build .#darwinConfigurations.macos.system
