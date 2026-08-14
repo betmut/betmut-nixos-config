@@ -6,6 +6,9 @@
     system = "x86_64-linux";
     config.allowUnfree = true;
   };
+
+  # Define Hostname
+  networking.hostName = lib.removeSuffix "\n" (builtins.readFile ../../hostname/darwin);
   
   imports = [
     #common modules

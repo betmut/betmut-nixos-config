@@ -12,6 +12,9 @@ in
     config.allowUnfree = true;
   };
 
+  # Define Hostname
+  networking.hostName = lib.removeSuffix "\n" (builtins.readFile ../../hostname/nixos-chapunk);
+
   imports = [
     #common modules
     ../../modules/linux.nix

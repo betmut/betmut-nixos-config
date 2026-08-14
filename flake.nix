@@ -66,8 +66,8 @@
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-stable, lix-module, lix, ... }: 
   let
-    # Run scutil --get LocalHostName > ./hostname/mac to get your Mac Hostname (Please double check it!)
-    macHostname = nixpkgs.lib.removeSuffix "\n" (builtins.readFile ./hostname/mac);
+    # Run scutil --get LocalHostName > ./hostname/darwin to get your Mac Hostname (Please double check it!)
+    macHostname = nixpkgs.lib.removeSuffix "\n" (builtins.readFile ./hostname/darwin);
     system = "x86_64-linux";
     mkHomeUser = {user, filePath}: [
       inputs.home-manager.nixosModules.home-manager
