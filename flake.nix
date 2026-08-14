@@ -99,7 +99,7 @@
       ];
     };
 
-    nixosConfigurations.chapunk = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit inputs; };
       modules = 
