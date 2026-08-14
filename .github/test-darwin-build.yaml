@@ -1,0 +1,15 @@
+name: Test darwin build
+
+on: [push, pull_request]
+
+jobs:
+  test-macos-flake:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Build darwin configuration
+        run: darwin-rebuild switch .#macos

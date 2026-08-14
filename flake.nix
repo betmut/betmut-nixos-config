@@ -99,7 +99,7 @@
       ];
     }; 
 
-    darwinConfigurations.${macHostname} = inputs.nix-darwin.lib.darwinSystem {
+    darwinConfigurations.macos = inputs.nix-darwin.lib.darwinSystem {
       modules = (mkHomeUser {user = "macUser"; filePath = ./hm-users/macUser/home.nix;}) ++ [
         ({pkgs, config,  ...}: {
           # Optional: Align homebrew taps config with nix-homebrew
