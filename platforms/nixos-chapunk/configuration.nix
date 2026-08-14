@@ -1,4 +1,4 @@
-{config, pkgs, inputs, ... }: 
+{lib, config, pkgs, inputs, ... }: 
 let
 	desktopEnvironment = "hyprland";
   linuxmodulesPath = ../../modules/linux;
