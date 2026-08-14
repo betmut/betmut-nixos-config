@@ -69,7 +69,7 @@
 ├── platforms/
 │   ├── darwin                      # macOS (nix-darwin) system-level configurations
 │   │
-│   └── desktop                     # Linux desktop system-level configurations
+│   └── nixos-chapunk               # Default Linux system-level configurations with chapunk hostname
 │
 ├── hostname/                       # Hostname (linux, mac)
 ├── nix-settings.nix                # Nix daemon settings
