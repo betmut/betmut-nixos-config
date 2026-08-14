@@ -1,4 +1,4 @@
-{config, pkgs, inputs, ... }: 
+{lib, config, pkgs, inputs, ... }: 
 let
 	desktopEnvironment = "hyprland";
   linuxmodulesPath = ../../modules/linux;
@@ -11,6 +11,9 @@ in
     system = "x86_64-linux";
     config.allowUnfree = true;
   };
+
+  # Define Hostname
+  networking.hostName = lib.removeSuffix "\n" (builtins.readFile ../../hostname/nixos-chapunk);
 
   imports = [
     #common modules

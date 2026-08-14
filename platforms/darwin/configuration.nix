@@ -1,4 +1,4 @@
-{config, pkgs, inputs, ... }: {
+{lib, config, pkgs, inputs, ... }: {
 
   system.stateVersion = "26.05";
 
@@ -6,6 +6,9 @@
     system = "x86_64-linux";
     config.allowUnfree = true;
   };
+
+  # Define Hostname
+  networking.hostName = lib.removeSuffix "\n" (builtins.readFile ../../hostname/darwin);
   
   imports = [
     #common modules

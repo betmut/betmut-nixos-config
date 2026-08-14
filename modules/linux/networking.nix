@@ -1,8 +1,5 @@
 {config, pkgs, inputs, lib, ... }: {
   
-  # Define Hostname
-  networking.hostName = lib.removeSuffix "\n" (builtins.readFile ../../hostname/linux);
-
   # Networking
   networking.networkmanager = {
     enable = true;

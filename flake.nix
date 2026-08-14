@@ -13,17 +13,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lix = {
-      url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
-      flake = false;
-    };
-
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.lix.follows = "lix";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -64,11 +53,10 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, lix-module, lix, ... }: 
+  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, ... }: 
   let
-    # Run scutil --get LocalHostName > ./hostname/mac to get your Mac Hostname (Please double check it!)
-    macHostname = nixpkgs.lib.removeSuffix "\n" (builtins.readFile ./hostname/mac);
-    linuxHostname = nixpkgs.lib.removeSuffix "\n" (builtins.readFile ./hostname/linux);
+    # Run scutil --get LocalHostName > ./hostname/darwin to get your Mac Hostname (Please double check it!)
+    macHostname = nixpkgs.lib.removeSuffix "\n" (builtins.readFile ./hostname/darwin);
     system = "x86_64-linux";
     mkHomeUser = {user, filePath}: [
       inputs.home-manager.nixosModules.home-manager
@@ -96,11 +84,10 @@
       modules = (mkHomeUser {user = "nixos"; filePath = ./hm-users/nixos/home.nix;}) ++ [
         ({pkgs,...}:{users.users.nixos = userDefaults;})
         ./iso-configurations/minimal-iso-config.nix
-        inputs.lix-module.nixosModules.default
       ];
     };
 
-    nixosConfigurations.${linuxHostname} = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit inputs; };
       modules = 
@@ -108,7 +95,6 @@
       (mkHomeUser {user = "guest"; filePath = ./hm-users/guest/home.nix;}) ++ [
         inputs.stylix.nixosModules.stylix
         inputs.agenix.nixosModules.default
-        inputs.lix-module.nixosModules.default
         ./platforms/nixos-chapunk/configuration.nix
       ];
     }; 
