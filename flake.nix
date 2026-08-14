@@ -108,7 +108,7 @@
         ({pkgs, config,  ...}: {
           # Optional: Align homebrew taps config with nix-homebrew
           homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
-          nixpkgs.hostPlatform = builtins.currentSystem #"x86_64-darwin";
+          nixpkgs.hostPlatform = builtins.currentSystem; #"x86_64-darwin"
           users.users.macUser = userDefaults;
         })
         ./platforms/darwin/configuration.nix
