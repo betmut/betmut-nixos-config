@@ -68,7 +68,6 @@
   let
     # Run scutil --get LocalHostName > ./hostname/mac to get your Mac Hostname (Please double check it!)
     macHostname = nixpkgs.lib.removeSuffix "\n" (builtins.readFile ./hostname/mac);
-    linuxHostname = nixpkgs.lib.removeSuffix "\n" (builtins.readFile ./hostname/linux);
     system = "x86_64-linux";
     mkHomeUser = {user, filePath}: [
       inputs.home-manager.nixosModules.home-manager
@@ -100,7 +99,7 @@
       ];
     };
 
-    nixosConfigurations.${linuxHostname} = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.chapunk = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit inputs; };
       modules = 
