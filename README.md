@@ -102,7 +102,7 @@ nix build github:betmut/betmut-nixos-config#packages.x86_64-linux.minimal-iso
 
 ### 3. Rebuild the system configuration (NixOS)
 ```
-sudo nixos-rebuild switch --flake .#<linux-hostname>
+sudo nixos-rebuild switch --flake .#desktop
 ```
 
 ### 4. Rebuild the system configuration (MacOS)
@@ -111,7 +111,7 @@ Install [Nix-Darwin](https://github.com/nix-darwin/nix-darwin) and follow the in
 darwin-rebuild switch --flake .#<mac-hostname>
 ```
 
-Where you can change `<linux-hostname>` and `<mac-hostname>` at `hostname` directory
+Where you can change `<mac-hostname>` at `hostname` directory
 
 ## License
 MIT — see `LICENSE`
