@@ -109,7 +109,7 @@
         inputs.stylix.nixosModules.stylix
         inputs.agenix.nixosModules.default
         inputs.lix-module.nixosModules.default
-        ./platforms/desktop/configuration.nix
+        ./platforms/nixos-chapunk/configuration.nix
       ];
     }; 
 
