@@ -109,6 +109,7 @@
     }; 
 
     darwinConfigurations.darwinSystem = inputs.nix-darwin.lib.darwinSystem {
+      specialArgs = { inherit inputs; };
       modules = [
         ./platforms/darwin-macUser/configuration.nix
       ];
