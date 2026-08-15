@@ -5,7 +5,6 @@ let
 in
 {
   nixpkgs.hostPlatform = "${hostPlatform}";
-
   system.primaryUser = "${username}";
 
   users.users.${username} = {
