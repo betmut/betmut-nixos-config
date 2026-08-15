@@ -1,11 +1,11 @@
 {pkgs, inputs, config, lib, ...}:{
 
   # Allow proprietary software (Required for Broadcom)
-  allowUnfree = true;
-  permittedInsecurePackages = [
-    "broadcom-sta-6.30.223.271-63-6.18.44"
-  ];
-  
+  #allowUnfree = true;
+  #permittedInsecurePackages = [
+  #  "broadcom-sta-6.30.223.271-63-6.18.44"
+  #];
+
   services.fstrim.enable = true; #Enable TRIM
   services.printing.enable = true; #Enable CUPS to print documents.
   services.libinput.enable = true; #Enable touchpad support
