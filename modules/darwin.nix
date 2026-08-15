@@ -20,7 +20,7 @@
   };
 
   #dock configurations
-  system.defaults = {
+  system.primaryUser = {
 
     dock = {
       autohide = true;
