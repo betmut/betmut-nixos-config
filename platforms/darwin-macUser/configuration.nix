@@ -13,5 +13,8 @@
   imports = [
     #common modules
     ../../modules/darwin.nix
+    ../../modules/darwin/users.nix
+    ../../modules/darwin/homebrew.nix
+    ../../modules/darwin/home-manager.nix
   ];
 }

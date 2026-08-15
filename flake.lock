@@ -306,6 +306,26 @@
         "type": "github"
       }
     },
+    "home-manager-darwin-stable": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-stable-darwin"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786719456,
+        "narHash": "sha256-B74DLQs/VjlqyhnnX3tguWwghqJHWSJX30TKZuAljIg=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "83b7606dcf44abe3a94b86e8bb2b3355d22e8797",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "home-manager_2": {
       "inputs": {
         "nixpkgs": [
@@ -329,11 +349,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1786757702,
-        "narHash": "sha256-y/hf+C4IUqd+A3QGqW0Z5j3cm9k+H4gCp3UbFbav8Qk=",
+        "lastModified": 1786763031,
+        "narHash": "sha256-ihLK0n4s4RMRDJuYvJO9umVQh3N8eoL2UWLHL6WukzM=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "4da6b493868e59e7c10798ca4fcabf3ffe37640f",
+        "rev": "06fa7e9b55b920bdc7f764046dc04ce9bd3eb41b",
         "type": "github"
       },
       "original": {
@@ -345,11 +365,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1786758129,
-        "narHash": "sha256-TDbzXTqGpd62RsV1yjf36yJVWIrOQFIb3QUJPAtjuC0=",
+        "lastModified": 1786762521,
+        "narHash": "sha256-Q/sGmQi77ND78CGDhLJyd/CaL5sO9KauSG9O5+W6iGY=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "6a42130e900c63cfceae002c7b4b295094c98ca5",
+        "rev": "67b797a5eb352f8659af2dcbc093966331025829",
         "type": "github"
       },
       "original": {
@@ -900,6 +920,7 @@
         "agenix": "agenix",
         "awww": "awww",
         "home-manager": "home-manager_2",
+        "home-manager-darwin-stable": "home-manager-darwin-stable",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "hyprland": "hyprland",
