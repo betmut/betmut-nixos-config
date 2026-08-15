@@ -3,7 +3,7 @@ name: Test nix-darwin build
 on: [push, pull_request]
 
 jobs:
-  test-macos-flake:
+  test-nix-darwin-build:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4

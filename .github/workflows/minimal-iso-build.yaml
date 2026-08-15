@@ -3,7 +3,7 @@ name: Test minimal-iso build
 on: [push, pull_request]
 
 jobs:
-  test-macos-flake:
+  test-minimal-iso-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,4 +16,4 @@ jobs:
 
       - name: Build minimal-iso system derivation
         # Targets your packages.x86_64-linux.minimal-iso attribute
-        run: nix build .#nixosConfigurations.mySystem
+        run: nix build .#minimal-iso
