@@ -71,7 +71,6 @@ in
     grim
     slurp
     swappy
-    wf-recorder
     wl-clipboard
     gpu-screen-recorder-gtk # screen recorder 
 
