@@ -23,7 +23,8 @@ pkgs.waybar.overrideAttrs (oldAttrs: {
     mesonFlags = (oldAttrs.mesonFlags or [ ]) ++ [
       "-Dcava=disabled"
       "-Dtests=disabled"
-      "-Dbuildtype=release"
+      "--buildtype=release"
       "-Ddebug=false"
+      "-Dniri=false"          # Disable niri compilation
     ];
 })
