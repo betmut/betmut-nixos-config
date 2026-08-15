@@ -12,11 +12,11 @@
       theme = "xiong-chiamiov-plus";
     };
     
-    initContent = 
-    let
-      zshRPROMPT = lib.mkOrder 1000 (builtins.readFile ../../dotfiles/shell/custom_prompt.sh);
-    in
-      lib.mkMerge [zshRPROMPT];
+    #initContent = 
+    #let
+    #  zshRPROMPT = lib.mkOrder 1000 (builtins.readFile ../../dotfiles/shell/custom_prompt.sh);
+    #in
+    #  lib.mkMerge [zshRPROMPT];
     #Content to be added to {file}`.zshrc`.
 
     #To specify the order, use `lib.mkOrder`.

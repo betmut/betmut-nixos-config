@@ -13,5 +13,6 @@
   imports = [
     #common modules
     ../../modules/darwin.nix
+    ../../nix-settings.nix
   ];
 }
