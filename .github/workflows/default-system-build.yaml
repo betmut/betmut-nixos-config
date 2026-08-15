@@ -1,4 +1,4 @@
-name: Test minimal-iso build
+name: Test Default System build
 
 on: [push, pull_request]
 
@@ -15,5 +15,5 @@ jobs:
         uses: DeterminateSystems/magic-nix-cache-action@main
 
       - name: Build minimal-iso system derivation
-        # Targets your packages.x86_64-linux.minimal-iso.system attribute
-        run: nix build .#packages.x86_64-linux.minimal-iso.system
+        # Targets your packages.x86_64-linux.minimal-iso attribute
+        run: nix build .#packages.x86_64-linux.minimal-iso
