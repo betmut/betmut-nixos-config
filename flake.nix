@@ -117,8 +117,12 @@
           # Optional: Align homebrew taps config with nix-homebrew
           homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
           nixpkgs.hostPlatform = "aarch64-darwin"; #"x86_64-darwin"
-          #users.users.macUser = userDefaults;
-        })
+          users.users.macUser = { 
+            name = "macUser";
+            home = "/Users/macUser";
+            shell = pkgs.zsh;};
+          })
+
         ./platforms/darwin/configuration.nix
         inputs.nix-homebrew.darwinModules.nix-homebrew
         {
