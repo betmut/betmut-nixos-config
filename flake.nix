@@ -103,7 +103,7 @@
       ];
     }; 
 
-    darwinConfigurations.macos = inputs.nix-darwin.lib.darwinSystem {
+    darwinConfigurations.darwinSystem = inputs.nix-darwin.lib.darwinSystem {
       modules = [
         inputs.home-manager.darwinModules.home-manager
           {
@@ -117,7 +117,7 @@
           # Optional: Align homebrew taps config with nix-homebrew
           homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
           nixpkgs.hostPlatform = "aarch64-darwin"; #"x86_64-darwin"
-          users.users.macUser = userDefaults;
+          #users.users.macUser = userDefaults;
         })
         ./platforms/darwin/configuration.nix
         inputs.nix-homebrew.darwinModules.nix-homebrew
