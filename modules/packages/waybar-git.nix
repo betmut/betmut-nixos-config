@@ -5,7 +5,7 @@ pkgs.waybar.overrideAttrs (oldAttrs: {
     src = pkgs.fetchFromGitHub {
       owner = "alexays";      # Your github username/org
       repo = "waybar";        # Repo name
-      rev = "d4a44172106e26ddc5e95e007202113d3141d03a";   # Git commit SHA, branch name, or tag
+      rev = "09e69e0f48214a1128d62417612bc47e8dc9e36a";   # Git commit SHA, branch name, or tag
       hash = "sha256-su7t3Ub+XH8xxI1WRLzTjVgSd6p9R4dSUGdc9AHYROM=";
     };
 
