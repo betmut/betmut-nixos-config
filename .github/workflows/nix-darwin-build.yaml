@@ -1,4 +1,4 @@
-name: Test darwin build
+name: Test nix-darwin build
 
 on: [push, pull_request]
 
