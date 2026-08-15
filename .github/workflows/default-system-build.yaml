@@ -15,9 +15,6 @@ jobs:
         uses: DeterminateSystems/magic-nix-cache-action@main
 
       - name: Build default system derivation
-        env:
-          CI_BUILD: "true"
-        # Targets your nixosConfigurations.mySystem attribute
         run: |
           nix build .#nixosConfigurations.mySystem.config.system.build.toplevel \
             --extra-experimental-features "nix-command flakes" \

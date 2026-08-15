@@ -16,5 +16,6 @@ pkgs.waybar.overrideAttrs (oldAttrs: {
     # Disable CAVA to prevent Meson from looking for the missing subproject
     mesonFlags = (oldAttrs.mesonFlags or [ ]) ++ [
       "-Dcava=disabled"
+      "-Dtests=disabled"
     ];
 })
