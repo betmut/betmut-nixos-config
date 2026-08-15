@@ -1,5 +1,8 @@
-{lib, config, pkgs, inputs, ... }: {
-
+{lib, config, pkgs, inputs, ... }: 
+let
+  darwinmodulesPath = ../../modules/darwin;
+in
+{
   system.stateVersion = 7;
 
   # Define Hostname
@@ -7,8 +10,9 @@
   
   imports = [
     #common modules
-    ../../modules/darwin/users.nix
-    ../../modules/darwin/homebrew.nix
-    ../../modules/darwin/home-manager.nix
+    (darwinmodulesPath + /system.nix)
+    (darwinmodulesPath + /users.nix)
+    (darwinmodulesPath + /homebrew.nix)
+    (darwinmodulesPath + /home-manager.nix)
   ];
 }
