@@ -65,6 +65,16 @@
   outputs = inputs@{ self, nixpkgs, nixpkgs-stable, ... }: 
   let
     system = "x86_64-linux";
+    isCI = builtins.getEnv "CI_BUILD" == "true";
+
+    # Package overrides for CI
+    ciPackageOverrides = final: prev: {
+      waybar = if isCI then 
+        (prev.callPackage ./modules/packages/waybar-ci-override.nix {})
+      else
+        (prev.callPackage ./modules/packages/waybar-git.nix {});
+    };
+
     mkHomeUser = {user, filePath}: [
       inputs.home-manager.nixosModules.home-manager
       {
@@ -97,6 +107,7 @@
     nixosConfigurations.mySystem = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit inputs; };
+      pkgs = nixpkgs.legacyPackages.${system}.appendOverlays [ ciPackageOverrides ];
       modules = 
       (mkHomeUser {user = "mathewelhans"; filePath = ./hm-users/mathewelhans/home.nix;}) ++
       (mkHomeUser {user = "guest"; filePath = ./hm-users/guest/home.nix;}) ++ [
