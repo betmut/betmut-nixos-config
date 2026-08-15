@@ -2,17 +2,11 @@
 
   system.stateVersion = 7;
 
-  _module.args.pkgs-stable = import inputs.nixpkgs-stable {
-    system = "x86_64-linux";
-    config.allowUnfree = true;
-  };
-
   # Define Hostname
   networking.hostName = lib.removeSuffix "\n" (builtins.readFile ../../hostname/darwin);
   
   imports = [
     #common modules
-    ../../modules/darwin.nix
     ../../modules/darwin/users.nix
     ../../modules/darwin/homebrew.nix
     ../../modules/darwin/home-manager.nix
