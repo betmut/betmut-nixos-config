@@ -104,7 +104,15 @@
     }; 
 
     darwinConfigurations.macos = inputs.nix-darwin.lib.darwinSystem {
-      modules = (mkHomeUser {user = "macUser"; filePath = ./hm-users/macUser/home.nix;}) ++ [
+      modules = [
+        inputs.home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.macUser = ./hm-users/macUser/home.nix;
+          }
+        ] ++ [
         ({pkgs, config,  ...}: {
           # Optional: Align homebrew taps config with nix-homebrew
           homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
