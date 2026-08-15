@@ -1,10 +1,5 @@
-{ inputs, config, ... }:
-
-{
-  imports = [
-    inputs.nix-homebrew.darwinModules.nix-homebrew
-  ];
-
+{ inputs, config, ... }: {
+  
   # Align homebrew taps config with nix-homebrew
   homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
 

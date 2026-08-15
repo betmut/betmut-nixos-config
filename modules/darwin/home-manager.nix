@@ -1,10 +1,5 @@
-{ inputs, ... }:
-
-{
-  imports = [
-    inputs.home-manager-darwin-stable.darwinModules.home-manager
-  ];
-
+{ inputs, ... }: {
+  
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;

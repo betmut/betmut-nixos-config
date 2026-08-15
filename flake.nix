@@ -111,6 +111,8 @@
     darwinConfigurations.darwinSystem = inputs.nix-darwin.lib.darwinSystem {
       specialArgs = { inherit inputs; };
       modules = [
+        inputs.home-manager-darwin-stable.darwinModules.home-manager
+        inputs.nix-homebrew.darwinModules.nix-homebrew
         ./platforms/darwin-macUser/configuration.nix
       ];
     };
