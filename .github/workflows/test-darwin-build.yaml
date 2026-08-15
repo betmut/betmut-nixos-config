@@ -16,4 +16,4 @@ jobs:
 
       - name: Build darwin system derivation
         # Targets your darwinConfigurations.<name>.system attribute
-        run: nix build .#darwinConfigurations.macos
+        run: nix build .#darwinConfigurations.macos.system
