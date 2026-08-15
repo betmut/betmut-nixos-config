@@ -57,8 +57,11 @@
 │                                     Broadcom driver support, NTFS/APFS support) 
 │ 
 ├── modules/
-│   ├── linux                       # 13+ focused modules (boot, docker, hardware, kernel, networking, 
-│   │                                 display-manager, gaming, security, fonts, users, etc.)
+│   ├── linux                       # 13+ focused linux modules (boot, docker, hardware, kernel, 
+│   │                                 networking, display-manager, gaming, security, fonts,
+│   │                                 users, etc.)
+│   │
+│   ├── darwin                      # modules that focused on nix-darwin configurations
 │   │
 │   ├── packages                    # Custom packages that fetch directly from the source code 
 │   │                                 (waybar-git, zscroll, etc.)
