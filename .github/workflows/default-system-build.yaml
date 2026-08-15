@@ -16,4 +16,4 @@ jobs:
 
       - name: Build default system derivation
         # Targets your nixosConfigurations.mySystem attribute
-        run: nix build .#nixosConfigurations.mySystem.system
+        run: nix build .#nixosConfigurations.mySystem.config.system.build.toplevel
