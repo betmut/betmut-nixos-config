@@ -116,5 +116,12 @@ darwin-rebuild switch --flake .#<mac-hostname>
 
 Where you can change `<mac-hostname>` at `hostname` directory
 
+### Extra
+
+You can also run the wallpaper changer script by running:
+```
+bash <(curl -fsSL https://raw.githubusercontent.com/betmut/betmut-nixos-config/refs/heads/main/modules/services/scripts/change-wallpaper.sh)
+```
+
 ## License
 MIT — see `LICENSE`
