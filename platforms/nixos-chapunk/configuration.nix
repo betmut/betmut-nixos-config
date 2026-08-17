@@ -16,8 +16,11 @@ in
   networking.hostName = lib.removeSuffix "\n" (builtins.readFile ../../hostname/nixos-chapunk);
 
   imports = [
-    #common modules
-    ../../modules/linux.nix
+    #essential linux modules & services
+    (linuxmodulesPath + /default.nix)
+    (servicesPath + /default.nix)
+
+    #other essentials settings
     ../../stylix.nix
     ../../disks.nix
     ../../nix-settings.nix
@@ -38,5 +41,24 @@ in
 
     #desktop environment
     (../../desktop-environment + "/${desktopEnvironment}/${desktopEnvironment}.nix")
+  ];
+
+  #Environment Variables
+  environment.variables = {
+    EDITOR = "nano";
+    LIBVA_DRIVER_NAME = "iHD";
+  };
+
+  # System-wide packages
+  environment.systemPackages = with pkgs; [
+    tmux 
+    tree
+    git 
+    vim 
+    pciutils # Useful for 'lspci'
+    quickemu
+    cron
+    wireguard-tools
+    iptables
   ];
 }
