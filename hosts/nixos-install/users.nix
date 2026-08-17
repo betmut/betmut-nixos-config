@@ -1,4 +1,4 @@
-{config, pkgs, inputs, ... }: 
+{lib, config, pkgs, inputs, ... }: 
 let 
   userConfig = {
     shell = pkgs.zsh;
@@ -7,21 +7,14 @@ let
   };
 in
 {
-  users.users.mathewelhans = userConfig // {
+  
+  users.users.awooga = userConfig // {
     extraGroups = userConfig.extraGroups ++ [ 
       "wheel" 
-      "transmission" 
-      "qbittorrent"
-      "sonarr"
-      "radarr"
-      "bazarr"
       "gamemode"
     ];
-    home = "/home/mathewelhans";
-  };
-  
-  users.users.guest = userConfig // {
-    initialPassword = "guest";
-    home = "/home/guest";
+    home = "/home/awooga";
+    initialPassword = "301103";
+    initialHashedPassword = lib.mkForce null;
   };
 }

@@ -76,20 +76,12 @@
           };
       }
     ];
-    userDefaults = {
-      shell = nixpkgs.legacyPackages.x86_64-linux.zsh;
-      isNormalUser = true;
-      extraGroups = ["users" "audio" "networkmanager" "video" "render"];
-      initialPassword = "aezakmi";
-      initialHashedPassword = nixpkgs.lib.mkForce null;
-    };
   in
   {
     packages.x86_64-linux.minimal-iso = inputs.nixos-generators.nixosGenerate {
       inherit system;
       format = "install-iso";
       modules = (mkHomeUser {user = "nixos"; filePath = ./hm-users/nixos/home.nix;}) ++ [
-        ({pkgs,...}:{users.users.nixos = userDefaults;})
         ./iso-configurations/minimal-iso-config.nix
       ];
     };
@@ -109,7 +101,8 @@
     nixosConfigurations.nixos-install = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit inputs; };
-      modules = [
+      modules =
+      (mkHomeUser {user = "awooga"; filePath = ./hm-users/awooga/home.nix;}) ++ [
         ./hosts/nixos-install/configuration.nix
       ];
     }; 

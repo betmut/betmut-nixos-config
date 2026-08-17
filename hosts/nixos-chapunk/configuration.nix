@@ -29,6 +29,7 @@ in
     #linux modules
     (linuxmodulesPath + /display-manager.nix)
     (linuxmodulesPath + /gaming.nix)
+    (linuxmodulesPath + /ephemeral-guest.nix)
     (linuxmodulesPath + /fonts.nix)
     (linuxmodulesPath + /security.nix)
     (linuxmodulesPath + /podman.nix)
