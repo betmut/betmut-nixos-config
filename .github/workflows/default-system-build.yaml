@@ -14,6 +14,9 @@ jobs:
       - name: Set up Magic Nix Cache
         uses: DeterminateSystems/magic-nix-cache-action@main
 
+      - name: Check nix flakes
+        run: nix flake check --extra-deprecated-features or-as-identifier
+
       - name: Build default system derivation
         run: |
           nix build .#nixosConfigurations.mySystem.config.system.build.toplevel \
