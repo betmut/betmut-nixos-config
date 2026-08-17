@@ -14,58 +14,15 @@ in
     (linuxmodulesPath + /default.nix)
     (servicesPath + /default.nix)
     
-    #other essentials settings
+    #essential settings
     ../../disks.nix
     ../../nix-settings.nix
+
+    # you can modify the default configuration here and add 
+    #your own modules, packages, and settings
+    ./users.nix
+    ./boot.nix
+    ./packages.nix
+    ./env-variable.nix
   ];
-
-  #Environment Variables
-  environment.variables = {
-    EDITOR = "nano";
-    LIBVA_DRIVER_NAME = "iHD";
-  };
-
-  # System-wide packages
-  environment.systemPackages = with pkgs; [
-    tmux 
-    tree
-    git 
-    vim 
-    pciutils # Useful for 'lspci'
-    quickemu
-    cron
-    wireguard-tools
-    iptables
-  ];
-
-  #You can override the configuration right here like bootloader, users, etc.
-
-  #Overriding existing bootloader configuration
-  #
-  # if you use GRUB
-  #boot.loader = {
-  #  efi.canTouchEfiVariables = lib.mkForce false;
-  #  grub = {
-  #    enable = true;
-  #    device = "nodev";
-  #    efiSupport = true;
-  #    efiInstallAsRemovable = true; # Copies grub to /EFI/BOOT/BOOTX64.EFI
-  #  };
-  #}; 
-
-  # if you use systemd-boot
-  #boot.loader = {
-  #  grub.enable = lib.mkForce false;
-  #  efi.canTouchEfiVariables = lib.mkForce false;
-  #  systemd-boot.enable = true;
-  #};
-
-  # Add a user!
-  #users.users.alice = {
-  #  isNormalUser = true;
-  #  description = "Alice";
-  # extraGroups = [ "wheel" ]; # Sudo access
-  #  shell = pkgs.bash;
-  #  home = "/home/alice";
-  #};
 }

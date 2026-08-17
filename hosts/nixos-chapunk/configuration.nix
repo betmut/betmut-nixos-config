@@ -24,15 +24,14 @@ in
     ../../stylix.nix
     ../../disks.nix
     ../../nix-settings.nix
+    ./users.nix
 
     #linux modules
     (linuxmodulesPath + /display-manager.nix)
     (linuxmodulesPath + /gaming.nix)
-    (linuxmodulesPath + /ephemeral-guest.nix)
     (linuxmodulesPath + /fonts.nix)
     (linuxmodulesPath + /security.nix)
     (linuxmodulesPath + /podman.nix)
-    (linuxmodulesPath + /users.nix)
     
     #services
     (servicesPath + /mac-hardware.nix)
