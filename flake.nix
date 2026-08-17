@@ -101,9 +101,9 @@
     nixosConfigurations.nixos-install = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit inputs; };
-      modules =
-      (mkHomeUser {user = "awooga"; filePath = ./hm-users/awooga/home.nix;}) ++ [
-        ./hosts/nixos-install/configuration.nix
+      modules = [
+        ./nixos/configuration.nix
+        ./nixos/hardware-configuration.nix
       ];
     }; 
 
