@@ -106,13 +106,11 @@
       ];
     }; 
 
-    nixosConfigurations."nixos-install" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixos-install = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit inputs; };
-      modules = 
-      (mkHomeUser {user = "mathewelhans"; filePath = ./hm-users/mathewelhans/home.nix;}) ++
-      (mkHomeUser {user = "guest"; filePath = ./hm-users/guest/home.nix;}) ++ [
-        ./hosts/nixos-chapunk/configuration.nix
+      modules = [
+        ./hosts/nixos-install/configuration.nix
       ];
     }; 
 
