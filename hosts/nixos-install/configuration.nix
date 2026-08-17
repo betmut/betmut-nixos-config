@@ -43,7 +43,7 @@ in
   #Overriding existing bootloader configuration
   #GRUB
   #boot.loader = {
-  #  efi.canTouchEfiVariables = false;
+  #  efi.canTouchEfiVariables = lib.mkForce false;
   #  grub = {
   #    enable = true;
   #    device = "nodev";
@@ -54,7 +54,7 @@ in
 
   #systemd-boot
   #boot.loader = {
-  #  efi.canTouchEfiVariables = false;
+  #  efi.canTouchEfiVariables = lib.mkForce false;
   #  systemd-boot.enable = true;
   #};
 
