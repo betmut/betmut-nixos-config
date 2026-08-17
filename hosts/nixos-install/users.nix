@@ -17,11 +17,11 @@ in
       "bazarr"
       "gamemode"
     ];
-    home = "/home/mathewelhans"
+    home = "/home/mathewelhans";
   };
   
   users.users.guest = userConfig // {
     initialPassword = "guest";
-    home = "/home/guest"
+    home = "/home/guest";
   };
 }
