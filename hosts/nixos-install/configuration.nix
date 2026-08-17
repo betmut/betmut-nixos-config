@@ -41,7 +41,8 @@ in
   #You can override the configuration right here like bootloader, users, etc.
 
   #Overriding existing bootloader configuration
-  #GRUB
+  #
+  # if you use GRUB
   #boot.loader = {
   #  efi.canTouchEfiVariables = lib.mkForce false;
   #  grub = {
@@ -52,8 +53,9 @@ in
   #  };
   #}; 
 
-  #systemd-boot
+  # if you use systemd-boot
   #boot.loader = {
+  #  grub.enable = lib.mkForce false;
   #  efi.canTouchEfiVariables = lib.mkForce false;
   #  systemd-boot.enable = true;
   #};
