@@ -5,12 +5,12 @@
 
 {
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/8b3b54f8-35d0-4661-9da9-b36035a42d65";
+    { device = "/dev/disk/by-label/NIXOS_ROOT";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/12D2-6135";
+    { device = "/dev/disk/by-label/NIXOS_BOOT";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
@@ -22,7 +22,7 @@
       priority = 10; # Higher number = higher priority
     }
     {
-      device = "/dev/disk/by-uuid/8d38cd5c-42f5-4dfc-b95a-2125eec46836";
+      device = "/dev/disk/by-label/NIXOS_SWAP";
       priority = 10; # If priorities match, it balances between them
     }
   ];

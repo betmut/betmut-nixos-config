@@ -102,7 +102,17 @@
       (mkHomeUser {user = "guest"; filePath = ./hm-users/guest/home.nix;}) ++ [
         inputs.stylix.nixosModules.stylix
         inputs.agenix.nixosModules.default
-        ./platforms/nixos-chapunk/configuration.nix
+        ./hosts/nixos-chapunk/configuration.nix
+      ];
+    }; 
+
+    nixosConfigurations."nixos-install" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = { inherit inputs; };
+      modules = 
+      (mkHomeUser {user = "mathewelhans"; filePath = ./hm-users/mathewelhans/home.nix;}) ++
+      (mkHomeUser {user = "guest"; filePath = ./hm-users/guest/home.nix;}) ++ [
+        ./hosts/nixos-chapunk/configuration.nix
       ];
     }; 
 
@@ -111,7 +121,7 @@
       modules = [
         inputs.home-manager-darwin-stable.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew
-        ./platforms/darwin-macUser/configuration.nix
+        ./hosts/darwin-macUser/configuration.nix
       ];
     };
   };
