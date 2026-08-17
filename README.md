@@ -69,11 +69,14 @@
 │   └── services                    # Desktop services (SSH, media, location, torrent, 
 │                                     RStudio server)
 │
-├── platforms/
+├── hosts/
 │   ├── darwin                      # macOS (nix-darwin) system-level configurations
 │   │
-│   └── nixos-chapunk               # Default Linux system-level configurations 
-│                                     with chapunk hostname
+│   ├── nixos-chapunk               # Default Linux system-level configurations 
+│   │                                 with chapunk hostname
+│   │                                 
+│   └── nixos-install              #  Configurations for NixOS installation           
+│
 │
 ├── hostname/                       # Hostname (linux, mac)
 ├── nix-settings.nix                # Nix daemon settings
