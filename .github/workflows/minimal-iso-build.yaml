@@ -15,8 +15,8 @@ jobs:
         uses: DeterminateSystems/magic-nix-cache-action@main
 
       - name: Check nix flakes
-        run: nix flake check --extra-deprecated-features or-as-identifier
-
+        run: nix flake check 
+        
       - name: Build minimal-iso system derivation
         # Targets your packages.x86_64-linux.minimal-iso attribute
         run: nix build .#minimal-iso
