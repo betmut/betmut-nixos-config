@@ -5,7 +5,6 @@ let
 in
 {
   imports = [
-    ../nix-settings.nix
 
     (linuxmodulesPath + /kernel.nix)
     (linuxmodulesPath + /hardware.nix)
