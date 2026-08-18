@@ -161,7 +161,7 @@
                 	"warning": 20,
                 	"critical": 10
 	            },
-	            "format": "{icon} {capacity}%",
+	            "format": "{icon} {capacity}<span font='10'>%</span>",
 	            "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂁", "󰂂", "󰁹"],
 	            "format-full": "{icon} {capacity}%",
 	            "format-charging": "󰂄 {capacity}<span font='10'>%</span>",
