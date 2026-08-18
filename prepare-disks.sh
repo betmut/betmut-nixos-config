@@ -45,6 +45,28 @@ if [[ -z "$BOOT_PARTITION" || -z "$ROOT_PARTITION" ]]; then
     usage
 fi
 
+# ==================== WARNING & CONFIRMATION ====================
+cat <<EOF
+
+============================================================
+                        WARNING
+============================================================
+This script will IRREVERSIBLY FORMAT and DESTROY ALL DATA on:
+  • Boot Partition: $BOOT_PARTITION
+  • Root Partition: $ROOT_PARTITION
+  • Swap Partition: ${SWAP_PARTITION:-[None provided]}
+============================================================
+
+EOF
+
+read -rp "Are you absolutely sure you want to proceed? (Type 'yes' to continue): " CONFIRMATION
+
+if [[ "$CONFIRMATION" != "yes" ]]; then
+    echo "Operation aborted by user. No disks were modified."
+    exit 0
+fi
+# ================================================================
+
 # Formatting and labeling boot partition 
 echo "Formatting and labeling boot partition..."
 mkfs.fat -F 32 "$BOOT_PARTITION"
