@@ -5,7 +5,7 @@
   
   "modules-left":   ["custom/nixos", "hyprland/workspaces", "tray", "custom/playerctl"],
   "modules-center": ["clock"],
-  "modules-right":  ["custom/fan", "temperature", "cpu", "memory", "battery", "custom/power"],
+  "modules-right":  ["temperature", "custom/fan", "cpu", "memory", "battery", "custom/power"],
 
   "wlr/taskbar": {
 	"format": "{icon} {app_id}",
@@ -58,9 +58,9 @@
     },
 
     "custom/fan": {
-        "exec" : "sensors | awk '/Exhaust/ {print $3, $4}'",
+        "exec" : "sensors | awk '/Exhaust/ {print $3}'",
         "interval" : 2,
-        "format": "󰈐  {}", 
+        "format": "󰈐  {} <span font='10'>rpm</span>", 
         "tooltip": false
     },
 
@@ -130,18 +130,18 @@
 		"hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
 		"critical-threshold": 85,
 		"interval": 1,
-		"format": "<span font='12' rise='-2500'>󰏈 </span> {temperatureC} °C",
+		"format": "󰏈   {temperatureC} <span font='10'>°C</span>",
 		"tooltip": false
 	},
 
   "cpu": {
     "interval": 2,
-    "format": "   {usage:>2}%"
+    "format": "   {usage:>2} <span font='10'>%</span>"
   },
 
   "memory": {
     "interval": 2,
-    "format":"   {percentage}%",
+    "format":"   {percentage} <span font='10'>%</span>",
     "max-length": 30,
     "tooltip": true,
     "tooltip-format":"{used:0.1f}GiB/{total:0.1f}GiB used"
@@ -164,7 +164,7 @@
 	            "format": "{icon} {capacity}%",
 	            "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂁", "󰂂", "󰁹"],
 	            "format-full": "{icon} {capacity}%",
-	            "format-charging": "󰂄 {capacity}%",
+	            "format-charging": "󰂄 {capacity} <span font='10'>%</span>",
             "tooltip": true
   },
     
