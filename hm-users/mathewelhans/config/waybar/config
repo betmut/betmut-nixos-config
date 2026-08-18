@@ -5,7 +5,7 @@
   
   "modules-left":   ["custom/nixos", "hyprland/workspaces", "tray", "custom/playerctl"],
   "modules-center": ["clock"],
-  "modules-right":  ["temperature", "cpu", "memory", "battery", "custom/power"],
+  "modules-right":  ["custom/fan", "temperature", "cpu", "memory", "battery", "custom/power"],
 
   "wlr/taskbar": {
 	"format": "{icon} {app_id}",
@@ -55,6 +55,13 @@
         "tooltip": true,
         "tooltip-format": "About Device",
         "on-click": "kitty --hold fastfetch" // Optional: make it open your app menu
+    },
+
+    "custom/fan": {
+        "exec" : "sensors | awk '/Exhaust/ {print $3, $4}'",
+        "interval" : 2,
+        "format": "󰈐  {}", 
+        "tooltip": false
     },
 
    "custom/music": {
