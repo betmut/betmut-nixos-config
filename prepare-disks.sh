@@ -6,27 +6,42 @@ SWAP_PARTITION=""
 ROOT_PARTITION=""
 
 usage() {
-    echo "Usage: $0 -b <boot_partition> -s <swap_partition> -r <root_partition>"
-    echo "  -b    Path to boot partition (e.g., /dev/nvme0n1p1)"
-    echo "  -s    Path to swap partition (e.g., /dev/nvme0n1p2)"
-    echo "  -r    Path to root partition (e.g., /dev/nvme0n1p3)"
-    echo "  -h    Show this help message"
+    echo "Usage: $0 -b|--boot <partition> -r|--root <partition> [-s|--swap <partition>]"
+    echo "  -b, --boot    Path to boot partition (e.g., /dev/nvme0n1p1) [Required]"
+    echo "  -r, --root    Path to root partition (e.g., /dev/nvme0n1p3) [Required]"
+    echo "  -s, --swap    Path to swap partition (e.g., /dev/nvme0n1p2) [Optional]"
+    echo "  -h, --help    Show this help message"
     exit 1
 }
 
-while getopts "b:s:r:h" opt; do
-    case "$opt" in
-        b) BOOT_PARTITION="$OPTARG" ;;
-        s) SWAP_PARTITION="$OPTARG" ;;
-        r) ROOT_PARTITION="$OPTARG" ;;
-        h) usage ;;
-        *) usage ;;
+# Parse short and long arguments manually
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -b|--boot)
+            BOOT_PARTITION="$2"
+            shift 2
+            ;;
+        -r|--root)
+            ROOT_PARTITION="$2"
+            shift 2
+            ;;
+        -s|--swap)
+            SWAP_PARTITION="$2"
+            shift 2
+            ;;
+        -h|--help)
+            usage
+            ;;
+        *)
+            echo "Error: Unknown argument: $1" >&2
+            usage
+            ;;
     esac
 done
 
-# Ensure all required flags were passed
-if [[ -z "$BOOT_PARTITION" || -z "$SWAP_PARTITION" || -z "$ROOT_PARTITION" ]]; then
-    echo "Error: Missing required partition arguments." >&2
+# Ensure required arguments are provided
+if [[ -z "$BOOT_PARTITION" || -z "$ROOT_PARTITION" ]]; then
+    echo "Error: Missing required partition arguments (--boot and --root are required)." >&2
     usage
 fi
 
@@ -39,14 +54,21 @@ fatlabel "$BOOT_PARTITION" NIXOS_BOOT
 echo "Formatting and labeling root partition..."
 mkfs.ext4 -L NIXOS_ROOT "$ROOT_PARTITION"
 
-# Formatting and labeling swap partition
-echo "Formatting and labeling swap partition..."
-mkswap -L NIXOS_SWAP "$SWAP_PARTITION"
+# Formatting and labeling swap partition (only if provided)
+if [[ -n "$SWAP_PARTITION" ]]; then
+    echo "Formatting and labeling swap partition..."
+    mkswap -L NIXOS_SWAP "$SWAP_PARTITION"
+fi
 
 # Mounting the partitions
 echo "Mounting the partitions..."
 mount "$ROOT_PARTITION" /mnt
 mount --mkdir "$BOOT_PARTITION" /mnt/boot
-swapon "$SWAP_PARTITION"
+
+# Enabling swap (only if provided)
+if [[ -n "$SWAP_PARTITION" ]]; then
+    echo "Enabling swap..."
+    swapon "$SWAP_PARTITION"
+fi
 
 echo "Done!"
