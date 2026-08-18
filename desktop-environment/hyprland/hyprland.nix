@@ -66,7 +66,7 @@ in
     file-roller                 #archive manager
     mpv                         #media player
     ghostscript                 #PostScript interpreter
-    sensors
+    lm_sensors
 
     #screenshot tools
     grim
