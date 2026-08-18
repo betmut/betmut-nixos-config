@@ -8,8 +8,7 @@ in
     shell = pkgs.zsh;
     isNormalUser = true;
     extraGroups = ["users" "audio" "networkmanager" "video" "render"];
-    initialPassword = "301103";
-    initialHashedPassword = nixpkgs.lib.mkForce null;
+    initialHashedPassword = lib.mkForce null;
   };
   
   imports = [
@@ -24,6 +23,6 @@ in
     (servicesPath + /mac-hardware.nix)
   ];
 
-  #Overwriting hostname value
+  #hostname
   networking.hostName = lib.mkForce "arendelle";
 }
