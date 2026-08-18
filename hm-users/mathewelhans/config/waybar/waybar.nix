@@ -13,4 +13,10 @@ in
     "waybar/config".source = ./config;
     "waybar/style.css".source = lib.mkForce ./style.css;
   };
+
+  #Packages
+  home.packages = with pkgs; [
+    lm-sensors
+  ];
+
 }
