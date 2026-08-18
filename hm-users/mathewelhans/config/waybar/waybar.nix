@@ -16,7 +16,7 @@ in
 
   #Packages
   home.packages = with pkgs; [
-    lm-sensors
+    lm_sensors
   ];
 
 }
