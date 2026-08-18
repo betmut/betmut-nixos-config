@@ -136,12 +136,12 @@
 
   "cpu": {
     "interval": 2,
-    "format": "   {usage:>2} <span font='10'>%</span>"
+    "format": "   {usage:>2}<span font='10'>%</span>"
   },
 
   "memory": {
     "interval": 2,
-    "format":"   {percentage} <span font='10'>%</span>",
+    "format":"   {percentage}<span font='10'>%</span>",
     "max-length": 30,
     "tooltip": true,
     "tooltip-format":"{used:0.1f}GiB/{total:0.1f}GiB used"
@@ -164,7 +164,7 @@
 	            "format": "{icon} {capacity}%",
 	            "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂁", "󰂂", "󰁹"],
 	            "format-full": "{icon} {capacity}%",
-	            "format-charging": "󰂄 {capacity} <span font='10'>%</span>",
+	            "format-charging": "󰂄 {capacity}<span font='10'>%</span>",
             "tooltip": true
   },
     
