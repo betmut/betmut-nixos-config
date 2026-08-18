@@ -163,8 +163,8 @@
 	            },
 	            "format": "{icon} {capacity}<span font='10'>%</span>",
 	            "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂁", "󰂂", "󰁹"],
-	            "format-full": "{icon} {capacity}%",
-	            "format-charging": "󰂄 {capacity}",
+	            "format-full": "{icon} {capacity}<span font='10'>%</span>",
+	            "format-charging": "󰂄 {capacity}<span font='10'>%</span>",
             "tooltip": true
   },
     
