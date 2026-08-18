@@ -10,10 +10,10 @@
   <i>This is my personal NixOS (Flakes) configurations</i>
 </div>
 
-## Wallpaper
+## Screenshots
 ![Alt Text](screenshots/screenshot-4.png)
-![Alt Text](screenshots/screenshot-1.png)
 ![Alt Text](screenshots/screenshot-3.png)
+![Alt Text](screenshots/screenshot-5.png)
 
 ## Features
 
@@ -75,9 +75,10 @@
 │   ├── nixos-chapunk               # Default Linux system-level configurations 
 │   │                                 with chapunk hostname
 │   │                                 
-│   └── nixos-install              #  Configurations for NixOS installation           
+│   └── nixos-install               #  Configurations for NixOS installation           
 │
 │
+├── nixos/                          # nixos-generate-config generated configuration for installation
 ├── hostname/                       # Hostname (linux, mac)
 ├── nix-settings.nix                # Nix daemon settings
 ├── disks.nix                       # Disk/filesystem configuration    
