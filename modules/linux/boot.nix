@@ -45,7 +45,7 @@ in
         exec tail -n +3 $0
         
         if [ -z "$chosen" ] ; then
-          if [ "${config_file}" ] ; then
+          if [ "''${config_file}" ] ; then
             configfile $prefix/$config_file
           fi
         fi
