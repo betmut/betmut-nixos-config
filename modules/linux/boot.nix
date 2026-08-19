@@ -40,7 +40,9 @@ in
         allFiles = pkgs.lib.filesystem.listFilesRecursive themeDir;
         # Strip the base themeDir prefix to get the relative subpath for each file
         themeFileEntries = builtins.listToAttrs (map (file: {
-          name = "grub/themes/minegrub" + pkgs.lib.removePrefix (toString themeDir) (toString file);
+          name = builtins.unsafeDiscardStringContext (
+            "grub/themes/minegrub" + pkgs.lib.removePrefix (toString themeDir) (toString file);
+          );
           value = file;
         }) allFiles);
       in
