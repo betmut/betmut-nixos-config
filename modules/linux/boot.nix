@@ -32,7 +32,7 @@ in
       efiInstallAsRemovable = true;
 
       # 1. Set the initial theme to the world-selection theme
-      theme = "${minegrub-world-sel}/minegrub-world-selection";
+      theme = "${minegrub-world-sel}/minegrub-world-selection/theme.txt";
 
       # 2. Copy the second theme and the secondary config file to /boot/grub/
       extraFiles = {
