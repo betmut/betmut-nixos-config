@@ -37,14 +37,16 @@ in
       # 2. Copy the second theme and the secondary config file to /boot/grub/
       extraFiles = let
         themeDir = "${minegrub-theme}/minegrub";
-        files = builtins.attrNames (builtins.readDir themeDir);
+        allFiles = pkgs.lib.filesystem.listFilesRecursive themeDir;
+        # Strip the base themeDir prefix to get the relative subpath for each file
+        themeFileEntries = builtins.listToAttrs (map (file: {
+          name = "grub/themes/minegrub" + pkgs.lib.removePrefix (toString themeDir) (toString file);
+          value = file;
+        }) allFiles);
       in
       {
         "grub/mainmenu.cfg" = "${minegrub-double-menu}/mainmenu.cfg";
-      } // builtins.listToAttrs (map (name: {
-        name = "grub/themes/minegrub/${name}";
-        value = "${themeDir}/${name}";
-      }) files);
+      } // themeFileEntries;
 
       # 3. Inject the logic from 05_twomenus into grub.cfg
       extraConfig = ''
