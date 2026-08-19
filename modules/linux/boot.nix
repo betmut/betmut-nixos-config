@@ -35,10 +35,16 @@ in
       theme = "${minegrub-world-sel}/minegrub-world-selection";
 
       # 2. Copy the second theme and the secondary config file to /boot/grub/
-      extraFiles = {
-        "grub/themes/minegrub" = "${minegrub-theme}/minegrub";
+      extraFiles = let
+        themeDir = "${minegrub-theme}/minegrub";
+        files = builtins.attrNames (builtins.readDir themeDir);
+      in
+      {
         "grub/mainmenu.cfg" = "${minegrub-double-menu}/mainmenu.cfg";
-      };
+      } // builtins.listToAttrs (map (name: {
+        name = "grub/themes/minegrub/${name}";
+        value = "${themeDir}/${name}";
+      }) files);
 
       # 3. Inject the logic from 05_twomenus into grub.cfg
       extraConfig = ''
