@@ -18,7 +18,7 @@ let
     owner = "Lxtharia";
     repo = "minegrub-double-menu";
     rev = "dev";
-    sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+    sha256 = "sha256-JkTUy/j2H1Et8vvN2BCMX37DAPcQHqMTpQ667NbVpOk=";
   };
 in
 {
