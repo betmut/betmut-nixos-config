@@ -86,7 +86,7 @@
       ];
     };
 
-    nixosConfigurations.mySystem = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.erdos = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit inputs; };
       modules = 
