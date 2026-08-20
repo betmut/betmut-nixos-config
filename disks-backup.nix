@@ -4,7 +4,6 @@
 { config, lib, pkgs, ... }:
 
 {
-
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/7ea0ecd1-ff9b-4601-aea5-dc801c0e2a76";
       fsType = "ext4";
@@ -17,6 +16,15 @@
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/ed7cc9bc-52e9-49f8-8f8c-a67ce178425a"; }
+    [ 
+      {
+        device = "/var/lib/swapfile"; 
+        size = 8*1024; # 8 GiB 
+        priority = 10; # Higher number = higher priority
+      }
+      { 
+        device = "/dev/disk/by-uuid/ed7cc9bc-52e9-49f8-8f8c-a67ce178425a"; 
+        priority = 10; # If priorities match, it balances between them
+      }
     ];
 }
