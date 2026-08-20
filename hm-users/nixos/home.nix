@@ -1,10 +1,9 @@
-{pkgs, lib, ... }: {
-
-  imports = [
-    ./config/vim.nix
-    ./config/zsh.nix
-    ./config/fastfetch/fastfetch.nix
-  ];
+{pkgs, lib, ... }: 
+let
+  config-files = lib.filesystem.listFilesRecursive ./config;
+in
+{
+  imports = builtins.filter (file: lib.hasSuffix ".nix" file) config-files;
   home.stateVersion = "26.05";
   
   #Packages
