@@ -13,10 +13,10 @@ let
   '';
 
   # 3. Wrapper script
-  minegrubUpdateScript = pkgs.writeShellScript "minegrub-update" ''
+  minegrubUpdateScript = pkgs.writeShellScriptBin "minegrub-update" ''
     cd /boot/grub/themes/minegrub
     export PATH="${fakeFetch}/bin:${pythonEnv}/bin:$PATH"
-    ${pythonEnv}/bin/python3 update_theme.py
+    exec ${pythonEnv}/bin/python3 update_theme.py "$@"
   '';
 in
 {
@@ -27,8 +27,7 @@ in
 
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${minegrubUpdateScript}";
-      # Ensures the service runs as root to have write permissions in /boot
+      ExecStart = "${minegrubUpdateScript}/bin/minegrub-update";
       User = "root";
     };
   }; 
