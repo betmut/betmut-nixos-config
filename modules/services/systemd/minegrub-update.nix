@@ -20,7 +20,11 @@ let
   '';
 in
 {
- systemd.services.minegrub-update = {
+  environment.systemPackages = [
+    minegrubUpdateScript
+  ];
+  
+  systemd.services.minegrub-update = {
     description = "Update Minegrub splash text and background";
     after = [ "local-fs.target" ];
     wantedBy = [ "multi-user.target" ];
