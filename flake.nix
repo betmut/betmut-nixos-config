@@ -94,7 +94,7 @@
       (mkHomeUser {user = "guest"; filePath = ./hm-users/guest/home.nix;}) ++ [
         inputs.stylix.nixosModules.stylix
         inputs.agenix.nixosModules.default
-        ./hosts/nixos-chapunk/configuration.nix
+        ./hosts/nixos-weierstrass/configuration.nix
       ];
     }; 
 
