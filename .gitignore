@@ -2,3 +2,6 @@ result*
 workspace*
 archives
 update_config.sh
+disks-backup.sh
+nixos
+modules/linux/boot.nix
