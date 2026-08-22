@@ -27,7 +27,6 @@ in
     libreoffice
     scrcpy
     android-tools
-    prismlauncher
   ];
 
   home.sessionVariables = {
