@@ -72,13 +72,8 @@
 ├── hosts/
 │   ├── darwin                      # macOS (nix-darwin) system-level configurations
 │   │
-│   ├── nixos-chapunk               # Default Linux system-level configurations 
-│   │                                 with chapunk hostname
-│   │                                 
-│   └── nixos-install               #  Configurations for NixOS installation           
-│
-│
-├── nixos/                          # nixos-generate-config generated configuration for installation
+│   └── nixos-chapunk               # Default Linux system-level configurations 
+│           
 ├── hostname/                       # Hostname (linux, mac)
 ├── nix-settings.nix                # Nix daemon settings
 ├── disks.nix                       # Disk/filesystem configuration    

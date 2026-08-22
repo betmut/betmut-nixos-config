@@ -98,15 +98,6 @@
       ];
     }; 
 
-    nixosConfigurations.nixos-install = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./nixos/configuration.nix
-        ./nixos/hardware-configuration.nix
-      ];
-    }; 
-
     darwinConfigurations.darwinSystem = inputs.nix-darwin.lib.darwinSystem {
       specialArgs = { inherit inputs; };
       modules = [
@@ -115,5 +106,14 @@
         ./hosts/darwin-macUser/configuration.nix
       ];
     };
+
+    #nixosConfigurations.nixos-install = nixpkgs.lib.nixosSystem {
+    #  inherit system;
+    #  specialArgs = { inherit inputs; };
+    #  modules = [
+    #    ./nixos/configuration.nix
+    #    ./nixos/hardware-configuration.nix
+    #  ];
+    #}; 
   };
 }
