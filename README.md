@@ -98,7 +98,7 @@ cd ~/betmut-nixos-config
 ```
 
 ### 2. Build the ISO
-Download the Nix package manager at the [official website](https://nixos.org/download/) or build the custom ISO file (including the `wl` module for proprietary Broadcom STA wireless driver support) by running
+You can Download the ISO from the [official website](https://nixos.org/download/) or build the custom ISO file (including the `wl` module for proprietary Broadcom STA wireless driver support) by running
 ```
 #if you clone the repo
 nix build .#packages.x86_64-linux.minimal-iso
