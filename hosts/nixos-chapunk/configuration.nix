@@ -22,7 +22,7 @@ in
 
     #other essentials settings
     ../../stylix.nix
-    ../../disks-backup.nix
+    ../../disks.nix
     ../../nix-settings.nix
     ./users.nix
 
