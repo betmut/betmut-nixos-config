@@ -3,7 +3,7 @@ name: Test Default System build
 on: [push, pull_request]
 
 jobs:
-  #test-default-system-build:
+  test-default-system-build:
     runs-on: ubuntu-latest
   #  strategy:
   #    fail-fast: false
