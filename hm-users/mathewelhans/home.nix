@@ -28,6 +28,7 @@ in
     scrcpy
     android-tools
     prismlauncher
+    nodejs
   ];
 
   home.sessionVariables = {

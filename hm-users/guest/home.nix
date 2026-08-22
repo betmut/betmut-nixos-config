@@ -19,6 +19,7 @@ in
     kitty
     fastfetch
     yazi
+    nodejs
   ];
 
   home.sessionVariables = {
