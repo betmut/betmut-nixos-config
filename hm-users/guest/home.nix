@@ -1,18 +1,9 @@
-{config, pkgs, lib, ... }: {
-
-  imports = [
-    ./config/vim/vim.nix
-    ./config/zsh/zsh.nix
-    ./config/rofi/rofi.nix
-    ./config/waybar/waybar.nix
-    ./config/kitty/kitty.nix
-    ./config/fastfetch/fastfetch.nix
-    ./config/yazi/yazi.nix
-    ./config/swaync/swaync.nix
-    ./config/gammastep.nix
-
-    ./config/hypridle.nix
-  ];
+{config, pkgs, lib, ... }: 
+let
+  config-files = lib.filesystem.listFilesRecursive ./config;
+in
+{
+  imports = builtins.filter (file: lib.hasSuffix ".nix" file) config-files;
   home.stateVersion = "26.05";
 
   home.pointerCursor.enable = true;

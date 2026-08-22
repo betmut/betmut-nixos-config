@@ -1,4 +1,6 @@
-{pkgs, inputs, config, lib, ...}:{
+{pkgs, inputs, config, lib, modulesPath, ...}:{
+
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   # Allow proprietary software (Required for Broadcom)
   nixpkgs.config = {
