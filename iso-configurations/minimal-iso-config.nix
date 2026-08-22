@@ -1,4 +1,4 @@
-{config, inputs, lib, ... }: 
+{config, pkgs, inputs, lib, ... }: 
 let
   linuxmodulesPath = ../modules/linux;
   servicesPath = ../modules/services;
