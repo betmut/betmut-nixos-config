@@ -4,6 +4,16 @@ on: [push, pull_request]
 
 jobs:
   test-minimal-iso-build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - host: minimal-iso
+            os: ubuntu-latest
+          - host: gnome-iso
+            os: ubuntu-latest
+            
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,4 +29,4 @@ jobs:
         
       - name: Build minimal-iso system derivation
         # Targets your packages.x86_64-linux.minimal-iso attribute
-        run: nix build .#minimal-iso
+        run: nix build .#${{ matrix.host }}
