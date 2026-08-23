@@ -107,8 +107,8 @@
       inherit system;
       specialArgs = { inherit inputs; };
       modules = [
-        ./nixos/configuration.nix
-        ./nixos/hardware-configuration.nix
+        ./nixos-generate-config/configuration.nix
+        ./nixos-generate-config/hardware-configuration.nix
       ];
     }; 
 
