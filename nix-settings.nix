@@ -13,6 +13,7 @@
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
+      extra-deprecated-features = "or-as-identifier";
       substituters = [
         "https://hyprland.cachix.org"
         "https://nix-community.cachix.org"
