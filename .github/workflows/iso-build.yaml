@@ -3,7 +3,7 @@ name: Test minimal-iso build
 on: [push, pull_request]
 
 jobs:
-  test-minimal-iso-build:
+  test-iso-build:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -13,8 +13,6 @@ jobs:
             os: ubuntu-latest
           - host: gnome-iso
             os: ubuntu-latest
-            
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -27,6 +25,6 @@ jobs:
       - name: Check nix flakes
         run: nix flake check 
         
-      - name: Build minimal-iso system derivation
-        # Targets your packages.x86_64-linux.minimal-iso attribute
+      - name: Build ISO system derivation
+        # Targets your packages.x86_64-linux.<host> attribute
         run: nix build .#${{ matrix.host }}
