@@ -1,4 +1,4 @@
-name: Test minimal-iso build
+name: Test iso build
 
 on: [push, pull_request]
 
