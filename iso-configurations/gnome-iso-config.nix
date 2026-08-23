@@ -1,4 +1,4 @@
-{config, modulesPath, ... }: {
+{config, pkgs, modulesPath, ... }: {
 
   imports = [
     ./minimal-iso-config.nix
