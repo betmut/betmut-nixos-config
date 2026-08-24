@@ -29,7 +29,7 @@ in
     android-tools
     prismlauncher
     nodejs
-    kilo
+    
 
   ];
 
