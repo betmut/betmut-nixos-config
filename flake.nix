@@ -76,15 +76,20 @@
           };
       }
     ];
-  in
-  {
-    packages.x86_64-linux.minimal-iso = inputs.nixos-generators.nixosGenerate {
+    isoConfig = type: {
       inherit system;
       format = "install-iso";
       modules = (mkHomeUser {user = "nixos"; filePath = ./hm-users/nixos/home.nix;}) ++ [
-        ./iso-configurations/minimal-iso-config.nix
+        ./iso-configurations/${type}
       ];
     };
+  in
+  {
+    packages.x86_64-linux.minimal-iso = inputs.nixos-generators.nixosGenerate (
+      isoConfig "minimal-iso-config.nix");
+
+    packages.x86_64-linux.gnome-iso = inputs.nixos-generators.nixosGenerate (
+      isoConfig "gnome-iso-config.nix");
 
     nixosConfigurations.mySystem = nixpkgs.lib.nixosSystem {
       inherit system;

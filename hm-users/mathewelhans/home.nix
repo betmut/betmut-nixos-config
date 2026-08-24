@@ -27,6 +27,7 @@ in
     libreoffice
     scrcpy
     android-tools
+    nodejs
   ];
 
   home.sessionVariables = {

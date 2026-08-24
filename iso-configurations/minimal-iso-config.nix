@@ -8,6 +8,7 @@ in
     shell = pkgs.zsh;
     isNormalUser = true;
     extraGroups = ["users" "audio" "networkmanager" "video" "render"];
+    initialPassword = "nixos";
     initialHashedPassword = lib.mkForce null;
   };
   

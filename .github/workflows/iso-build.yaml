@@ -1,0 +1,30 @@
+name: Test iso build
+
+on: [push, pull_request]
+
+jobs:
+  test-iso-build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - host: minimal-iso
+            os: ubuntu-latest
+          - host: gnome-iso
+            os: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Set up Magic Nix Cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Check nix flakes
+        run: nix flake check 
+        
+      - name: Build ISO system derivation
+        # Targets your packages.x86_64-linux.<host> attribute
+        run: nix build .#${{ matrix.host }}
