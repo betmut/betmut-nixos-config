@@ -72,13 +72,8 @@
 ├── hosts/
 │   ├── darwin                      # macOS (nix-darwin) system-level configurations
 │   │
-│   ├── nixos-chapunk               # Default Linux system-level configurations 
-│   │                                 with chapunk hostname
-│   │                                 
-│   └── nixos-install               #  Configurations for NixOS installation           
-│
-│
-├── nixos/                          # nixos-generate-config generated configuration for installation
+│   └── nixos-chapunk               # Default Linux system-level configurations 
+│           
 ├── hostname/                       # Hostname (linux, mac)
 ├── nix-settings.nix                # Nix daemon settings
 ├── disks.nix                       # Disk/filesystem configuration    
@@ -97,8 +92,8 @@ git clone https://github.com/betmut/betmut-nixos-config.git
 cd ~/betmut-nixos-config
 ```
 
-### 2. Build the ISO
-Download the [Nix package manager](https://nixos.org/download/) and ISO installer from the [official NixOS Website](https://nixos.org/download/) or build the custom ISO file by running
+### 2. Download ISO image or Build the custom ISO image
+Download the ISO image from the [official website](https://nixos.org/download/) or build the custom ISO file (including the `wl` module for proprietary Broadcom STA wireless driver support) by Installing Nix package manager [here](https://nixos.org/download/) first, and then run:
 ```
 #if you clone the repo
 nix build .#packages.x86_64-linux.minimal-iso

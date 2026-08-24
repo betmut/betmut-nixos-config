@@ -13,7 +13,7 @@ in
   };
 
   # Define Hostname
-  networking.hostName = lib.removeSuffix "\n" (builtins.readFile ../../hostname/nixos-chapunk);
+  networking.hostName = lib.removeSuffix "\n" (builtins.readFile ../../hostname/nixos);
 
   imports = [
     #essential linux modules & services
@@ -22,7 +22,7 @@ in
 
     #other essentials settings
     ../../stylix.nix
-    ../../disks-backup.nix
+    ../../disks.nix
     ../../nix-settings.nix
     ./users.nix
 

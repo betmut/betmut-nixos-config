@@ -91,7 +91,7 @@
     packages.x86_64-linux.gnome-iso = inputs.nixos-generators.nixosGenerate (
       isoConfig "gnome-iso-config.nix");
 
-    nixosConfigurations.erdos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.mySystem = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit inputs; };
       modules = 
@@ -99,16 +99,7 @@
       (mkHomeUser {user = "guest"; filePath = ./hm-users/guest/home.nix;}) ++ [
         inputs.stylix.nixosModules.stylix
         inputs.agenix.nixosModules.default
-        ./hosts/nixos-chapunk/configuration.nix
-      ];
-    }; 
-
-    nixosConfigurations.nixos-install = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./nixos-generate-config/configuration.nix
-        ./nixos-generate-config/hardware-configuration.nix
+        ./hosts/nixos-weierstrass/configuration.nix
       ];
     }; 
 
@@ -120,5 +111,14 @@
         ./hosts/darwin-macUser/configuration.nix
       ];
     };
+
+    #nixosConfigurations.nixos-install = nixpkgs.lib.nixosSystem {
+    #  inherit system;
+    #  specialArgs = { inherit inputs; };
+    #  modules = [
+    #    ./nixos/configuration.nix
+    #    ./nixos/hardware-configuration.nix
+    #  ];
+    #}; 
   };
 }

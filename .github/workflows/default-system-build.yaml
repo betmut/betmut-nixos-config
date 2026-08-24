@@ -4,15 +4,15 @@ on: [push, pull_request]
 
 jobs:
   test-default-system-build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - host: erdos
-            os: ubuntu-latest
-          - host: nixos-install
-            os: ubuntu-latest
+    runs-on: ubuntu-latest
+  #  strategy:
+  #    fail-fast: false
+  #    matrix:
+  #      include:
+  #        - host: mySystem
+  #          os: ubuntu-latest
+  #        - host: nixos-install
+  #          os: ubuntu-latest
             
     steps:
       - uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
 
       - name: Build default system derivation
         run: |
-          nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel \
+          nix build .#nixosConfigurations.mySystem.config.system.build.toplevel \
             --extra-experimental-features "nix-command flakes" \
             --print-build-logs \
             --show-trace
