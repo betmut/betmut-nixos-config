@@ -15,6 +15,7 @@
         nerdtree
         coc-nvim
         Vundle-vim
+        fzf-wrapper
 
         #coc plugins
         coc-pyright #python lsp

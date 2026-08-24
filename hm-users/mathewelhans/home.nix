@@ -29,6 +29,8 @@ in
     android-tools
     prismlauncher
     nodejs
+    gemini-cli
+
   ];
 
   home.sessionVariables = {
