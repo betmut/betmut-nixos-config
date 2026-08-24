@@ -13,7 +13,21 @@ local firefox = "firefox"
 local closeWindowBind = hl.bind(mainMod .. " + SHIFT + " .. "Q", hl.dsp.window.close())
 local fullScreenBind = hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen"}))
 local directions = {"left", "right", "up", "down"}
+local function moveWindowNoAnim(workspaceNum)
+    -- 1. Disable the relevant movement animations
+    hl.animation({ leaf = "workspaces",    enabled = false})
+    hl.animation({ leaf = "workspacesIn", enabled = false })
+    hl.animation({ leaf = "workspacesOut", enabled = false })
 
+    
+    -- 2. Dispatch the native move window command
+    hl.dispatch(hl.dsp.window.move({  workspace = workspaceNum}))
+
+    -- 3. Re-enable the animations immediately afterward
+    hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
+    hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 6.00, bezier = "easeOutQuint", style = "slidevert" })
+    hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 6.00, bezier = "easeOutQuint", style = "slidevert" })
+end
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + return", hl.dsp.exec_cmd(terminal))
@@ -50,7 +64,14 @@ end
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
-    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+    -- hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+end
+
+for i = 1, 10 do
+    local workspaceNum = i % 10
+    hl.bind("SUPER + SHIFT + " .. workspaceNum, function()
+        moveWindowNoAnim(workspaceNum)
+    end)
 end
 
 hl.bind(mainMod .. " + up", hl.dsp.focus({ workspace = "e-1" }))
