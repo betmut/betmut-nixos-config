@@ -52,8 +52,7 @@ hl.window_rule({
   name = "waypaper",
   match = { class = "waypaper"},
   float = true,
-  no_anim = true,
-  move = {100, 100},
+  center = true,
   size = {"monitor_w * 0.4", "monitor_h * 0.4"}
 })
 
@@ -80,7 +79,6 @@ hl.window_rule({
 hl.window_rule({
   name = "kitty",
   match = { class = "kitty"},
-  animation = "popin",
   float = true,
   center = true,
   size = {1070, 580}
