@@ -49,6 +49,12 @@ in
     LIBVA_DRIVER_NAME = "iHD";
   };
 
+  #Aliases
+  environment.shellAliases = {
+    nixos-config = "cd $HOME/betmut-nixos-config";
+    projects = "cd $HOME/Documents/Projects || cd $HOME/Projects";
+  };
+
   # System-wide packages
   environment.systemPackages = with pkgs; [
     tmux 
