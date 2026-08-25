@@ -11,7 +11,7 @@
 </div>
 
 ## Screenshots
-![Alt Text](screenshots/screenshot-4.png)
+![Alt Text](screenshots/screenshot-2.png)
 ![Alt Text](screenshots/screenshot-3.png)
 ![Alt Text](screenshots/screenshot-5.png)
 
