@@ -12,7 +12,7 @@ in
   home.packages = with pkgs; [
     vscode
     elan  
-    htop 
+    btop 
     spotify
     playerctl
     obsidian

@@ -10,7 +10,7 @@ in
     
   #Packages
   home.packages = with pkgs; [
-    htop 
+    btop 
     cmatrix 
     brightnessctl 
     playerctl
