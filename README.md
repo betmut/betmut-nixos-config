@@ -12,7 +12,9 @@
 
 ## Screenshots
 ![Alt Text](screenshots/screenshot-2.png)
+![Alt Text](screenshots/screenshot-7.png)
 ![Alt Text](screenshots/screenshot-3.png)
+![Alt Text](screenshots/screenshot-6.png)
 ![Alt Text](screenshots/screenshot-5.png)
 
 ## Features
