@@ -74,8 +74,8 @@ for i = 1, 10 do
     end)
 end
 
-hl.bind(mainMod .. " + up", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind("CTRL + ALT + up", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind("CTRL + ALT + down", hl.dsp.focus({ workspace = "e+1" }))
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))

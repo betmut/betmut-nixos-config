@@ -10,7 +10,7 @@ in
 
   #config files
   xdg.configFile = {
-    "waybar/config".source = ./config;
+    "waybar/config".source = ./config.jsonc;
     "waybar/style.css".source = lib.mkForce ./style.css;
   };
 
