@@ -3,8 +3,8 @@ let
   minegrub-theme = pkgs.fetchFromGitHub {
     owner = "Lxtharia";
     repo = "minegrub-theme";
-    rev = "dev"; # Or a specific commit hash
-    sha256 = "sha256-tCHT7ZL4Fen/Y8Nv3c6iRdPx+1ZceUbGwREWPcZlQ3w="; # Replace with actual hash or run nix-prefetch-url
+    rev = "89f9e24f44cbe06b11d69068e39f534666e4d3d3"; # Or a specific commit hash
+    sha256 = "sha256-wusELfq9vxbkbZy8cPprcOldqoqSbKltxt++EW9gQ9g="; # Replace with actual hash or run nix-prefetch-url
   };
 
   minegrub-world-sel = pkgs.fetchFromGitHub {
