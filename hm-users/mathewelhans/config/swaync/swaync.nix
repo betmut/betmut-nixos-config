@@ -1,7 +1,7 @@
-{config, pkgs, lib, ...}: {
+{config, hm-pkgs, lib, ...}: {
   services.swaync = {
     enable = true;
-    package = pkgs.swaynotificationcenter;
+    package = hm-pkgs.swaynotificationcenter;
   };
 
   #config files

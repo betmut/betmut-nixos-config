@@ -1,7 +1,8 @@
-{config, pkgs,...}:{
+{config, pkgs, hm-pkgs, ...}:{
   stylix.targets.vscode.enable = false;
   programs.vscode = {
     enable = true;
+    package = hm-pkgs.vscode;
     mutableExtensionsDir = false;
     profiles.default = {
       enableExtensionUpdateCheck = true;

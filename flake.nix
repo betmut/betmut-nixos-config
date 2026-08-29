@@ -1,49 +1,55 @@
 {
   inputs = {
+    # System-wide packages channel
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable"; 
+    };
+
+    # Home Manager packages channel
+    nixpkgs-hm = {
+      url = "github:nixos/nixpkgs/nixpkgs-unstable"; 
     };
 
     nixpkgs-stable = {
       url = "github:nixos/nixpkgs/nixos-26.05";
     };
 
-    nixpkgs-stable-darwin = {
-      url = "github:nixos/nixpkgs/nixpkgs-26.05-darwin";
-    };
+    #nixpkgs-stable-darwin = {
+    #  url = "github:nixos/nixpkgs/nixpkgs-26.05-darwin";
+    #};
 
-    nix-darwin = {
-      url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
-      inputs.nixpkgs.follows = "nixpkgs-stable-darwin";
-    };
+    #nix-darwin = {
+    #  url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
+    #  inputs.nixpkgs.follows = "nixpkgs-stable-darwin";
+    #};
 
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #nixos-generators = {
+    #  url = "github:nix-community/nixos-generators";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-hm";
     };
 
-    home-manager-darwin-stable = {
-      url = "github:nix-community/home-manager/release-26.05";
-      inputs.nixpkgs.follows = "nixpkgs-stable-darwin";
-    };
+    #home-manager-darwin-stable = {
+    #  url = "github:nix-community/home-manager/release-26.05";
+    #  inputs.nixpkgs.follows = "nixpkgs-stable-darwin";
+    #};
 
-    nix-homebrew = {
-      url = "github:zhaofengli/nix-homebrew";
-    };
+    #nix-homebrew = {
+    #  url = "github:zhaofengli/nix-homebrew";
+    #};
 
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
-      flake = false;
-    };
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
+    #homebrew-core = {
+    #  url = "github:homebrew/homebrew-core";
+    #  flake = false;
+    #};
+    #homebrew-cask = {
+    #  url = "github:homebrew/homebrew-cask";
+    #  flake = false;
+    #};
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
@@ -62,15 +68,19 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, ... }: 
+  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixpkgs-hm, ... }: 
   let
     system = "x86_64-linux";
+
+    # Home Manager specific hm-pkgs instance
+    hm-pkgs = import nixpkgs-hm { inherit system; config.allowUnfree = true; };
+
     mkHomeUser = {user, filePath}: [
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
-          extraSpecialArgs = { inherit inputs; };
-          useGlobalPkgs = true;
+          extraSpecialArgs = { inherit hm-pkgs; };
+          useGlobalPkgs = false;
           useUserPackages = true;
           users.${user} = filePath;
           };

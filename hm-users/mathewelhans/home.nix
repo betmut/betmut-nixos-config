@@ -1,4 +1,4 @@
-{config, inputs, pkgs, lib, ... }: 
+{config, inputs, hm-pkgs, lib, ... }: 
 let
   config-files = lib.filesystem.listFilesRecursive ./config;
 in
@@ -9,7 +9,7 @@ in
   home.pointerCursor.enable = true;
   
   #Packages
-  home.packages = with pkgs; [
+  home.packages = with hm-pkgs; [
     vscode
     elan  
     btop 
@@ -29,8 +29,6 @@ in
     android-tools
     prismlauncher
     nodejs
-    
-
   ];
 
   home.sessionVariables = {

@@ -1,9 +1,10 @@
-{pkgs, config, ... }: {
+{hm-pkgs, config, ... }: {
 
   #VIM config
   programs.vim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; 
+    package = hm-pkgs.vim;
+    plugins = with hm-pkgs.vimPlugins; 
       [
         vim-fugitive
         vim-airline

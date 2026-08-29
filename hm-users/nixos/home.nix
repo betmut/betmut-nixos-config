@@ -1,4 +1,4 @@
-{pkgs, lib, ... }: 
+{hm-pkgs, lib, ... }: 
 let
   config-files = lib.filesystem.listFilesRecursive ./config;
 in
@@ -7,7 +7,7 @@ in
   home.stateVersion = "26.05";
   
   #Packages
-  home.packages = with pkgs; [
+  home.packages = with hm-pkgs; [
     htop 
     cmatrix
     tmux 

@@ -1,7 +1,8 @@
-{config, pkgs, lib,...}: {
+{config, hm-pkgs, pkgs, lib,...}: {
 
   services.hypridle = {
     enable = true;
+    package = hm-pkgs.hypridle;
     settings = {
       general = {
         lock_cmd = "hyprlock";

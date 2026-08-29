@@ -1,4 +1,4 @@
-{pkgs, lib, ... }: 
+{lib, pkgs, ... }: 
 let
   config-files = lib.filesystem.listFilesRecursive ./config;
 in

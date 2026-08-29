@@ -1,4 +1,4 @@
-{config, pkgs, lib, ... }: 
+{config, hm-pkgs, lib, ... }: 
 let
   config-files = lib.filesystem.listFilesRecursive ./config;
 in
@@ -9,7 +9,7 @@ in
   home.pointerCursor.enable = true;
     
   #Packages
-  home.packages = with pkgs; [
+  home.packages = with hm-pkgs; [
     btop 
     cmatrix 
     brightnessctl 
