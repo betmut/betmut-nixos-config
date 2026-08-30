@@ -64,6 +64,11 @@
     agenix = {
       url = "github:ryantm/agenix";
     };
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs-hm";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixpkgs-hm, ... }: 
