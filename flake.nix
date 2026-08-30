@@ -14,14 +14,14 @@
       url = "github:nixos/nixpkgs/nixos-26.05";
     };
 
-    #nixpkgs-stable-darwin = {
-    #  url = "github:nixos/nixpkgs/nixpkgs-26.05-darwin";
-    #};
+    nixpkgs-stable-darwin = {
+      url = "github:nixos/nixpkgs/nixpkgs-26.05-darwin";
+    };
 
-    #nix-darwin = {
-    #  url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
-    #  inputs.nixpkgs.follows = "nixpkgs-stable-darwin";
-    #};
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
+      inputs.nixpkgs.follows = "nixpkgs-stable-darwin";
+    };
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
@@ -33,23 +33,25 @@
       inputs.nixpkgs.follows = "nixpkgs-hm";
     };
 
-    #home-manager-darwin-stable = {
-    #  url = "github:nix-community/home-manager/release-26.05";
-    #  inputs.nixpkgs.follows = "nixpkgs-stable-darwin";
-    #};
+    home-manager-darwin-stable = {
+      url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs-stable-darwin";
+    };
 
-    #nix-homebrew = {
-    #  url = "github:zhaofengli/nix-homebrew";
-    #};
+    nix-homebrew = {
+      url = "github:zhaofengli/nix-homebrew";
+    };
 
-    #homebrew-core = {
-    #  url = "github:homebrew/homebrew-core";
-    #  flake = false;
-    #};
-    #homebrew-cask = {
-    #  url = "github:homebrew/homebrew-cask";
-    #  flake = false;
-    #};
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
@@ -77,7 +79,7 @@
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
-          extraSpecialArgs = { inherit hm-pkgs; inherit pkgs-stable;};
+          extraSpecialArgs = { inherit hm-pkgs pkgs-stable;};
           useGlobalPkgs = false;
           useUserPackages = true;
           users.${user} = filePath;
@@ -101,7 +103,7 @@
 
     nixosConfigurations.erdos = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = { inherit inputs; inherit pkgs-stable;};
+      specialArgs = { inherit inputs pkgs-stable;};
       modules = 
       (mkHomeUser {user = "mathewelhans"; filePath = ./hm-users/mathewelhans/home.nix;}) ++
       (mkHomeUser {user = "guest"; filePath = ./hm-users/guest/home.nix;}) ++ [
