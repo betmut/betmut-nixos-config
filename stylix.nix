@@ -49,7 +49,7 @@
     targets = {
       grub.enable = false;
       console.enable = false;
-      firefox.profileNames = [ "mathew-elhans" ];
+      firefox.profileNames = [ "mathew-elhans" "guest"];
     };
     opacity.terminal = 0.7;
   };
