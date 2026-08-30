@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, ...}: {
+{ inputs, config, ...}: {
   #dock configurations
   system.defaults = {
     dock = {

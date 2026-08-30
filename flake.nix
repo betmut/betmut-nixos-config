@@ -71,10 +71,7 @@
   outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixpkgs-hm, ... }: 
   let
     system = "x86_64-linux";
-
-    # Home Manager specific hm-pkgs instance
     hm-pkgs = import nixpkgs-hm { inherit system; config.allowUnfree = true; };
-
     mkHomeUser = {user, filePath}: [
       inputs.home-manager.nixosModules.home-manager
       {
@@ -123,7 +120,7 @@
     }; 
 
     darwinConfigurations.darwinSystem = inputs.nix-darwin.lib.darwinSystem {
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs;};
       modules = [
         inputs.home-manager-darwin-stable.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew

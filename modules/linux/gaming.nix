@@ -1,4 +1,4 @@
-{config, pkgs, pkgs-stable, inputs, lib, ... }: {
+{config, pkgs, inputs, lib, ... }: {
   # for performance mode
   programs.gamemode.enable = true; 
 

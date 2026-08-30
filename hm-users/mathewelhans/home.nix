@@ -29,6 +29,7 @@ in
     android-tools
     prismlauncher
     nodejs
+    warzone2100
   ];
 
   home.sessionVariables = {

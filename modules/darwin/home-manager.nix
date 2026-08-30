@@ -1,9 +1,9 @@
-{ inputs, ... }: {
+{ inputs, hm-pkgs, ... }: {
   
   home-manager = {
-    useGlobalPkgs = true;
+    useGlobalPkgs = false;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs; inherit hm-pkgs;};
     users.macUser = import ../../hm-users/macUser/home.nix;
   };
 }
