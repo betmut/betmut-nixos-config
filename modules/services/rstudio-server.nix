@@ -1,4 +1,4 @@
-{config, pkgs, pkgs-stable, inputs, ...} : {
+{config, pkgs-stable, inputs, ...} : {
 
   services.rstudio-server = {
     enable = true; #set to true if you want to enable rstudio-server

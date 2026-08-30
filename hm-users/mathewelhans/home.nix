@@ -1,4 +1,4 @@
-{config, inputs, hm-pkgs, lib, ... }: 
+{config, inputs, hm-pkgs, pkgs-stable, lib, ... }: 
 let
   config-files = lib.filesystem.listFilesRecursive ./config;
 in
@@ -29,7 +29,8 @@ in
     android-tools
     prismlauncher
     nodejs
-    warzone2100
+  ] ++ [
+    pkgs-stable.warzone2100
   ];
 
   home.sessionVariables = {

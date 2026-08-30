@@ -72,11 +72,12 @@
   let
     system = "x86_64-linux";
     hm-pkgs = import nixpkgs-hm { inherit system; config.allowUnfree = true; };
+    pkgs-stable = import nixpkgs-stable { inherit system; config.allowUnfree = true; };
     mkHomeUser = {user, filePath}: [
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
-          extraSpecialArgs = { inherit hm-pkgs; };
+          extraSpecialArgs = { inherit hm-pkgs; inherit pkgs-stable;};
           useGlobalPkgs = false;
           useUserPackages = true;
           users.${user} = filePath;
@@ -100,7 +101,7 @@
 
     nixosConfigurations.erdos = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs; inherit pkgs-stable;};
       modules = 
       (mkHomeUser {user = "mathewelhans"; filePath = ./hm-users/mathewelhans/home.nix;}) ++
       (mkHomeUser {user = "guest"; filePath = ./hm-users/guest/home.nix;}) ++ [
