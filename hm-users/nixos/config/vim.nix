@@ -3,7 +3,6 @@
   #VIM config
   programs.vim = {
     enable = true;
-    package = hm-pkgs.vim;
     plugins = with hm-pkgs.vimPlugins; 
       [
         vim-fugitive

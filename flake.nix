@@ -64,10 +64,6 @@
     agenix = {
       url = "github:ryantm/agenix";
     };
-
-    awww = {
-      url = "git+https://codeberg.org/LGFae/awww";
-    };
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixpkgs-hm, ... }: 
@@ -123,7 +119,7 @@
     }; 
 
     darwinConfigurations.darwinSystem = inputs.nix-darwin.lib.darwinSystem {
-      specialArgs = { inherit inputs;};
+      specialArgs = { inherit inputs hm-pkgs ;};
       modules = [
         inputs.home-manager-darwin-stable.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew
