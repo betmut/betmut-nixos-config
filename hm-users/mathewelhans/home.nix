@@ -29,6 +29,7 @@ in
     android-tools
     prismlauncher
     nodejs
+    opencode
   ] ++ [
     pkgs-stable.warzone2100
   ];

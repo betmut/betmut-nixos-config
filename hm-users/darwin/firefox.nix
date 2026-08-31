@@ -1,6 +1,6 @@
 {inputs, config, hm-pkgs, ...}:{
 
-  stylix.targets.firefox.profileNames = [ "mathew-elhans" ];
+  stylix.targets.firefox.profileNames = [ "darwin-user" ];
   programs.firefox = {
     enable = true;
     package = hm-pkgs.firefox;
@@ -87,11 +87,11 @@
     };
 
     profiles = {
-      mathew-elhans = {
-        # bookmarks, extensions, search engines...
+      darwin = {
         id = 0;
         isDefault = true;
-        name = "mathew-elhans";
+        name = "darwin";
+        # bookmarks, extensions, search engines...
         search = {
           force = true;
           default = "google";
@@ -125,8 +125,7 @@
           };  
         };
         extensions = {
-          force = true;
-          packages = with inputs.firefox-addons.packages."x86_64-linux"; [
+          packages = with inputs.firefox-addons.packages."aarch64-darwin"; [
             ghostery
             enhanced-h264ify
             gruvbox-dark-theme

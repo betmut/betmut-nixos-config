@@ -4,6 +4,6 @@
     useGlobalPkgs = false;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; inherit hm-pkgs;};
-    users.macUser = import ../../hm-users/macUser/home.nix;
+    users.darwin = import ../../hm-users/darwin/home.nix;
   };
 }

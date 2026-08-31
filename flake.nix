@@ -80,7 +80,7 @@
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
-          extraSpecialArgs = { inherit hm-pkgs pkgs-stable;};
+          extraSpecialArgs = { inherit inputs hm-pkgs pkgs-stable;};
           useGlobalPkgs = false;
           useUserPackages = true;
           users.${user} = filePath;
@@ -128,7 +128,7 @@
       modules = [
         inputs.home-manager-darwin-stable.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew
-        ./hosts/darwin-macUser/configuration.nix
+        ./hosts/darwin/configuration.nix
       ];
     };
   };
