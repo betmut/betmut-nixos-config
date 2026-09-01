@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ hm-pkgs, ... }:
 let
-  username = "macUser";
+  username = "darwin";
   hostPlatform = "aarch64-darwin";
 in
 {
@@ -10,6 +10,6 @@ in
   users.users.${username} = {
     name = "${username}";
     home = "/Users/${username}";
-    shell = pkgs.zsh;
+    shell = hm-pkgs.zsh;
   };
 }
