@@ -124,7 +124,11 @@
     }; 
 
     darwinConfigurations.darwinSystem = inputs.nix-darwin.lib.darwinSystem {
-      specialArgs = { inherit inputs hm-pkgs ;};
+      specialArgs = { 
+        inherit inputs hm-pkgs;
+        darwin-username = "darwin";
+        darwin-hostPlatform = "aarch64-darwin";
+      };
       modules = [
         inputs.home-manager-darwin-stable.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew

@@ -1,12 +1,13 @@
-{ inputs, config, ... }: {
+{darwin-username, inputs, config, ... }: {
   
   # Align homebrew taps config with nix-homebrew
   homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
 
   nix-homebrew = {
     enable = true;
+    # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
     enableRosetta = true;
-    user = "macUser";
+    user = darwin-username;
 
     taps = {
       "homebrew/homebrew-core" = inputs.homebrew-core;
