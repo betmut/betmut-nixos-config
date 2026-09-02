@@ -73,7 +73,7 @@
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixpkgs-hm, ... }: 
   let
-    system = "x86_64-linux";
+    system = builtins.currentSystem;
     hm-pkgs = import nixpkgs-hm { inherit system; config.allowUnfree = true; };
     pkgs-stable = import nixpkgs-stable { inherit system; config.allowUnfree = true; };
     mkHomeUser = {user, filePath}: [
@@ -127,7 +127,6 @@
       specialArgs = { 
         inherit inputs hm-pkgs;
         darwin-username = "darwin";
-        darwin-hostPlatform = "aarch64-darwin";
       };
       modules = [
         inputs.home-manager-darwin-stable.darwinModules.home-manager
