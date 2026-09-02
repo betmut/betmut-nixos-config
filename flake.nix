@@ -73,7 +73,10 @@
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixpkgs-hm, ... }: 
   let
-    linux-system = "x86_64-linux";
+    # Platform architecture targets
+    linux-system = "x86_64-linux"; #or "aarch64-linux" for arm64 systems
+    darwin-system = "aarch64-darwin"; #or "x86_64-darwin" for intel macs
+
     hm-pkgs = import nixpkgs-hm { system = linux-system; config.allowUnfree = true; };
     pkgs-stable = import nixpkgs-stable { system = linux-system; config.allowUnfree = true; };
     mkHomeUser = {user, filePath}: [
@@ -125,9 +128,8 @@
 
     darwinConfigurations.darwinSystem = inputs.nix-darwin.lib.darwinSystem {
       specialArgs = { 
-        inherit inputs hm-pkgs;
+        inherit inputs hm-pkgs darwin-system;
         darwin-username = "darwin";
-        darwin-system = "aarch64-darwin"; #or "x86_64-darwin" for intel macs
       };
       modules = [
         inputs.home-manager-darwin-stable.darwinModules.home-manager
