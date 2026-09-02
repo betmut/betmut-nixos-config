@@ -1,5 +1,5 @@
-{darwin-username, hm-pkgs, ... }: {
-  nixpkgs.hostPlatform = hm-pkgs.stdenv.hostPlatform.system;
+{darwin-username, darwin-system, hm-pkgs, ... }: {
+  nixpkgs.hostPlatform = darwin-system;
   system.primaryUser = darwin-username;
 
   users.users.${darwin-username} = {

@@ -73,9 +73,9 @@
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixpkgs-hm, ... }: 
   let
-    system = builtins.currentSystem;
-    hm-pkgs = import nixpkgs-hm { inherit system; config.allowUnfree = true; };
-    pkgs-stable = import nixpkgs-stable { inherit system; config.allowUnfree = true; };
+    linux-system = "x86_64-linux";
+    hm-pkgs = import nixpkgs-hm { inherit linux-system; config.allowUnfree = true; };
+    pkgs-stable = import nixpkgs-stable { inherit linux-system; config.allowUnfree = true; };
     mkHomeUser = {user, filePath}: [
       inputs.home-manager.nixosModules.home-manager
       {
@@ -88,7 +88,7 @@
       }
     ];
     isoConfig = type: {
-      inherit system;
+      inherit linux-system;
       format = "install-iso";
       modules = (mkHomeUser {user = "nixos"; filePath = ./hm-users/nixos/home.nix;}) ++ [
         ./iso-configurations/${type}
@@ -103,7 +103,7 @@
       isoConfig "gnome-iso-config.nix");
 
     nixosConfigurations.erdos = nixpkgs.lib.nixosSystem {
-      inherit system;
+      inherit linux-system;
       specialArgs = { inherit inputs pkgs-stable;};
       modules = 
       (mkHomeUser {user = "mathewelhans"; filePath = ./hm-users/mathewelhans/home.nix;}) ++
@@ -115,7 +115,7 @@
     }; 
 
     nixosConfigurations.nixos-install = nixpkgs.lib.nixosSystem {
-      inherit system;
+      inherit linux-system;
       specialArgs = { inherit inputs; };
       modules = [
         ./nixos-generate-config/configuration.nix
@@ -127,6 +127,7 @@
       specialArgs = { 
         inherit inputs hm-pkgs;
         darwin-username = "darwin";
+        darwin-system = "aarch64-darwin"; #or "x86_64-darwin" for intel macs
       };
       modules = [
         inputs.home-manager-darwin-stable.darwinModules.home-manager
