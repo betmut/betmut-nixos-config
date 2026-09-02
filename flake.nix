@@ -74,8 +74,8 @@
   outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixpkgs-hm, ... }: 
   let
     linux-system = "x86_64-linux";
-    hm-pkgs = import nixpkgs-hm { inherit linux-system; config.allowUnfree = true; };
-    pkgs-stable = import nixpkgs-stable { inherit linux-system; config.allowUnfree = true; };
+    hm-pkgs = import nixpkgs-hm { system = linux-system; config.allowUnfree = true; };
+    pkgs-stable = import nixpkgs-stable { system = linux-system; config.allowUnfree = true; };
     mkHomeUser = {user, filePath}: [
       inputs.home-manager.nixosModules.home-manager
       {
@@ -88,7 +88,7 @@
       }
     ];
     isoConfig = type: {
-      inherit linux-system;
+      system = linux-system;
       format = "install-iso";
       modules = (mkHomeUser {user = "nixos"; filePath = ./hm-users/nixos/home.nix;}) ++ [
         ./iso-configurations/${type}
@@ -103,7 +103,7 @@
       isoConfig "gnome-iso-config.nix");
 
     nixosConfigurations.erdos = nixpkgs.lib.nixosSystem {
-      inherit linux-system;
+      system = linux-system;
       specialArgs = { inherit inputs pkgs-stable;};
       modules = 
       (mkHomeUser {user = "mathewelhans"; filePath = ./hm-users/mathewelhans/home.nix;}) ++
@@ -115,7 +115,7 @@
     }; 
 
     nixosConfigurations.nixos-install = nixpkgs.lib.nixosSystem {
-      inherit linux-system;
+      system = linux-system;
       specialArgs = { inherit inputs; };
       modules = [
         ./nixos-generate-config/configuration.nix
