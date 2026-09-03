@@ -49,7 +49,6 @@ in
 
   #basic apps
   environment.systemPackages = with pkgs; [
-    hypridle
     hyprlock
     hyprpolkitagent             #graphical password prompt
 
@@ -73,8 +72,6 @@ in
     swappy
     wl-clipboard
     gpu-screen-recorder-gtk # screen recorder 
-
-    gapless #music
 
     #wallpaper
     waypaper
