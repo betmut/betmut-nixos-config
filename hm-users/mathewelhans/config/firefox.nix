@@ -122,6 +122,17 @@
               iconMapObj."16" = "https://wiki.nixos.org/favicon.ico";
               definedAliases = [ "@nixos-wiki" ];
             };
+
+            github = {
+              name = "GitHub";
+              urls = [
+                { 
+                  template = "https://github.com/{searchTerms}"; 
+                }
+              ];
+              iconMapObj."16" = "https://a.favicon.im/github.com";
+              definedAliases = [ "@github" ];
+            };
           };  
         };
         extensions = {
