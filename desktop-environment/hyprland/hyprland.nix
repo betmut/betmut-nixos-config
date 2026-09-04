@@ -49,6 +49,7 @@ in
 
   #basic apps
   environment.systemPackages = with pkgs; [
+    hypridle
     hyprlock
     hyprpolkitagent             #graphical password prompt
 

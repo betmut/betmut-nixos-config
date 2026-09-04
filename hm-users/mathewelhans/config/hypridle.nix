@@ -1,4 +1,4 @@
-{config, hm-pkgs, pkgs, lib,...}: {
+{config, hm-pkgs, lib,...}: {
 
   services.hypridle = {
     enable = true;
