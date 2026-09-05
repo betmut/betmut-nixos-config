@@ -32,12 +32,12 @@
       DisableFormHistory = true;            # Prevents saving form submissions and search history
 
       # Automatic Cleanup on Exit (Optional)
-      #SanitizeOnShutdown = {
-      #  Cache = true;
-      # Cookies = false;
-      # History = false;
-      # Sessions = false;
-      #};
+      SanitizeOnShutdown = {
+        Cache = true;
+        Cookies = false;
+        History = true;
+        Sessions = false;
+      };
 
       # Permission Prompts (Block unwanted website requests)
       #Permissions = {
