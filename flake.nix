@@ -83,7 +83,10 @@
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
-          extraSpecialArgs = { inherit inputs hm-pkgs pkgs-stable;};
+          extraSpecialArgs = { 
+            inherit inputs hm-pkgs pkgs-stable;
+            configPath = "/home/${user}/betmut-nixos-config/hm-users/${user}/config";
+          };
           useGlobalPkgs = false;
           useUserPackages = true;
           users.${user} = filePath;

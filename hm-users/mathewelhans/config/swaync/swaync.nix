@@ -1,6 +1,6 @@
 {config, hm-pkgs, lib, ...}: 
 let
-  swayncPath = ../../../../desktop-environment/swaync;
+  swayncPath = "${config.home.homeDirectory}/betmut-nixos-config/desktop-environment/swaync";
 in
 {
   services.swaync = {
@@ -10,7 +10,9 @@ in
 
   #config files
   xdg.configFile = {
-    "swaync/config.json".source = lib.mkForce (swayncPath + "/config.json");
-    "swaync/style.css".source = lib.mkForce (swayncPath + "/style.css");
+    "swaync/config.json".source = lib.mkForce (
+      config.lib.file.mkOutOfStoreSymlink (swayncPath + "/config.json"));
+    "swaync/style.css".source = lib.mkForce (
+      config.lib.file.mkOutOfStoreSymlink (swayncPath + "/style.css"));
   };
 }

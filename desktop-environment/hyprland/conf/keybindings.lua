@@ -63,12 +63,10 @@ end
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
+    local workspaceNum = i % 10
+    
     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
     -- hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
-end
-
-for i = 1, 10 do
-    local workspaceNum = i % 10
     hl.bind("SUPER + SHIFT + " .. workspaceNum, function()
         moveWindowNoAnim(workspaceNum)
     end)

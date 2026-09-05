@@ -52,7 +52,7 @@
 		"tooltip": true
     },
    "custom/nixos": {
-        "format": " ", // This is the NixOS icon from Nerd Fonts
+        "format": "", // This is the NixOS icon from Nerd Fonts
         "tooltip": true,
         "tooltip-format": "About Device",
         "on-click": "kitty --hold fastfetch" // Optional: make it open your app menu

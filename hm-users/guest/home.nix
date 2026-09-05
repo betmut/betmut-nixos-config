@@ -7,6 +7,7 @@ in
   home.stateVersion = "26.05";
 
   home.pointerCursor.enable = true;
+  home.homeDirectory = "/home/guest";
     
   #Packages
   home.packages = with hm-pkgs; [
