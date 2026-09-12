@@ -1,7 +1,7 @@
 {config, configPath, inputs, hm-pkgs, pkgs-stable, lib, ... }: 
 let
   config-files = lib.filesystem.listFilesRecursive ./config;
-  hyprlandPath = "${config.home.homeDirectory}/betmut-nixos-config/desktop-environment/hyprland";
+  system-wide-path = "${config.home.homeDirectory}/betmut-nixos-config/desktop-environment";
   
 in
 {
@@ -44,9 +44,19 @@ in
   # Hyprland config files
   xdg.configFile = {
     "hypr/hyprland.lua".source = config.lib.file.mkOutOfStoreSymlink (
-      hyprlandPath + "/hyprland.lua");
+      system-wide-path + "/hyprland/hyprland.lua");
     "hypr/conf".source = config.lib.file.mkOutOfStoreSymlink (
-      hyprlandPath + "/conf");
+      system-wide-path + "/hyprland/conf");
+  };
+
+  # wlogout config files
+  xdg.configFile = {
+    "wlogout/layout".source = config.lib.file.mkOutOfStoreSymlink (
+      system-wide-path + "/wlogout/layout");
+    "wlogout/style.css".source = config.lib.file.mkOutOfStoreSymlink (
+      system-wide-path + "/wlogout/style.css");
+    "wlogout/icons".source = config.lib.file.mkOutOfStoreSymlink (
+      system-wide-path + "/wlogout/icons");
   };
 
   # Swappy config files

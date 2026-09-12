@@ -1,6 +1,7 @@
-{config, hm-pkgs, lib, ... }: 
+{config, configPath, hm-pkgs, lib, ... }: 
 let
   config-files = lib.filesystem.listFilesRecursive ./config;
+  system-wide-path = "${config.home.homeDirectory}/betmut-nixos-config/desktop-environment";
 in
 {
   imports = builtins.filter (file: lib.hasSuffix ".nix" file) config-files;
@@ -27,10 +28,20 @@ in
     GIT_EDITOR = "vim";
   };
 
-  #.config files
+  # hyprland config files
   xdg.configFile = {
-    
-    "hypr/hyprland.lua".source = ../../desktop-environment/hyprland/hyprland.lua;
-    "hypr/conf".source = ../../desktop-environment/hyprland/conf;
-};
+    "hypr/hyprland.lua".source = system-wide-path + "/hyprland/hyprland.lua";
+    "hypr/conf".source = system-wide-path + "/hyprland/conf";
+  };
+
+  # wlogout config files
+  xdg.configFile = {
+    "wlogout/layout".source = system-wide-path + "/wlogout/layout";
+    "wlogout/style.css".source = system-wide-path + "/wlogout/style.css";
+    "wlogout/icons".source = system-wide-path + "/wlogout/icons";
+  };
+
+  # Swappy config files
+  xdg.configFile = {
+    "swappy/config".source = configPath + "/swappy/config";
 }

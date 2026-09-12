@@ -1,0 +1,3 @@
+[Default]
+save_dir=$HOME/Screenshots
+save_filename_format=screenshot(guess)_%d-%m-%Y_%H:%M.png

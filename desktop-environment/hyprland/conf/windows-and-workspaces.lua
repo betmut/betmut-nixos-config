@@ -32,6 +32,13 @@ hl.window_rule({
 })
 
 -- Layer rules also return a handle.
+hl.layer_rule({
+    name = "wlogout-blur",
+    match = { namespace = "logout_dialog" },
+    blur = true,
+})
+
+
 -- local overlayLayerRule = hl.layer_rule({
 --     name  = "no-anim-overlay",
 --     match = { namespace = "^my-overlay$" },
