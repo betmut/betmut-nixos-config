@@ -96,7 +96,7 @@ hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("swayosd-client --brightness ra
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness lower --device acpi_video0 --min-brightness 0"),           { locked = true, repeating = true })
 hl.bind("XF86KbdBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness lower --device smc::kbd_backlight --min-brightness 0 "),   { locked = true, repeating = true })
 hl.bind("XF86KbdBrightnessUp",   hl.dsp.exec_cmd("swayosd-client --brightness raise --device smc::kbd_backlight --min-brightness 0"),    { locked = true, repeating = true })
-hl.bind("XF86PowerOff",  hl.dsp.exec_cmd("wlogout"),               { locked = true, repeating = false, release = true})
+hl.bind("XF86PowerOff",  hl.dsp.exec_cmd("wlogout --buttons-per-row 4"),               { locked = true, repeating = false, release = true})
 
 -- Requires playerctl
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })

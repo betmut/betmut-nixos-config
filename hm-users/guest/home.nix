@@ -1,7 +1,7 @@
-{config, configPath, hm-pkgs, lib, ... }: 
+{config, hm-pkgs, lib, ... }: 
 let
   config-files = lib.filesystem.listFilesRecursive ./config;
-  system-wide-path = "${config.home.homeDirectory}/betmut-nixos-config/desktop-environment";
+  system-wide-path = ../../desktop-environment;
 in
 {
   imports = builtins.filter (file: lib.hasSuffix ".nix" file) config-files;
@@ -43,5 +43,6 @@ in
 
   # Swappy config files
   xdg.configFile = {
-    "swappy/config".source = configPath + "/swappy/config";
+    "swappy/config".source = ./config/swappy/config;
+  };
 }
