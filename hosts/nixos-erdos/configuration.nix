@@ -42,11 +42,12 @@ in
   environment.variables = {
     EDITOR = "nano";
     LIBVA_DRIVER_NAME = "iHD";
+    NIXOS_CONFIG = "$HOME/betmut-nixos-config";
   };
 
   #Aliases
   environment.shellAliases = {
-    nixos-config = "cd $HOME/betmut-nixos-config";
+    nixos-config = "cd $NIXOS_CONFIG";
     projects = "cd $HOME/Documents/Projects || cd $HOME/Projects";
   };
 

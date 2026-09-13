@@ -26,9 +26,13 @@ button {
 	background-size: 35%;
 
   font-size : 18px;
+
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 button:focus, button:active, button:hover {
+  background-color: #3c3836;
+
   border-style: solid;
   border-color: #8ec07c;
   border-width: 3px;

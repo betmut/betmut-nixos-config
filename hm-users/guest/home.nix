@@ -45,4 +45,23 @@ in
   xdg.configFile = {
     "swappy/config".source = ./config/swappy/config;
   };
+
+   # Hyprlock config files
+  xdg.configFile = {
+    "hypr/hyprlock.conf".source = ./config/hyprlock/hyprlock.conf;
+    "hypr/launch-hyprlock.sh".source = ./config/hyprlock/launch-hyprlock.sh;
+    
+    "hypr/wallpapers" = {
+      source = ./config/hyprlock/wallpapers;
+      recursive = true;
+    };
+    "hypr/scripts" = {
+      source = ./config/hyprlock/scripts;
+      recursive = true;
+    };
+    "hypr/assets" = {
+      source = ./config/hyprlock/assets;
+      recursive = true;
+    };
+  };
 }
