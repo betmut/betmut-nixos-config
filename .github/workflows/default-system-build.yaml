@@ -28,7 +28,7 @@ jobs:
 
       - name: Build default system derivation
         run: |
-          nix build .#nixosConfigurations.mySystem.config.system.build.toplevel \
+          nix build .#nixosConfigurations.weierstrass.config.system.build.toplevel \
             --extra-experimental-features "nix-command flakes" \
             --print-build-logs \
             --show-trace
