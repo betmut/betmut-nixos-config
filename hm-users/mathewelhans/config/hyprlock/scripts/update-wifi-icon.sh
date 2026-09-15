@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-ICON_DIR="$HOME/betmut-nixos-config/hm-users/mathewelhans/config/hyprlock/assets"
+HYPRLOCK_DIR="$NIXOS_CONFIG/hm-users/mathewelhans/config/hyprlock"
+ICON_DIR="$HYPRLOCK_DIR/assets"
 CURRENT="$ICON_DIR/wifi-status.png"
 
 # nmcli returns "connected" when there is an active network connection.
