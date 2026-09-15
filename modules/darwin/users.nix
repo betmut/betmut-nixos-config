@@ -1,15 +1,10 @@
-{ pkgs, ... }:
-let
-  username = "macUser";
-  hostPlatform = "aarch64-darwin";
-in
-{
-  nixpkgs.hostPlatform = "${hostPlatform}";
-  system.primaryUser = "${username}";
+{darwin-username, darwin-system, hm-pkgs, ... }: {
+  nixpkgs.hostPlatform = darwin-system;
+  system.primaryUser = darwin-username;
 
-  users.users.${username} = {
-    name = "${username}";
-    home = "/Users/${username}";
-    shell = pkgs.zsh;
+  users.users.${darwin-username} = {
+    name = darwin-username;
+    home = "/Users/${darwin-username}";
+    shell = hm-pkgs.zsh;
   };
 }

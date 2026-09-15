@@ -12,8 +12,7 @@
       curl
       libnotify
       gawk
-    ] ++ [
-      inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
+      awww
     ];
     serviceConfig = {
       ExecStart = "${pkgs.bash}/bin/bash ${../scripts/change-wallpaper.sh}";

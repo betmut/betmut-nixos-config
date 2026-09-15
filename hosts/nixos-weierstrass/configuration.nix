@@ -7,11 +7,6 @@ in
 {
   system.stateVersion = "26.05";
 
-  _module.args.pkgs-stable = import inputs.nixpkgs-stable {
-    system = "x86_64-linux";
-    config.allowUnfree = true;
-  };
-
   # Define Hostname
   networking.hostName = lib.removeSuffix "\n" (builtins.readFile ../../hostname/nixos);
 
@@ -47,6 +42,13 @@ in
   environment.variables = {
     EDITOR = "nano";
     LIBVA_DRIVER_NAME = "iHD";
+    NIXOS_CONFIG = "$HOME/betmut-nixos-config";
+  };
+
+  #Aliases
+  environment.shellAliases = {
+    nixos-config = "cd $NIXOS_CONFIG";
+    projects = "cd $HOME/Documents/Projects || cd $HOME/Projects";
   };
 
   # System-wide packages

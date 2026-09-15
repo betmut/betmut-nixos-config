@@ -1,12 +1,12 @@
-{ pkgs, ... }:{
-
+{ hm-pkgs, config, configPath, lib, ... }:{
   programs.fastfetch = {
     enable = true;
-    package = pkgs.fastfetch;
+    package = hm-pkgs.fastfetch;
   };
 
   #config files
   xdg.configFile = {
-    "fastfetch/config.jsonc".source = ./config.jsonc;
+    "fastfetch/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink (
+      configPath + "/fastfetch/config.jsonc");
   };
 }

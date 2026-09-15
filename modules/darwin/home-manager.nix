@@ -1,9 +1,8 @@
-{ inputs, ... }: {
-  
+{darwin-username, inputs, hm-pkgs, ... }:{  
   home-manager = {
-    useGlobalPkgs = true;
+    useGlobalPkgs = false;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs; };
-    users.macUser = import ../../hm-users/macUser/home.nix;
+    extraSpecialArgs = { inherit inputs; inherit hm-pkgs;};
+    users.${darwin-username} = import ../../hm-users/${darwin-username}/home.nix;
   };
 }

@@ -1,9 +1,9 @@
-{pkgs, config, ... }: {
+{hm-pkgs, config, ... }: {
 
   #VIM config
   programs.vim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; 
+    plugins = with hm-pkgs.vimPlugins; 
       [
         vim-fugitive
         vim-airline
@@ -15,6 +15,9 @@
         nerdtree
         coc-nvim
         Vundle-vim
+        fzf-vim         
+        vim-surround         
+        vim-commentary
 
         #coc plugins
         coc-pyright #python lsp

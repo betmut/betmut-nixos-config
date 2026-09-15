@@ -1,12 +1,13 @@
-{config, pkgs,...}:{
+{config, hm-pkgs, ...}:{
   stylix.targets.vscode.enable = false;
   programs.vscode = {
     enable = true;
+    package = hm-pkgs.vscode;
     mutableExtensionsDir = false;
     profiles.default = {
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = true;
-      extensions = with pkgs.vscode-extensions; 
+      extensions = with hm-pkgs.vscode-extensions; 
       [
         #syntax-higlighting, lsp
         jeff-hykin.better-nix-syntax
@@ -19,7 +20,7 @@
         #colorscheme
         jdinhlife.gruvbox
         vscode-icons-team.vscode-icons
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      ] ++ hm-pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "magic-racket";
           publisher = "evzen-wybitul"; 

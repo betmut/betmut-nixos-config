@@ -1,8 +1,8 @@
-{pkgs, ...}: {
+{hm-pkgs, ...}: {
 
   programs.kitty = {
     enable = true;
-    package = pkgs.kitty;
+    package = hm-pkgs.kitty;
   };
 
   #config files

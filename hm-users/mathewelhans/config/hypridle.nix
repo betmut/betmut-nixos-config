@@ -1,10 +1,11 @@
-{config, pkgs, lib,...}: {
+{config, hm-pkgs, lib,...}: {
 
   services.hypridle = {
     enable = true;
+    package = hm-pkgs.hypridle;
     settings = {
       general = {
-        lock_cmd = "hyprlock";
+        lock_cmd = "$NIXOS_CONFIG/hm-users/mathewelhans/config/hyprlock/launch-hyprlock.sh || hyprlock"; # lock command
         before_sleep_cmd = "loginctl lock-session";    # lock before suspend
         after_sleep_cmd = "hyprctl dispatch dpms on";  # turn on screen after wake
       };

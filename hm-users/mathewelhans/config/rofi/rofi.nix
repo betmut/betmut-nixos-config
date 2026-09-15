@@ -1,12 +1,12 @@
-{ pkgs, lib, ... }:
+{ hm-pkgs, lib, ... }:
 
 {
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi; 
+    package = hm-pkgs.rofi; 
     theme = lib.mkForce ./themes/gruvbox-dark-hard.rasi;
-    terminal = "${pkgs.kitty}/bin/kitty";
-    plugins = with pkgs; [
+    terminal = "${hm-pkgs.kitty}/bin/kitty";
+    plugins = with hm-pkgs; [
       rofi-calc
     ];
 

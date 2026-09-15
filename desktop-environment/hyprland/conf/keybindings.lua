@@ -63,19 +63,17 @@ end
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
+    local workspaceNum = i % 10
+    
     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
     -- hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
-end
-
-for i = 1, 10 do
-    local workspaceNum = i % 10
     hl.bind("SUPER + SHIFT + " .. workspaceNum, function()
         moveWindowNoAnim(workspaceNum)
     end)
 end
 
-hl.bind(mainMod .. " + up", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind("CTRL + ALT + up", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind("CTRL + ALT + down", hl.dsp.focus({ workspace = "e+1" }))
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
@@ -98,7 +96,7 @@ hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("swayosd-client --brightness ra
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness lower --device acpi_video0 --min-brightness 0"),           { locked = true, repeating = true })
 hl.bind("XF86KbdBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness lower --device smc::kbd_backlight --min-brightness 0 "),   { locked = true, repeating = true })
 hl.bind("XF86KbdBrightnessUp",   hl.dsp.exec_cmd("swayosd-client --brightness raise --device smc::kbd_backlight --min-brightness 0"),    { locked = true, repeating = true })
-hl.bind("XF86PowerOff",  hl.dsp.exec_cmd("wlogout"),               { locked = true, repeating = false, release = true})
+hl.bind("XF86PowerOff",  hl.dsp.exec_cmd("wlogout --buttons-per-row 4"),               { locked = true, repeating = false, release = true})
 
 -- Requires playerctl
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })

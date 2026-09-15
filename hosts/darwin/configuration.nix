@@ -1,4 +1,4 @@
-{lib, config, pkgs, inputs, ... }: 
+{lib, config, inputs, ... }: 
 let
   darwinmodulesPath = ../../modules/darwin;
   darwin-config-files = lib.filesystem.listFilesRecursive darwinmodulesPath;

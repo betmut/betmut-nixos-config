@@ -1,7 +1,13 @@
 {
   inputs = {
+    # System-wide packages channel
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable"; 
+    };
+
+    # Home Manager packages channel
+    nixpkgs-hm = {
+      url = "github:nixos/nixpkgs/nixpkgs-unstable"; 
     };
 
     nixpkgs-stable = {
@@ -24,7 +30,7 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-hm";
     };
 
     home-manager-darwin-stable = {
@@ -40,10 +46,12 @@
       url = "github:homebrew/homebrew-core";
       flake = false;
     };
+
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
@@ -57,27 +65,36 @@
       url = "github:ryantm/agenix";
     };
 
-    awww = {
-      url = "git+https://codeberg.org/LGFae/awww";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs-hm";
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, ... }: 
+  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixpkgs-hm, ... }: 
   let
-    system = "x86_64-linux";
+    # Platform architecture targets
+    linux-system = "x86_64-linux"; #or "aarch64-linux" for arm64 systems
+    darwin-system = "aarch64-darwin"; #or "x86_64-darwin" for intel macs
+
+    hm-pkgs = import nixpkgs-hm { system = linux-system; config.allowUnfree = true; };
+    pkgs-stable = import nixpkgs-stable { system = linux-system; config.allowUnfree = true; };
     mkHomeUser = {user, filePath}: [
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
-          extraSpecialArgs = { inherit inputs; };
-          useGlobalPkgs = true;
+          extraSpecialArgs = { 
+            inherit inputs hm-pkgs pkgs-stable;
+            configPath = "/home/${user}/betmut-nixos-config/hm-users/${user}/config";
+          };
+          useGlobalPkgs = false;
           useUserPackages = true;
           users.${user} = filePath;
           };
       }
     ];
     isoConfig = type: {
-      inherit system;
+      system = linux-system;
       format = "install-iso";
       modules = (mkHomeUser {user = "nixos"; filePath = ./hm-users/nixos/home.nix;}) ++ [
         ./iso-configurations/${type}
@@ -91,9 +108,9 @@
     packages.x86_64-linux.gnome-iso = inputs.nixos-generators.nixosGenerate (
       isoConfig "gnome-iso-config.nix");
 
-    nixosConfigurations.mySystem = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs; };
+    nixosConfigurations.weierstrass = nixpkgs.lib.nixosSystem {
+      system = linux-system;
+      specialArgs = { inherit inputs pkgs-stable;};
       modules = 
       (mkHomeUser {user = "mathewelhans"; filePath = ./hm-users/mathewelhans/home.nix;}) ++
       (mkHomeUser {user = "guest"; filePath = ./hm-users/guest/home.nix;}) ++ [
@@ -103,12 +120,24 @@
       ];
     }; 
 
-    darwinConfigurations.darwinSystem = inputs.nix-darwin.lib.darwinSystem {
+    nixosConfigurations.nixos-install = nixpkgs.lib.nixosSystem {
+      system = linux-system;
       specialArgs = { inherit inputs; };
+      modules = [
+        ./nixos-generate-config/configuration.nix
+        ./nixos-generate-config/hardware-configuration.nix
+      ];
+    }; 
+
+    darwinConfigurations.darwinSystem = inputs.nix-darwin.lib.darwinSystem {
+      specialArgs = { 
+        inherit inputs hm-pkgs darwin-system;
+        darwin-username = "darwin";
+      };
       modules = [
         inputs.home-manager-darwin-stable.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew
-        ./hosts/darwin-macUser/configuration.nix
+        ./hosts/darwin/configuration.nix
       ];
     };
 

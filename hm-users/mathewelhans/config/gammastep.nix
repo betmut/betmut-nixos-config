@@ -1,7 +1,8 @@
-{config, pkgs, ...}: {
+{config, hm-pkgs, pkgs, ...}: {
 
   services.gammastep = {
     enable = true;
+    package = hm-pkgs.gammastep;
     provider = "geoclue2";
     tray = true;
 

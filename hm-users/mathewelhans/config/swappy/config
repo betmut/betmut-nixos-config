@@ -1,0 +1,3 @@
+[Default]
+save_dir=$HOME/Screenshots
+save_filename_format=screenshot(mathewelhans)_%d-%m-%Y_%H:%M.png

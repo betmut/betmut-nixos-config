@@ -32,13 +32,13 @@ tooltip {
 }
 
 #workspaces button {
-  padding: 0 0.4em;
+  padding: 0.0em 0.5em;
   color: #504945;
   border-radius: 6px;
   margin-right: 2px;
   margin-left: 2px;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  margin-top: 3px;
+  margin-bottom: 3px;
 
   /* --- The Animation Part --- */
   transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -47,6 +47,7 @@ tooltip {
 #workspaces button.active {
   color: #ebdbb2;
   background: #4e635b;
+
 }
 
 #workspaces button.focused {
@@ -105,8 +106,8 @@ tooltip {
 }
 
 #custom-power {
-  color: #fb4934;
-  background: #32302f;
+  padding: 0em 0.8em 0em 0.6em;
+  color: #fb4934;  
 }
 
 #cpu {
@@ -121,10 +122,10 @@ tooltip {
 
 #custom-nixos {
   color: #ebdbb2;
-  padding: 0 0.7em;
+  padding: 0em 1.0em 0em 0.6em;
   margin-right: 5px;
-  margin-left: 6px;
-  border-radius: 10px;
+  margin-left: 3px;
+  border-radius: 20px;
 
 }
 

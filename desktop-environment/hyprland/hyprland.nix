@@ -75,12 +75,11 @@ in
     wl-clipboard
     gpu-screen-recorder-gtk # screen recorder 
 
-    gapless #music
+    #wallpaper
     waypaper
-    
+    awww
   ] ++ 
   [
     zscroll
-    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
   ];
 }
