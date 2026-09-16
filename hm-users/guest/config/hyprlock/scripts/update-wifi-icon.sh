@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ICON_DIR="$HOME/.config/hypr/assets"
+ICON_DIR="$HOME/.config/hypr/assets/wifi"
 CURRENT="$ICON_DIR/wifi-status.png"
 
 # nmcli returns "connected" when there is an active network connection.
