@@ -4,15 +4,15 @@ on: [push, pull_request]
 
 jobs:
   test-default-system-build:
-    runs-on: ubuntu-latest
-  #  strategy:
-  #    fail-fast: false
-  #    matrix:
-  #      include:
-  #        - host: mySystem
-  #          os: ubuntu-latest
-  #        - host: nixos-install
-  #          os: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - host: weierstrass
+            os: ubuntu-latest
+          - host: nixos-install
+            os: ubuntu-latest
             
     steps:
       - uses: actions/checkout@v4
