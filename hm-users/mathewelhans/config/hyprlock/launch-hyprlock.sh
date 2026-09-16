@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 HYPRLOCK_DIR="$NIXOS_CONFIG/hm-users/mathewelhans/config/hyprlock"
-WIFI_ICON="$HYPRLOCK_DIR/assets/wifi-status.png"
+WIFI_ICON="$HYPRLOCK_DIR/assets/wifi/wifi-status.png"
 
 trap 'rm -f -- "$WIFI_ICON"' EXIT
 
