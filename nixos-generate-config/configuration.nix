@@ -19,7 +19,7 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = [ "broadcom-sta-6.30.223.271-63-6.18.44" ];
+    permittedInsecurePackages = [ "broadcom-sta-6.30.223.271-63-6.18.52" ];
   };
 
   # networking.hostName = "nixos"; # Define your hostname.
