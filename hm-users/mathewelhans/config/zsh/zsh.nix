@@ -1,9 +1,9 @@
-{config, hm-pkgs, lib, ...}: {
+{config, pkgs, lib, ...}: {
 
   #zsh config
   programs.zsh = {
     enable = true;
-    package = hm-pkgs.zsh;
+    package = pkgs.zsh;
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;

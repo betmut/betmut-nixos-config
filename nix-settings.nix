@@ -14,7 +14,11 @@
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       extra-deprecated-features = "or-as-identifier";
+      http-connections = 128;
+      max-substitution-jobs = 128;
       substituters = [
+        "https://mirror.sjtu.edu.cn/nix-channels/store" # Shanghai Jiao Tong University - best for Asia
+        "https://mirrors.ustc.edu.cn/nix-channels/store" # USTC backup mirror
         "https://hyprland.cachix.org"
         "https://nix-community.cachix.org"
       ];

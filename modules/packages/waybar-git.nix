@@ -5,8 +5,8 @@ pkgs.waybar.overrideAttrs (oldAttrs: {
     src = pkgs.fetchFromGitHub {
       owner = "alexays";      # Your github username/org
       repo = "waybar";        # Repo name
-      rev = "09e69e0f48214a1128d62417612bc47e8dc9e36a";   # Git commit SHA, branch name, or tag
-      hash = "sha256-grYWj1RHrkhM0NCIymTsZyObuQsCVf1kuzLaThwMxvc=";
+      rev = "4c495a41f6fe5689665783138ce0097f9b757e0a";   # Git commit SHA, branch name, or tag
+      hash = "sha256-udymEQjGzKq9sg/4ag0zwY3N+FXIY20sUCwsbebFg84=";
     };
 
     nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [

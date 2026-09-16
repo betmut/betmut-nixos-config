@@ -1,6 +1,6 @@
-{config, hm-pkgs, lib, ...}:
+{config, pkgs, lib, ...}:
 let
-  waybar-git = hm-pkgs.callPackage ../../../../modules/packages/waybar-git.nix { };
+  waybar-git = pkgs.callPackage ../../../../modules/packages/waybar-git.nix { };
   waybarPath = ../../../../desktop-environment/waybar;
 in
 {
@@ -16,7 +16,7 @@ in
   };
 
   #Packages
-  home.packages = with hm-pkgs; [
+  home.packages = with pkgs; [
     lm_sensors
   ];
 

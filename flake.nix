@@ -5,11 +5,6 @@
       url = "github:nixos/nixpkgs/nixos-unstable"; 
     };
 
-    # Home Manager packages channel
-    nixpkgs-hm = {
-      url = "github:nixos/nixpkgs/nixpkgs-unstable"; 
-    };
-
     nixpkgs-stable = {
       url = "github:nixos/nixpkgs/nixos-26.05";
     };
@@ -30,7 +25,7 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs-hm";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager-darwin-stable = {
@@ -67,27 +62,26 @@
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs-hm";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixpkgs-hm, ... }: 
+  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, ... }: 
   let
     # Platform architecture targets
     linux-system = "x86_64-linux"; #or "aarch64-linux" for arm64 systems
     darwin-system = "aarch64-darwin"; #or "x86_64-darwin" for intel macs
 
-    hm-pkgs = import nixpkgs-hm { system = linux-system; config.allowUnfree = true; };
     pkgs-stable = import nixpkgs-stable { system = linux-system; config.allowUnfree = true; };
     mkHomeUser = {user, filePath}: [
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
           extraSpecialArgs = { 
-            inherit inputs hm-pkgs pkgs-stable;
+            inherit inputs pkgs-stable;
             configPath = "/home/${user}/betmut-nixos-config/hm-users/${user}/config";
           };
-          useGlobalPkgs = false;
+          useGlobalPkgs = true;
           useUserPackages = true;
           users.${user} = filePath;
           };
@@ -131,7 +125,7 @@
 
     darwinConfigurations.darwinSystem = inputs.nix-darwin.lib.darwinSystem {
       specialArgs = { 
-        inherit inputs hm-pkgs darwin-system;
+        inherit inputs darwin-system;
         darwin-username = "darwin";
       };
       modules = [

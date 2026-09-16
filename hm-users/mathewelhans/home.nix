@@ -1,4 +1,4 @@
-{config, configPath, inputs, hm-pkgs, pkgs-stable, lib, ... }: 
+{config, configPath, inputs, pkgs, pkgs-stable, lib, ... }: 
 let
   config-files = lib.filesystem.listFilesRecursive ./config;
   system-wide-path = "${config.home.homeDirectory}/betmut-nixos-config/desktop-environment";
@@ -12,7 +12,7 @@ in
   home.homeDirectory = "/home/mathewelhans";
 
   #Packages
-  home.packages = with hm-pkgs; [
+  home.packages = with pkgs; [
     vscode
     elan  
     btop 
