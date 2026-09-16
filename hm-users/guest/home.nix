@@ -59,8 +59,19 @@ in
       source = ./config/hyprlock/scripts;
       recursive = true;
     };
+
     "hypr/assets" = {
       source = ./config/hyprlock/assets;
+      recursive = true;
+    };
+
+    "hypr/assets/battery" = {
+      source = ./config/hyprlock/assets/battery;
+      recursive = true;
+    };
+
+    "hypr/assets/wifi" = {
+      source = ./config/hyprlock/assets/wifi;
       recursive = true;
     };
   };

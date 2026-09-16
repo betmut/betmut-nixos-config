@@ -12,4 +12,4 @@ trap 'rm -f -- "$WIFI_ICON" "$BATTERY_ICON"' EXIT
 "$HYPRLOCK_SCRIPTS/update-battery-icon.sh"
 
 #run hyprlock
-hyprlock -c "$HYPRLOCK_DIR/hyprlock.conf"
+hyprlock -c "$HYPRLOCK_PATH/hyprlock.conf"
