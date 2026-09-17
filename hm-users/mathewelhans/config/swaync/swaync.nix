@@ -1,11 +1,11 @@
-{config, hm-pkgs, lib, ...}: 
+{config, pkgs, lib, ...}: 
 let
   swayncPath = "${config.home.homeDirectory}/betmut-nixos-config/desktop-environment/swaync";
 in
 {
   services.swaync = {
     enable = true;
-    package = hm-pkgs.swaynotificationcenter;
+    package = pkgs.swaynotificationcenter;
   };
 
   #config files

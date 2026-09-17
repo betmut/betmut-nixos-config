@@ -1,7 +1,7 @@
-{ hm-pkgs, config, configPath, lib, ... }:{
+{ pkgs, config, configPath, lib, ... }:{
   programs.fastfetch = {
     enable = true;
-    package = hm-pkgs.fastfetch;
+    package = pkgs.fastfetch;
   };
 
   #config files

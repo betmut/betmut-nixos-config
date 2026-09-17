@@ -1,8 +1,8 @@
-{config, hm-pkgs, lib,...}: {
+{config, pkgs, lib,...}: {
 
   services.hypridle = {
     enable = true;
-    package = hm-pkgs.hypridle;
+    package = pkgs.hypridle;
     settings = {
       general = {
         lock_cmd = "$NIXOS_CONFIG/hm-users/mathewelhans/config/hyprlock/launch-hyprlock.sh || hyprlock"; # lock command

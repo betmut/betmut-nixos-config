@@ -1,8 +1,8 @@
-{ hm-pkgs, ... }:{
+{ pkgs, ... }:{
 
   programs.fastfetch = {
     enable = true;
-    package = hm-pkgs.fastfetch;
+    package = pkgs.fastfetch;
   };
 
   #config files

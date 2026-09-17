@@ -1,8 +1,8 @@
-{ hm-pkgs, lib, ... }:{
+{ pkgs, lib, ... }:{
 
   programs.yazi = {
     enable = true;
-    package = hm-pkgs.yazi;
+    package = pkgs.yazi;
   };
 
   #config files

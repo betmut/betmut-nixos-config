@@ -1,4 +1,4 @@
-{config, hm-pkgs, lib, ... }: 
+{config, pkgs, lib, ... }: 
 let
   config-files = lib.filesystem.listFilesRecursive ./config;
   system-wide-path = ../../desktop-environment;
@@ -11,7 +11,7 @@ in
   home.homeDirectory = "/home/guest";
     
   #Packages
-  home.packages = with hm-pkgs; [
+  home.packages = with pkgs; [
     btop 
     cmatrix 
     brightnessctl 

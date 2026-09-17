@@ -1,9 +1,9 @@
-{inputs, config, hm-pkgs, ...}:{
+{inputs, config, pkgs, ...}:{
 
   stylix.targets.firefox.profileNames = [ "darwin-user" ];
   programs.firefox = {
     enable = true;
-    package = hm-pkgs.firefox;
+    package = pkgs.firefox;
     languagePacks = [ "en-US" "id"];
     policies = {
       # Telemetry, Studies & Experiments
@@ -108,7 +108,7 @@
                 ];
                 }
               ];
-              icon = "${hm-pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "@nixos-search" ];
             };
               
