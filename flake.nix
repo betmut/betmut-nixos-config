@@ -64,6 +64,11 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sysc-greet = {
+      url = "github:Nomadcxx/sysc-greet";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-stable, ... }: 
@@ -108,6 +113,7 @@
       modules = 
       (mkHomeUser {user = "mathewelhans"; filePath = ./hm-users/mathewelhans/home.nix;}) ++
       (mkHomeUser {user = "guest"; filePath = ./hm-users/guest/home.nix;}) ++ [
+        inputs.sysc-greet.nixosModules.default
         inputs.stylix.nixosModules.stylix
         inputs.agenix.nixosModules.default
         ./hosts/nixos-erdos/configuration.nix
