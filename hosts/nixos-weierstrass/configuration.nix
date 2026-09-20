@@ -1,4 +1,4 @@
-{lib, config, pkgs, inputs, ... }: 
+{self, lib, config, pkgs, inputs, ... }: 
 let
 	desktopEnvironment = "hyprland";
   linuxmodulesPath = ../../modules/linux;
@@ -6,6 +6,7 @@ let
 in
 {
   system.stateVersion = "26.05";
+  system.configurationRevision = self.rev or self.dirtyRev or null;
 
   # Define Hostname
   networking.hostName = lib.removeSuffix "\n" (builtins.readFile ../../hostname/nixos);

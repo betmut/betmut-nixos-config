@@ -1,4 +1,4 @@
-{config, pkgs, inputs, lib, ... }: 
+{self, config, pkgs, inputs, lib, ... }: 
 let
   linuxmodulesPath = ../modules/linux;
   servicesPath = ../modules/services;
@@ -23,6 +23,8 @@ in
     (servicesPath + /ssh.nix)
     (servicesPath + /mac-hardware.nix)
   ];
+
+  system.configurationRevision = self.rev or self.dirtyRev or null;
 
   #hostname
   networking.hostName = lib.mkForce "arendelle";

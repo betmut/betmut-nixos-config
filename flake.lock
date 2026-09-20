@@ -585,15 +585,15 @@
       "locked": {
         "lastModified": 1789869405,
         "narHash": "sha256-IB/LXWwnbRzrzWTPDf3MJ+ZJ8ZnpQFz/6hPzEbAJSLc=",
-        "owner": "betmut",
-        "repo": "sysc-greet",
+        "ref": "refs/heads/master",
         "rev": "67dc204c43cdf269def0f025fc0a4dee65824f1e",
-        "type": "github"
+        "revCount": 401,
+        "type": "git",
+        "url": "https://codeberg.org/betmut/sysc-greet"
       },
       "original": {
-        "owner": "betmut",
-        "repo": "sysc-greet",
-        "type": "github"
+        "type": "git",
+        "url": "https://codeberg.org/betmut/sysc-greet"
       }
     },
     "systems": {
