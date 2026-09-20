@@ -74,7 +74,7 @@
     darwin-system = "aarch64-darwin"; #or "x86_64-darwin" for intel macs
 
     pkgs-stable = import nixpkgs-stable { system = linux-system; config.allowUnfree = true; };
-    mkHomeUser = {user, filePath}: [
+    mkHomeUser = user: [
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
@@ -84,14 +84,14 @@
           };
           useGlobalPkgs = true;
           useUserPackages = true;
-          users.${user} = filePath;
+          users.${user} = ./hm-users/${user}/home.nix;
           };
       }
     ];
     isoConfig = type: {
       system = linux-system;
       format = "install-iso";
-      modules = (mkHomeUser {user = "nixos"; filePath = ./hm-users/nixos/home.nix;}) ++ [
+      modules = (mkHomeUser "nixos") ++ [
         ./iso-configurations/${type}
       ];
     };
@@ -107,8 +107,7 @@
       system = linux-system;
       specialArgs = { inherit inputs pkgs-stable self;};
       modules = 
-      (mkHomeUser {user = "mathewelhans"; filePath = ./hm-users/mathewelhans/home.nix;}) ++
-      (mkHomeUser {user = "guest"; filePath = ./hm-users/guest/home.nix;}) ++ [
+      (mkHomeUser "mathewelhans") ++ (mkHomeUser "guest") ++ [
         inputs.sysc-greet.nixosModules.default
         inputs.stylix.nixosModules.stylix
         inputs.agenix.nixosModules.default

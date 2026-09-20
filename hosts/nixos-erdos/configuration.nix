@@ -29,7 +29,8 @@ in
     (linuxmodulesPath + /fonts.nix)
     (linuxmodulesPath + /security.nix)
     (linuxmodulesPath + /podman.nix)
-    
+    (linuxmodulesPath + /plymouth.nix)
+
     #services
     (servicesPath + /mac-hardware.nix)
     (servicesPath + /rstudio-server.nix)
