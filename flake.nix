@@ -38,7 +38,7 @@
     };
 
     sysc-greet = {
-      url = "github:betmut/sysc-greet";
+      url = "git+https://codeberg.org/betmut/sysc-greet";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -105,7 +105,7 @@
 
     nixosConfigurations.erdos = nixpkgs.lib.nixosSystem {
       system = linux-system;
-      specialArgs = { inherit inputs pkgs-stable;};
+      specialArgs = { inherit inputs pkgs-stable self;};
       modules = 
       (mkHomeUser {user = "mathewelhans"; filePath = ./hm-users/mathewelhans/home.nix;}) ++
       (mkHomeUser {user = "guest"; filePath = ./hm-users/guest/home.nix;}) ++ [
@@ -118,7 +118,7 @@
 
     nixosConfigurations.nixos-install = nixpkgs.lib.nixosSystem {
       system = linux-system;
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs self; };
       modules = [
         ./nixos-generate-config/configuration.nix
         ./nixos-generate-config/hardware-configuration.nix
@@ -127,7 +127,7 @@
 
     darwinConfigurations.darwinSystem = inputs.nix-darwin.lib.darwinSystem {
       specialArgs = { 
-        inherit inputs darwin-system;
+        inherit inputs darwin-system self;
         darwin-username = "darwin";
       };
       modules = [
