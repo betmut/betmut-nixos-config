@@ -583,11 +583,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789807829,
-        "narHash": "sha256-87XEA3hqz0HoN+O2Xc2T7+vz1JOOUYPEdWmmtTcYVVc=",
+        "lastModified": 1789869405,
+        "narHash": "sha256-IB/LXWwnbRzrzWTPDf3MJ+ZJ8ZnpQFz/6hPzEbAJSLc=",
         "owner": "betmut",
         "repo": "sysc-greet",
-        "rev": "3bdd316ce1794b156a206ab3ac88bb7e7710420b",
+        "rev": "67dc204c43cdf269def0f025fc0a4dee65824f1e",
         "type": "github"
       },
       "original": {
