@@ -7,18 +7,17 @@
   [![Static Badge](https://img.shields.io/badge/codeberg-repo-blue?logo=codeberg)](https://codeberg.org/betmut/betmut-nixos-config)
   [![Static Badge](https://img.shields.io/badge/github-repo-green?logo=github)](https://github.com/betmut/betmut-nixos-config)
 
-  <i>This is my personal NixOS (Flakes) configurations</i>
+  <i>My personal NixOS (Flakes) configurations</i>
 </div>
 
 ## Screenshots
 ![Alt Text](screenshots/screenshot-2.png)
-![Alt Text](screenshots/screenshot-7.png)
-![Alt Text](screenshots/screenshot-6.png)
+![Alt Text](screenshots/screenshot-8.png)
 ![Alt Text](screenshots/screenshot-5.png)
 
 ## Features
 
-- **Highly modular and reusable configuration**: Linux desktop and service modules are designed for composition and reuse —       easily extended into headless server configurations.
+- **Highly modular and reusable configuration**: Linux desktop and service modules are designed for composition and reuse.
 - **Cross-platform support**: works on NixOS/Linux desktops and macOS via `nix-darwin` (can integrate with Homebrew where appropriate).
 - **Prebuilt outputs**: includes ready-made artifacts for an install ISO, per-user Home Manager profiles, and a Darwin system configuration.
 - **Lix support**: experimental integration with Lix as an alternative package manager to address technical debt — faster evaluations and clearer, more readable error messages.
@@ -27,11 +26,13 @@
 ## Default Component details
 | Component       | Name                                                                                                                               | 
 | :--------       | :--------:                                                                                                                         |
-| Window Manager  | [Hyprland](https://github.com/hyprwm/hyprland)                                                                                     |
+| Window Manager  | [Hyprland](https://github.com/hyprwm/hyprland) - [niri](https://github.com/niri-wm/niri)                                                                                     |
 | Status bar      | [Waybar](https://github.com/Alexays/Waybar)                                                                                        |
 | Color Theme     | [Gruvbox Dark](https://gruvbox.org/)                                                                                               |
 | Kernel          | [XanMod](https://xanmod.org/)                                                                                                      |
 | Launcher        | [rofi](https://github.com/davatorium/rofi)                                                                                         |
+| Logout Menu        | [wlogout](https://github.com/ArtsyMacaw/wlogout)                                                                                         |
+| Display Manager        | greetd ([sysc-greet](https://github.com/Nomadcxx/sysc-greet) as the greeter)                                                                                         |
 | Terminal        | [kitty](https://sw.kovidgoyal.net/kitty)                                                                                           |
 | Shell           | [zsh](https://zsh.sourceforge.io/)                                                                                                 |
 | Editor          | [VSCode](https://code.visualstudio.com/) - [vim](https://github.com/vim/vim)                                                       |
@@ -44,8 +45,12 @@
 ## File Structures
 ```
 .
-├── desktop-environment/            # Hyprland-specific config (hyprland.lua, conf/ fragments)
-│   └── hyprland
+├── desktop-environment/            # WM and system-wide configs (hyprland, niri)
+│    ├── swaync
+│    ├── waybar
+│    ├── wlogout
+│    ├── niri 
+│    └── hyprland
 │
 ├── hm-users/                       # User-level configurations managed by Home Manager
 │   ├── guest
@@ -54,6 +59,7 @@
 │   └── nixos
 │
 ├── iso-configurations/             # Custom ISO build configurations
+│   ├── gnome-iso-config.nix
 │   └── minimal-iso-config.nix      # Non-GUI custom ISO configurations (Including wl module for proprietary 
 │                                     Broadcom driver support, NTFS/APFS support) 
 │ 
@@ -73,18 +79,20 @@
 ├── hosts/
 │   ├── darwin                      # macOS (nix-darwin) system-level configurations
 │   │
-│   └── nixos-chapunk               # Default Linux system-level configurations 
+│   └── nixos-<hostname>            # Default Linux system-level configurations 
 │           
 ├── hostname/                       # Hostname (linux, mac)
 ├── nix-settings.nix                # Nix daemon settings
 ├── disks.nix                       # Disk/filesystem configuration    
 ├── flake.nix                       # Entry point: defines outputs and flake composition
 ├── secrets                         # agenix-encrypted secrets
+├── prepare-disks.sh                # automated formatting and labelling partitions
+├── update-nix-flakes.sh            # script for updating essential flake inputs
 └── stylix.nix                      # Theme / styling (colors, fonts applied system-wide)
 ```
 
 
-## Getting Started
+## Installation Guides
 
 ### 1. Clone the repo
 ```
@@ -94,21 +102,45 @@ cd ~/betmut-nixos-config
 ```
 
 ### 2. Download ISO image or Build the custom ISO image
-Download the ISO image from the [official website](https://nixos.org/download/) or build the custom ISO file (including the `wl` module for proprietary Broadcom STA wireless driver support) by Installing Nix package manager [here](https://nixos.org/download/) first, and then run:
+Download the ISO image from the [official website](https://nixos.org/download/) or build the custom ISO file (include the `wl` module for proprietary Broadcom STA wireless driver support) by Installing [Nix package manager](https://nixos.org/download/) first, and then run:
 ```
 #if you clone the repo
-nix build .#packages.x86_64-linux.minimal-iso
+nix build .#packages.x86_64-linux.minimal-iso #minimal ISO
+nix build .#packages.x86_64-linux.gnome-iso #GNOME ISO
 
 #if you run the flakes directly without cloning
-nix build github:betmut/betmut-nixos-config#packages.x86_64-linux.minimal-iso
+nix build github:betmut/betmut-nixos-config#packages.x86_64-linux.minimal-iso #minimal ISO
+nix build github:betmut/betmut-nixos-config#packages.x86_64-linux.gnome-iso #GNOME ISO
 ```
 
-### 3. Rebuild the system configuration (NixOS)
+### 3. Partitioning and Formating
+Partitioning, formating, and mounting partitions guides can be see in [official NixOS manual](https://nixos.org/manual/nixos/stable/#sec-installation) or [Arch Installation Guide](https://wiki.archlinux.org/title/Installation_guide#Partition_the_disks).
+
+You can run `prepare-disks.sh` script for automating Partitioning, formating, and mounting partitions processes (use on your own risk!).
+
+### 4. Install full NixOS configurations (Flake approach) and set user password
 ```
-sudo nixos-rebuild switch --flake .#desktop
+sudo nixos-install --flake .#weierstrass
+```
+As the last step, `nixos-install` will ask you to set the password for the root user, e.g.
+```
+setting root password...
+New password: ***
+Retype new password: ***
+```
+If you have a user account declared in your configuration.nix and plan to log in using this user, set a password before rebooting, e.g. for the alice user:
+```
+sudo nixos-enter --root /mnt -c 'passwd alice'
 ```
 
-### 4. Rebuild the system configuration (MacOS)
+## Rebuild the Configurations
+
+### Rebuild the system configurations (NixOS)
+```
+sudo nixos-rebuild switch --flake .#weierstrass
+```
+
+### Rebuild the system configurations (MacOS)
 Install [Nix-Darwin](https://github.com/nix-darwin/nix-darwin) and follow the installation instruction, and then, run this command:
 ```
 darwin-rebuild switch --flake .#<mac-hostname>
@@ -116,12 +148,15 @@ darwin-rebuild switch --flake .#<mac-hostname>
 
 Where you can change `<mac-hostname>` at `hostname` directory
 
-### Extra
+## Extra
 
-You can also run the wallpaper changer script by running:
+You can also run the wallpaper changer script remotely by running:
+
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/betmut/betmut-nixos-config/refs/heads/main/modules/services/scripts/change-wallpaper.sh)
 ```
+
+Also you can run `update-nix-flakes.sh` script for updating the essential flake inputs for NixOS.
 
 ## License
 MIT — see `LICENSE`
