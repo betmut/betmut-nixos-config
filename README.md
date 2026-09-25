@@ -25,7 +25,8 @@
 - **Lix support**: experimental integration with Lix as an alternative package manager to address technical debt — faster evaluations and clearer, more readable error messages.
 - **Time-aware wallpaper changer**: a small script that updates your wallpaper based on time of day (located at `modules/services/scripts/change-wallpaper.sh`); default keybinding `SUPER+SHIFT+W` (fully customizable) to change your wallpaper or `SUPER+W` to open `waypaper`.
 
-## Default Component details
+## Specifications
+### Component details
 | Component       | Name                                                                                                                               | 
 | :--------       | :--------:                                                                                                                         |
 | Window Manager  | [Hyprland](https://github.com/hyprwm/hyprland) - [niri](https://github.com/niri-wm/niri)                                                                                     |
@@ -43,6 +44,11 @@
 | Wallpapers      | [awww](https://codeberg.org/LGFae/awww) - [waypaper](https://github.com/anufrievroman/waypaper)                                    |
 | Terminal Font   | [Hasklug Nerd Font Mono](https://www.programmingfonts.org/#hasklig)                                                                | 
 
+### Machine's Hostnames
+| Hostnames | Description |
+|:----------|:-----------:|
+| `weierstrass` | Main desktop            |
+| `erdos`     | Portable machine that installed on portable SSD           |
 
 ## File Structures
 ```
