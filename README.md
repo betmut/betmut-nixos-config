@@ -124,7 +124,7 @@ nix build github:betmut/betmut-nixos-config#packages.x86_64-linux.gnome-iso #GNO
 ### 3. Partitioning and Formatting
 Partitioning, formating, and mounting partitions guides can be seen in [official NixOS manual](https://nixos.org/manual/nixos/stable/#sec-installation) or [Arch Installation Guide](https://wiki.archlinux.org/title/Installation_guide#Partition_the_disks).
 
-You can run `prepare-disks.sh` script for automating Partitioning, formating, and mounting partitions processes (use on your own risk!). The script automatically labels boot partition as `NIXOS_BOOT`, swap partition as `NIXOS_SWAP`, and root partition as `NIXOS_ROOT`.
+You can run `prepare-disks.sh` script for automating Partitioning, formating, and mounting partitions processes (USE ON YOUR OWN RISK!). The script automatically labels boot partition as `NIXOS_BOOT`, swap partition as `NIXOS_SWAP`, and root partition as `NIXOS_ROOT`.
  
 ```
 $ ./prepare-disks.sh --help
@@ -134,7 +134,8 @@ Usage: ./prepare-disks.sh -b|--boot <partition> -r|--root <partition> [-s|--swap
   -s, --swap    Path to swap partition (e.g., /dev/nvme0n1p2) [Optional]
   -h, --help    Show this help message
 
-for example if /dev/nvme0n1p1 is the boot parititon, /dev/nvme0n1p2 is the swap partition (optional), /dev/nvme0n1p3 is the root partition  :
+#for example if /dev/nvme0n1p1 is the boot parititon, /dev/nvme0n1p2 is
+#the swap partition (optional), /dev/nvme0n1p3 is the root partition  :
 
 $ ./prepare-disks.sh \
   --boot /dev/nvme0n1p1 \
@@ -167,7 +168,7 @@ sudo nixos-rebuild switch --flake .#<hostname>
 ### Rebuild the system configurations (MacOS)
 Install [Nix-Darwin](https://github.com/nix-darwin/nix-darwin) and follow the installation instruction, and then, run this command:
 ```
-darwin-rebuild switch --flake .#<mac-hostname>
+sudo darwin-rebuild switch --flake .#<mac-hostname>
 ```
 
 Where you can change `<mac-hostname>` at `hostname` directory
