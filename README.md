@@ -23,7 +23,7 @@
 - **Cross-platform support**: works on NixOS/Linux desktops and macOS via `nix-darwin` (can integrate with Homebrew where appropriate).
 - **Prebuilt outputs**: includes ready-made artifacts for an install ISO, per-user Home Manager profiles, and a Darwin system configuration.
 - **Lix support**: experimental integration with Lix as an alternative package manager to address technical debt — faster evaluations and clearer, more readable error messages.
-- **Time-aware wallpaper changer**: a small script that updates your wallpaper based on time of day (located at `modules/services/scripts/change-wallpaper.sh`); default keybinding `SUPER+SHIFT+W` (fully customizable) to change your wallpaper and `SUPER+W` to open `waypaper` (hyprland only).
+- **Time-aware wallpaper changer**: a small script that updates your wallpaper based on time of day (located at `modules/services/scripts/change-wallpaper.sh`)
 
 ## Specifications
 ### Component details
@@ -163,8 +163,9 @@ You can also run the wallpaper changer script remotely by running:
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/betmut/betmut-nixos-config/refs/heads/main/modules/services/scripts/change-wallpaper.sh)
 ```
+Default keybinding for changing wallpaper is `SUPER+SHIFT+W`. Press `SUPER+W` to open `waypaper` (hyprland only).
 
-Also you can run `update-nix-flakes.sh` script for updating the essential flake inputs for NixOS.
+You can run `update-nix-flakes.sh` script for updating the essential flake inputs for NixOS.
 
 ## License
 MIT — see `LICENSE`
