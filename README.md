@@ -48,7 +48,7 @@
 | Hostnames | Description |
 |:----------|:-----------:|
 | `weierstrass` | Main machine            |
-| `erdos`     | Portable machine that installed on portable SSD           |
+| `erdos`     | Portable machine that installed on a portable SSD (switch to `erdos-config` branch to use this hostname's configurations)          |
 
 ## File Structures
 ```
@@ -76,7 +76,7 @@
 │   │                                 networking, display-manager, gaming, security, fonts,
 │   │                                 users, etc.)
 │   │
-│   ├── darwin                      # modules that focused on nix-darwin configurations
+│   ├── darwin                      # modules focused on nix-darwin configurations
 │   │
 │   ├── packages                    # Custom packages that fetch directly from the source code 
 │   │                                 (waybar-git, zscroll, etc.)
@@ -121,11 +121,27 @@ nix build github:betmut/betmut-nixos-config#packages.x86_64-linux.minimal-iso #m
 nix build github:betmut/betmut-nixos-config#packages.x86_64-linux.gnome-iso #GNOME ISO
 ```
 
-### 3. Partitioning and Formating
-Partitioning, formating, and mounting partitions guides can be see in [official NixOS manual](https://nixos.org/manual/nixos/stable/#sec-installation) or [Arch Installation Guide](https://wiki.archlinux.org/title/Installation_guide#Partition_the_disks).
+### 3. Partitioning and Formatting
+Partitioning, formating, and mounting partitions guides can be seen in [official NixOS manual](https://nixos.org/manual/nixos/stable/#sec-installation) or [Arch Installation Guide](https://wiki.archlinux.org/title/Installation_guide#Partition_the_disks).
 
-You can run `prepare-disks.sh` script for automating Partitioning, formating, and mounting partitions processes (use on your own risk!).
+You can run `prepare-disks.sh` script for automating Partitioning, formating, and mounting partitions processes (use on your own risk!). The script automatically labels boot partition as `NIXOS_BOOT`, swap partition as `NIXOS_SWAP`, and root partition as `NIXOS_ROOT`.
+ 
+```
+$ ./prepare-disks.sh --help
+Usage: ./prepare-disks.sh -b|--boot <partition> -r|--root <partition> [-s|--swap <partition>]
+  -b, --boot    Path to boot partition (e.g., /dev/nvme0n1p1) [Required]
+  -r, --root    Path to root partition (e.g., /dev/nvme0n1p3) [Required]
+  -s, --swap    Path to swap partition (e.g., /dev/nvme0n1p2) [Optional]
+  -h, --help    Show this help message
 
+for example if /dev/nvme0n1p1 is the boot parititon, /dev/nvme0n1p2 is the swap partition (optional), /dev/nvme0n1p3 is the root partition  :
+
+$ ./prepare-disks.sh \
+  --boot /dev/nvme0n1p1 \
+  --root /dev/nvme0n1p3 \
+  --swap /dev/nvme0n1p2
+
+```
 ### 4. Install full NixOS configurations (Flake approach) and set the user and root password
 ```
 sudo nixos-install --flake .#<hostname>
