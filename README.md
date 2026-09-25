@@ -31,18 +31,18 @@
 | :--------       | :--------:                                                                                                                         |
 | Window Manager  | [Hyprland](https://github.com/hyprwm/hyprland) - [niri](https://github.com/niri-wm/niri)                                                                                     |
 | Status bar      | [Waybar](https://github.com/Alexays/Waybar)                                                                                        |
-| Color Theme     | [Gruvbox Dark](https://gruvbox.org/)                                                                                               |
 | Kernel          | [XanMod](https://xanmod.org/)                                                                                                      |
-| Launcher        | [rofi](https://github.com/davatorium/rofi)                                                                                         |
+| App Launcher        | [rofi](https://github.com/davatorium/rofi)                                                                                         |
 | Logout Menu        | [wlogout](https://github.com/ArtsyMacaw/wlogout)                                                                                         |
-| Display Manager        | greetd ([sysc-greet](https://github.com/Nomadcxx/sysc-greet) as the greeter)                                                                                         |
-| Terminal        | [kitty](https://sw.kovidgoyal.net/kitty)                                                                                           |
+| Terminal App       | [kitty](https://sw.kovidgoyal.net/kitty)                                                                                           |
 | Shell           | [zsh](https://zsh.sourceforge.io/)                                                                                                 |
-| Editor          | [VSCode](https://code.visualstudio.com/) - [vim](https://github.com/vim/vim)                                                       |
+| Text Editor          | [VSCode](https://code.visualstudio.com/) - [vim](https://github.com/vim/vim)                                                       |
 | File Manager    | [thunar](https://github.com/neilbrown/thunar)                                                                                      |
-| Notifications   | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter) - [libnotify](https://gitlab.gnome.org/GNOME/libnotify)             |
-| Wallpapers      | [awww](https://codeberg.org/LGFae/awww) - [waypaper](https://github.com/anufrievroman/waypaper)                                    |
-| Terminal Font   | [Hasklug Nerd Font Mono](https://www.programmingfonts.org/#hasklig)                                                                | 
+| Notifications Daemon  | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter) ([libnotify](https://gitlab.gnome.org/GNOME/libnotify) as the popup desktop notifications)             |
+| Wallpaper Daemon      | [awww](https://codeberg.org/LGFae/awww) ([waypaper](https://github.com/anufrievroman/waypaper) as the wallpaper manager)                                   |
+| Display Manager        | greetd ([sysc-greet](https://github.com/Nomadcxx/sysc-greet) as the greeter)                                                                                         |
+| Terminal Font   | Hasklug Nerd Font Mono                                                                | 
+| Color Theme     | Gruvbox Dark Hard                                                                                             |
 
 ### Machine's Hostnames
 | Hostnames | Description |
