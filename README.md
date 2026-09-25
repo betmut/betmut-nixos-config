@@ -34,7 +34,7 @@
 | Kernel          | [XanMod](https://xanmod.org/)                                                                                                      |
 | App Launcher        | [rofi](https://github.com/davatorium/rofi)                                                                                         |
 | Logout Menu        | [wlogout](https://github.com/ArtsyMacaw/wlogout)                                                                                         |
-| Terminal App       | [kitty](https://sw.kovidgoyal.net/kitty)                                                                                           |
+| Terminal Emulator       | [kitty](https://sw.kovidgoyal.net/kitty)                                                                                           |
 | Shell           | [zsh](https://zsh.sourceforge.io/)                                                                                                 |
 | Text Editor          | [VSCode](https://code.visualstudio.com/) - [vim](https://github.com/vim/vim)                                                       |
 | File Manager    | [thunar](https://github.com/neilbrown/thunar)                                                                                      |
