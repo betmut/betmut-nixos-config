@@ -134,8 +134,8 @@ Usage: ./prepare-disks.sh -b|--boot <partition> -r|--root <partition> [-s|--swap
   -s, --swap    Path to swap partition (e.g., /dev/nvme0n1p2) [Optional]
   -h, --help    Show this help message
 
-#for example if /dev/nvme0n1p1 is the boot parititon, /dev/nvme0n1p2 is
-#the swap partition (optional), /dev/nvme0n1p3 is the root partition  :
+# for example if /dev/nvme0n1p1 is the boot parititon, /dev/nvme0n1p2 is
+# the swap partition (optional), /dev/nvme0n1p3 is the root partition  :
 
 $ ./prepare-disks.sh \
   --boot /dev/nvme0n1p1 \
