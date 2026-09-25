@@ -47,7 +47,7 @@
 ### Machine's Hostnames
 | Hostnames | Description |
 |:----------|:-----------:|
-| `weierstrass` | Main desktop            |
+| `weierstrass` | Main Machine            |
 | `erdos`     | Portable machine that installed on portable SSD           |
 
 ## File Structures
@@ -126,9 +126,9 @@ Partitioning, formating, and mounting partitions guides can be see in [official 
 
 You can run `prepare-disks.sh` script for automating Partitioning, formating, and mounting partitions processes (use on your own risk!).
 
-### 4. Install full NixOS configurations (Flake approach) and set user password
+### 4. Install full NixOS configurations (Flake approach) and set the user and root password
 ```
-sudo nixos-install --flake .#weierstrass
+sudo nixos-install --flake .#<hostname>
 ```
 As the last step, `nixos-install` will ask you to set the password for the root user, e.g.
 ```
@@ -136,16 +136,16 @@ setting root password...
 New password: ***
 Retype new password: ***
 ```
-If you have a user account declared in your configuration.nix and plan to log in using this user, set a password before rebooting, e.g. for the alice user:
+If you have a user account declared in your configuration.nix and plan to log in using this user, set a password before rebooting, e.g. for the `mathewelhans` user:
 ```
-sudo nixos-enter --root /mnt -c 'passwd alice'
+sudo nixos-enter --root /mnt -c 'passwd mathewelhans'
 ```
 
 ## Rebuild the Configurations
 
 ### Rebuild the system configurations (NixOS)
 ```
-sudo nixos-rebuild switch --flake .#weierstrass
+sudo nixos-rebuild switch --flake .#<hostname>
 ```
 
 ### Rebuild the system configurations (MacOS)
