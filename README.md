@@ -47,7 +47,7 @@
 ### Machine's Hostnames
 | Hostnames | Description |
 |:----------|:-----------:|
-| `weierstrass` | Main Machine            |
+| `weierstrass` | Main machine            |
 | `erdos`     | Portable machine that installed on portable SSD           |
 
 ## File Structures
