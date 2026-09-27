@@ -3,7 +3,7 @@
 art_file="/tmp/spotify_cover.jpg"
 
 # Subscribe to track change events from Spotify
-playerctl --player=spotify metadata --format '{{ title }} - {{ artist }}' --follow 2>/dev/null | while read -r track_info; do
+playerctl --player=spotify metadata --format '{{ artist }} - {{ title }}' --follow 2>/dev/null | while read -r track_info; do
     
     # Skip empty lines (e.g. when Spotify closes or stops playing)
     [ -z "$track_info" ] && continue

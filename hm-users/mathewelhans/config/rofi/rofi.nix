@@ -5,12 +5,12 @@
     enable = true;
     package = pkgs.rofi; 
     theme = lib.mkForce ./themes/gruvbox-dark-hard.rasi;
-    terminal = "${pkgs.kitty}/bin/kitty";
     plugins = with pkgs; [
       rofi-calc
     ];
 
-    extraConfig = {
+    settings = {
+      terminal = "${pkgs.kitty}/bin/kitty";
       timeout = {
         action = "kb-cancel";
         delay = 0;
