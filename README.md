@@ -182,7 +182,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/betmut/betmut-nixos-config/r
 ```
 Default keybinding for changing wallpaper is `SUPER+SHIFT+W`. Press `SUPER+W` to open `waypaper` (hyprland only).
 
-You can run `update-nix-flakes.sh` script for updating the essential flake inputs for NixOS.
+You can run `update-nix-flakes.sh` script for updating the essential flake inputs.
 
 ## License
 MIT — see `LICENSE`
