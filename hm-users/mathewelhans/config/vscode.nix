@@ -46,16 +46,29 @@
         "editor.cursorStyle" = "line";
         "editor.fontLigatures" =  true; 
         "editor.tabSize" = 2;
+        
+        #disable copilot autosuggestions        
+        "github.copilot.enable" = {
+          "*" = false;
+          "plaintext" = false;
+          "markdown" = false;
+          "scminput" = false;
+        };
+        "github.copilot.nextEditSuggestions.enabled" = false;
+
 
         "[nix]" = {
           "editor.tabSize" = 2;      # Nix community standard is 2 spaces
         };
+
         "[python]" = {
           "editor.tabSize" = 4;      # Standard for PEP 8
         };
+
         "[javascript]" = {
           "editor.tabSize" = 2;
         };
+
       };
     };
   };
