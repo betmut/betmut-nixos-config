@@ -583,11 +583,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790720701,
-        "narHash": "sha256-IB/LXWwnbRzrzWTPDf3MJ+ZJ8ZnpQFz/6hPzEbAJSLc=",
+        "lastModified": 1791239816,
+        "narHash": "sha256-kpLlUyrAGrON3Pc4CGRzEssvSJvO404kQAjRXZYslXA=",
         "ref": "refs/heads/master",
-        "rev": "70b7fb784018136a34843ffcc41d6eedff12ba44",
-        "revCount": 402,
+        "rev": "fcf15a8fbc882023a134a1e7f5c96a0786f85712",
+        "revCount": 443,
         "type": "git",
         "url": "https://codeberg.org/betmut/sysc-greet"
       },

@@ -5,7 +5,7 @@ pkgs.waybar.overrideAttrs (oldAttrs: {
     src = pkgs.fetchFromGitHub {
       owner = "alexays";      # Your github username/org
       repo = "waybar";        # Repo name
-      rev = "4c495a41f6fe5689665783138ce0097f9b757e0a";   # Git commit SHA, branch name, or tag
+      rev = "16843896794a9c595139318420f81f40e84f8c78";   # Git commit SHA, branch name, or tag
       hash = "sha256-udymEQjGzKq9sg/4ag0zwY3N+FXIY20sUCwsbebFg84=";
     };
 
@@ -19,12 +19,11 @@ pkgs.waybar.overrideAttrs (oldAttrs: {
 
     NIX_LDFLAGS = "-fuse-ld=mold";
 
-    # Disable CAVA to prevent Meson from looking for the missing subproject
     mesonFlags = (oldAttrs.mesonFlags or [ ]) ++ [
+      "--buildtype=release"
       "-Dcava=disabled"
       "-Dtests=disabled"
-      "--buildtype=release"
-      "-Ddebug=false"
-      "-Dniri=false"          # Disable niri compilation
+      "-Djack=disabled"
+      "-Dmango=false"          
     ];
 })
