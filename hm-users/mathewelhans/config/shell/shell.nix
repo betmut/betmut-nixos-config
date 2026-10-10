@@ -29,20 +29,35 @@
       $env.config.buffer_editor = 'vim'
       $env.EDITOR = 'vim'
       $env.NIXOS_CONFIG = ($env.HOME)/betmut-nixos-config
+
+      zoxide init nushell | save -f ~/.zoxide.nu
     '';
     extraConfig = ''
       alias projects = cd ($env.HOME)/Documents/Projects
       alias nixos-config = cd $env.NIXOS_CONFIG
+
+      alias cat = bat
+      alias grep = rg
+      alias find = fd
+      alias df = duf
+      alias htop = btop
+
+      source ~/.zoxide.nu
     '';
   };
 
   #Modern CLI tools
   home.packages = with pkgs; [
     starship  # modern prompt framework
+    lazygit   # simple terminal UI for git commands
     
     bat       # modern cat replacement
     eza       # modern ls replacement
     fd        # modern find replacement
     zoxide    # modern cd replacement that learns your habits
+    ripgrep   # modern grep replacement
+    fzf       # fuzzy finder written in Go
+    tldr      # simplified man pages
+    duf       # modern df replacement
   ];
 }

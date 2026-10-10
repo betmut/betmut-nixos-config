@@ -1,65 +1,91 @@
 set nocompatible              " be iMproved, required
-            filetype off                  " required
+filetype off                  " required
 
-            " set the runtime path to include Vundle and initialize
-            set rtp+=~/.vim/bundle/Vundle.vim
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
 
-            call vundle#begin()
-            " alternatively, pass a path where Vundle should install plugins
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
 
-            "call vundle#begin('~/some/path/here')
-            " let Vundle manage Vundle, required
-            Plugin 'VundleVim/Vundle.vim'" All of your Plugins must be added before the following line
-            Plugin 'lambdalisue/battery.vim'
+"call vundle#begin('~/some/path/here')
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'" All of your Plugins must be added before the following line
+Plugin 'lambdalisue/battery.vim'
 
-            call vundle#end()            " required
+call vundle#end()            " required
 
-            filetype plugin indent on    " required
-            " To ignore plugin indent changes, instead use:
-            "filetype plugin on
-            "
-            " Brief help
-            " :PluginList       - lists configured plugins
-            " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-            " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-            " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-            "
-            " see :h vundle for more details or wiki for FAQ
-            " Put your non-Plugin stuff after this line
-
-
-			syntax on 
-			set t_Co=256
-			set cursorline
-			set timeoutlen=500     " For mapped sequences (normal mode)
-			set ttimeout           " Enable timeout for key codes (insert mode)
-			set ttimeoutlen=10     " Lower = faster escape from Insert mode
-            set termguicolors
-            set clipboard=unnamedplus
-			colorscheme gruvbox
-            "colorscheme desert
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 
-            let g:airline_extensions = ['tabline', 'battery', "clock"]
+syntax on 
+set t_Co=256
+set cursorline
+set timeoutlen=500     " For mapped sequences (normal mode)
+set ttimeout           " Enable timeout for key codes (insert mode)
+set ttimeoutlen=10     " Lower = faster escape from Insert mode
+set termguicolors
+set clipboard=unnamedplus
+colorscheme gruvbox
+"colorscheme desert
 
-            " tabline format
-            let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-            " Enable powerline fonts
-            let g:airline_powerline_fonts = 1
+let g:airline_extensions = ['tabline', 'battery', "clock"]
 
-            " clock format
-            let g:airline#extensions#clock#format = ' %H:%M'
-            let g:airline#extensions#clock#auto = 0
+" tabline format
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-            " vim-slime target
-            let g:slime_target = "tmux"
+" Enable powerline fonts
+let g:airline_powerline_fonts = 1
 
-            function! AirlineInit()
-                let g:airline_section_a = airline#section#create(['mode'])
-                let g:airline_section_b = airline#section#create_left(['battery','clock'])
-            endfunction
-            autocmd User AirlineAfterInit call AirlineInit()
+" clock format
+let g:airline#extensions#clock#format = ' %H:%M'
+let g:airline#extensions#clock#auto = 0
 
-            "keymapping
-            inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
+" vim-slime target
+let g:slime_target = "tmux"
+
+function! AirlineInit()
+    let g:airline_section_a = airline#section#create(['mode'])
+    let g:airline_section_b = airline#section#create_left(['battery','clock'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
+
+"keymapping
+inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
+
+" buffer navigation keybinding
+" ----------------------------------------------------------------
+" Move to the previous buffer with Shift + Left Arrow
+nnoremap <S-Left> :bp<CR>
+
+" Move to the next buffer with Shift + Right Arrow
+nnoremap <S-Right> :bn<CR>
+
+" Close the current buffer with Shift + D
+nnoremap <C-d> :bd<CR>
+
+
+" fzf.vim keybinding
+" ------------------------------------------------------------------
+" Map Ctrl + F to search files
+nnoremap <C-f> :Files<CR>
+
+" Map \ + G to search Git status files
+nnoremap <Leader>g :GFiles<CR>
+
+" Map \ + B to list buffers
+nnoremap <Leader>b :Buffers<CR>
+
+" Ripgrep search text inside files using \ + R
+nnoremap <Leader>r :Rg<CR>
