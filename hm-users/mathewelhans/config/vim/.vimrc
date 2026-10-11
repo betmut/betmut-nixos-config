@@ -67,10 +67,10 @@ inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<
 " buffer navigation keybinding
 " ----------------------------------------------------------------
 " Move to the previous buffer with Shift + Left Arrow
-nnoremap <S-Left> :bp<CR>
+nnoremap <C-Left> :bp!<CR>
 
 " Move to the next buffer with Shift + Right Arrow
-nnoremap <S-Right> :bn<CR>
+nnoremap <C-Right> :bn!<CR>
 
 " Close the current buffer with Shift + D
 nnoremap <C-d> :bd<CR>
