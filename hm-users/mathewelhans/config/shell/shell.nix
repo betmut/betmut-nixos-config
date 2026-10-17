@@ -33,6 +33,7 @@
       zoxide init nushell | save -f ~/.zoxide.nu
     '';
     extraConfig = ''
+      source ~/.zoxide.nu
       alias projects = cd ($env.HOME)/Documents/Projects
       alias nixos-config = cd $env.NIXOS_CONFIG
 
@@ -42,7 +43,9 @@
       alias df = duf
       alias htop = btop
 
-      source ~/.zoxide.nu
+      alias cd = __zoxide_z
+      alias cdi = __zoxide_zi
+
     '';
   };
 

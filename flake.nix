@@ -42,6 +42,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    double-minegrub-menu = {
+        url = "github:Lxtharia/double-minegrub-menu/main";  
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -111,6 +116,7 @@
         inputs.sysc-greet.nixosModules.default
         inputs.stylix.nixosModules.stylix
         inputs.agenix.nixosModules.default
+        inputs.double-minegrub-menu.nixosModules.default
         ./hosts/nixos-erdos/configuration.nix
       ];
     }; 

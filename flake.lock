@@ -128,6 +128,28 @@
         "type": "github"
       }
     },
+    "double-minegrub-menu": {
+      "inputs": {
+        "minegrub-world-sel-theme": "minegrub-world-sel-theme",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792109327,
+        "narHash": "sha256-VhZ4Jw6xmvnIo+thPoWIr7SOILDVPkWTWMqlbB30doE=",
+        "owner": "Lxtharia",
+        "repo": "double-minegrub-menu",
+        "rev": "c10fd20713db2f002645a4c709b153964cac77cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Lxtharia",
+        "ref": "main",
+        "repo": "double-minegrub-menu",
+        "type": "github"
+      }
+    },
     "firefox-addons": {
       "inputs": {
         "nixpkgs": [
@@ -359,6 +381,27 @@
         "type": "github"
       }
     },
+    "minegrub-world-sel-theme": {
+      "inputs": {
+        "nixpkgs": [
+          "double-minegrub-menu",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791975566,
+        "narHash": "sha256-4zW6sdKTDLX599XR4elbEa3jUySDD0j3y3EMJdyorKg=",
+        "owner": "Lxtharia",
+        "repo": "minegrub-world-sel-theme",
+        "rev": "556211de8a2de580d6cb9a14f0bf3b85c851df1f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Lxtharia",
+        "repo": "minegrub-world-sel-theme",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -526,6 +569,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "double-minegrub-menu": "double-minegrub-menu",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager_2",
         "home-manager-darwin-stable": "home-manager-darwin-stable",
