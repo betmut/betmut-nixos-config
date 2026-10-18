@@ -43,7 +43,7 @@
     };
 
     double-minegrub-menu = {
-        url = "github:Lxtharia/double-minegrub-menu/main";  
+        url = "github:betmut/double-minegrub-menu/fix-wrong-sha";  
         inputs.nixpkgs.follows = "nixpkgs";
     };
 
