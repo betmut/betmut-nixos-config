@@ -38,7 +38,7 @@
     };
 
     sysc-greet = {
-      url = "git+https://codeberg.org/betmut/sysc-greet";
+      url = "github:Nomadcxx/sysc-greet/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

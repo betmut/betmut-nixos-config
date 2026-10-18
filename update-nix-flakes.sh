@@ -5,4 +5,5 @@ nix flake update nixpkgs \
                  stylix  \
                  firefox-addons \
                  sysc-greet \
-                 home-manager
+                 home-manager \
+                 double-minegrub-menu
