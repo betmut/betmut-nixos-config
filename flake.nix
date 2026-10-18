@@ -43,7 +43,7 @@
     };
 
     double-minegrub-menu = {
-        url = "github:betmut/double-minegrub-menu/fix-wrong-sha";  
+        url = "github:betmut/double-minegrub-menu/pin-minegrub-to-latest-commit";  
         inputs.nixpkgs.follows = "nixpkgs";
     };
 
