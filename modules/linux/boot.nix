@@ -19,7 +19,7 @@
         world_selection_background_scaled = "1366x768";
         world_selection_custom_icons = with config.system; [
           {
-            inherit name;
+            name = "nixos";
             lineTop = with nixos; distroName + " " + codeName + " (" + version + ")";
             lineBottom = "Survival Mode, No Cheats, Version: " + nixos.release;
 
