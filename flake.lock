@@ -111,16 +111,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1792291261,
-        "narHash": "sha256-yFWBTsFNtBYuhkQrR71Mj6yCLm9SUv1KeKxEC0oa1Wk=",
-        "owner": "betmut",
+        "lastModified": 1792576281,
+        "narHash": "sha256-+dLVea5JZw2CgvZEXxXJ1YxIg4uj0s4C1VvFsiXBBE4=",
+        "owner": "Lxtharia",
         "repo": "double-minegrub-menu",
-        "rev": "6329d29028c20d12393baa864e1d027e61d999f0",
+        "rev": "2795a5b402906d05bd2422090de6c5801945fdf6",
         "type": "github"
       },
       "original": {
-        "owner": "betmut",
-        "ref": "pin-minegrub-to-latest-commit",
+        "owner": "Lxtharia",
+        "ref": "main",
         "repo": "double-minegrub-menu",
         "type": "github"
       }
