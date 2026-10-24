@@ -3,10 +3,10 @@
 pkgs.waybar.overrideAttrs (oldAttrs: {
     # Override the fetchFromGitHub options
     src = pkgs.fetchFromGitHub {
-      owner = "alexays";      # Your github username/org
-      repo = "waybar";        # Repo name
-      rev = "16843896794a9c595139318420f81f40e84f8c78";   # Git commit SHA, branch name, or tag
-      hash = "sha256-Y/bf7OmtwrEhdRDTkh4OVAEZX5ixL+io0W/UPJuto+g=";
+      owner = "Alexays";      
+      repo = "Waybar";        
+      rev = "c15ec02ede4343592a59eb5c2ff4443c9c045f7c";   # Git commit SHA, branch name, or tag
+      hash = "sha256-mBDWjeeIuFfDZQuBxHu+EpbJ+GMbbSxpRz0WVM2N+ZI=";
     };
 
     nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [

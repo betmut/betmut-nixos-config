@@ -20,6 +20,7 @@
   #enable nushell
   programs.nushell = {
     enable = true;
+    loadSessionVariables = false;
     plugins =  with pkgs.nushellPlugins; [
       gstat   # Git status plugin
       polars  # dataframe plugin commands based on polars

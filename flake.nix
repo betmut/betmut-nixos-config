@@ -38,7 +38,7 @@
     };
 
     sysc-greet = {
-      url = "github:Nomadcxx/sysc-greet/master";
+      url = "github:betmut/sysc-greet/v1.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
