@@ -13,6 +13,7 @@ in
 
   #Packages
   home.packages = with pkgs; [
+    inputs.nixvim.packages.${pkgs.stdenv.hostPlatform.system}.default
     vscode
     elan  
     btop 

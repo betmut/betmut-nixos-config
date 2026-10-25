@@ -27,8 +27,8 @@
     ];
     envFile.text = ''
       $env.config.history.max_size = 100_000
-      $env.config.buffer_editor = 'vim'
-      $env.EDITOR = 'vim'
+      $env.config.buffer_editor = 'nvim'
+      $env.EDITOR = 'nvim'
       $env.NIXOS_CONFIG = ($env.HOME)/betmut-nixos-config
 
       zoxide init nushell | save -f ~/.zoxide.nu

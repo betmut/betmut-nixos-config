@@ -47,6 +47,11 @@
         inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:betmut/nixvim-config/v0.1.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

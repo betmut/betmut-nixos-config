@@ -1,4 +1,4 @@
-{pkgs, lib, ... }: 
+{pkgs, lib, inputs, ... }: 
 let
   config-files = lib.filesystem.listFilesRecursive ./config;
 in
@@ -8,6 +8,7 @@ in
   
   #Packages
   home.packages = with pkgs; [
+    inputs.nixvim.packages.${pkgs.stdenv.hostPlatform.system}.default
     htop 
     cmatrix
     tmux 

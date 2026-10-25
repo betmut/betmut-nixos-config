@@ -1,4 +1,4 @@
-{config, pkgs, lib, ... }: 
+{config, inputs, pkgs, lib, ... }: 
 let
   config-files = lib.filesystem.listFilesRecursive ./config;
   system-wide-path = ../../desktop-environment;
@@ -12,6 +12,7 @@ in
     
   #Packages
   home.packages = with pkgs; [
+    inputs.nixvim.packages.${pkgs.stdenv.hostPlatform.system}.default
     btop 
     cmatrix 
     brightnessctl 
