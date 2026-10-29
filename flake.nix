@@ -52,6 +52,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    mangowm = {
+      url = "github:mangowm/mango/0.18.3";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -118,6 +123,7 @@
       specialArgs = { inherit inputs pkgs-stable self;};
       modules = 
       (mkHomeUser "mathewelhans") ++ (mkHomeUser "guest") ++ [
+        inputs.mangowm.nixosModules.mango
         inputs.sysc-greet.nixosModules.default
         inputs.stylix.nixosModules.stylix
         inputs.agenix.nixosModules.default

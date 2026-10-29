@@ -6,7 +6,7 @@
 }
 {
     "label" : "lock",
-    "action" : "loginctl lock-session",
+    "action" : "$NIXOS_CONFIG/hm-users/mathewelhans/config/hyprlock/launch-hyprlock.sh || hyprlock",
     "text" : "Lock",
     "keybind" : "l"
 }

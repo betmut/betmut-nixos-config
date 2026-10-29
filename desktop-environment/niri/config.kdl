@@ -43,7 +43,7 @@ input {
     }
 
     mouse {
-        off
+        // off
         // natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
@@ -67,7 +67,14 @@ input {
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     // focus-follows-mouse max-scroll-amount="0%"
+    disable-power-key-handling
 }
+
+cursor {
+    hide-when-typing
+    hide-after-inactive-ms 10000 
+}
+
 
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
@@ -331,6 +338,17 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+    match app-id="spotify"
+    
+    // focus-ring { 
+    //    off 
+    // }
+    // border { 
+    //     off 
+    // }
+}
+
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
@@ -366,11 +384,14 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Open kitty (terminal)" { spawn "kitty"; }
-    Mod+Space hotkey-overlay-title="Open rofi (launcher)" { spawn-sh "rofi -show drun"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Mod+Shift+N hotkey-overlay-title="open swaync notification center" { spawn-sh "swaync-client -t -sw"; }
-    Mod+Shift+W hotkey-overlay-title="change wallpaper" { spawn-sh "$HOME/betmut-nixos-config/modules/services/scripts/change-wallpaper.sh"; }
+    Mod+Return hotkey-overlay-title="Open the Terminal: kitty" { spawn "kitty"; }
+    Mod+E hotkey-overlay-title="Open the File Manager: thunar" { spawn "kitty"; }
+    Mod+Space hotkey-overlay-title="Open the App Launcher: rofi" { spawn-sh "rofi -show drun"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn-sh "$NIXOS_CONFIG/hm-users/mathewelhans/config/hyprlock/launch-hyprlock.sh"; }
+    Mod+Shift+N hotkey-overlay-title="Open the Notification Center: swaync" { spawn-sh "swaync-client -t -sw"; }
+    Mod+Shift+W hotkey-overlay-title="Change the Wallpaper" { spawn-sh "$HOME/betmut-nixos-config/modules/services/scripts/change-wallpaper.sh"; }
+    Mod+P hotkey-overlay-title="Take a Screenshot" { spawn "sh" "-c" "grim -g \"$(slurp)\" - | swappy -f -"; }
+    Caps_Lock { spawn "sh" "-c" "sleep 0.1; swayosd-client --caps-lock"; }
     
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -394,17 +415,18 @@ binds {
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
 
-    XF86PowerOff     allow-when-locked=true { spawn-sh "wlogout --buttons-per-row 4"; }
+    XF86PowerOff repeat=false { spawn-sh "$NIXOS_CONFIG/desktop-environment/wlogout/launch.sh"; }
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
     //XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessUp allow-when-locked=true { spawn "swayosd-client --brightness raise --min-brightness 0"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "swayosd-client --brightness raise --min-brightness 0"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "swayosd-client --brightness lower --min-brightness 0"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
+    XF86LaunchA repeat=false { toggle-overview; }
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }

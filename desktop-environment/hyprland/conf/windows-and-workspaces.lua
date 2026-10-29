@@ -86,7 +86,7 @@ hl.window_rule({
 hl.window_rule({
   name = "kitty",
   match = { class = "kitty"},
-  float = true,
+  float = false,
   center = true,
   size = {1070, 580}
 })

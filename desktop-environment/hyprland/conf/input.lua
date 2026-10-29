@@ -21,7 +21,7 @@ hl.config({
 
 hl.gesture({
     fingers = 3,
-    direction = "vertical",
+    direction = "horizontal",
     action = "workspace"
 })
 

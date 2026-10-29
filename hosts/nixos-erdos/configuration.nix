@@ -1,6 +1,6 @@
 {self, lib, config, pkgs, inputs, ... }: 
 let
-	desktopEnvironment = "hyprland";
+  desktopEnvironmentPath = ../../desktop-environment;
   linuxmodulesPath = ../../modules/linux;
   servicesPath = ../../modules/services;
 in
@@ -36,8 +36,10 @@ in
     (servicesPath + /rstudio-server.nix)
     (servicesPath + /systemd-services.nix)
 
-    #desktop environment
-    (../../desktop-environment + "/${desktopEnvironment}/${desktopEnvironment}.nix")
+    #desktop Environments
+    (desktopEnvironmentPath + /hyprland/hyprland.nix)
+    (desktopEnvironmentPath + /sway/sway.nix)
+    (desktopEnvironmentPath + /mango/mango.nix)
   ];
 
   #Environment Variables

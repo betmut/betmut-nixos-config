@@ -3,14 +3,14 @@
 ---------------------
 -- Set programs that you use
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
-local terminal    = "kitty --hold fastfetch"
+local terminal    = "kitty"
 local fileManager = "thunar"
 local menu        = "rofi -show drun"
 local screenshot  = 'grim -g "$(slurp)" - | swappy -f -'
 local swaync = "swaync-client -t -sw"
 local firefox = "firefox"
 
-local closeWindowBind = hl.bind(mainMod .. " + SHIFT + " .. "Q", hl.dsp.window.close())
+local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 local fullScreenBind = hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen"}))
 local directions = {"left", "right", "up", "down"}
 local function moveWindowNoAnim(workspaceNum)
@@ -25,8 +25,8 @@ local function moveWindowNoAnim(workspaceNum)
 
     -- 3. Re-enable the animations immediately afterward
     hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
-    hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 6.00, bezier = "easeOutQuint", style = "slidevert" })
-    hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 6.00, bezier = "easeOutQuint", style = "slidevert" })
+    hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 6.00, bezier = "easeOutQuint", style = "slide" })
+    hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 6.00, bezier = "easeOutQuint", style = "slide" })
 end
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
@@ -72,8 +72,8 @@ for i = 1, 10 do
     end)
 end
 
-hl.bind("CTRL + ALT + up", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind("CTRL + ALT + down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + SHIFT + left", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.focus({ workspace = "e+1" }))
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
