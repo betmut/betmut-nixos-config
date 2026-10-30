@@ -143,8 +143,8 @@ font pango:Hasklug Nerd Font Mono 11
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
-    bindsym Ctrl+Left workspace prev
-    bindsym Ctrl+Right workspace next
+    bindsym Alt+Left workspace prev
+    bindsym Alt+Right workspace next
 
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
@@ -223,7 +223,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 bindsym $mod+Shift+w exec $HOME/betmut-nixos-config/modules/services/scripts/change-wallpaper.sh
 bindsym $mod+Shift+n exec swaync-client -t -sw
-bindsym XF86PowerOff exec $NIXOS_CONFIG/desktop-environment/wlogout/launch.sh
+bindsym --locked XF86PowerOff exec $NIXOS_CONFIG/desktop-environment/wlogout/launch.sh
 
 #
 # Utilities:

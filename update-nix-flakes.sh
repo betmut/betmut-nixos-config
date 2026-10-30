@@ -6,4 +6,6 @@ nix flake update nixpkgs \
                  firefox-addons \
                  sysc-greet \
                  home-manager \
-                 double-minegrub-menu
+                 double-minegrub-menu \
+		 nixvim \
+		 mangowm

@@ -47,6 +47,20 @@ in
     "swappy/config".source = ./config/swappy/config;
   };
 
+  # Sway and Niri Config file
+  xdg.configFile = {
+    "sway/config".source = system-wide-path + "/sway/config";
+    "niri/config.kdl".source = system-wide-path + "/niri/config.kdl";
+  };
+
+  # Mango Config files
+  #xdg.configFile = {
+  #  "mango/autostart.conf" = system-wide-path + "/mango/autostart.conf";
+  #  "mango/config.conf" = system-wide-path + "/mango/config.conf";
+  #  "mango/env.conf" = system-wide-path + "/mango/env.conf";
+  #  "mango/keybinds.conf" = system-wide-path + "/mango/keybinds.conf";
+  #};
+
    # Hyprlock config files
   xdg.configFile = {
     "hypr/hyprlock.conf".source = ./config/hyprlock/hyprlock.conf;

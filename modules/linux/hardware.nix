@@ -6,7 +6,7 @@
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
-      "broadcom-sta-6.30.223.271-63-6.18.56"
+      "broadcom-sta-6.30.223.271-63-6.18.59"
       "firefox-esr-140-bin-unwrapped-140.17.0esr"
     ];
   };
